@@ -11,8 +11,6 @@ namespace OpenCVPlayground
     internal class Program
     {
 
-        private static int c = 0;
-
         public static void Main(string[] args)
         {
             var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -37,29 +35,35 @@ namespace OpenCVPlayground
             var canny = blur.Canny(20, 60);
             var dilated = canny.Dilate(0);
 
-            Cv2.FindContours(dilated, out Point[][] contours, out HierarchyIndex[] hierarchy, mode: RetrievalModes.CComp,
-                method: ContourApproximationModes.ApproxSimple);
+            Cv2.FindContours(
+                dilated, 
+                out Point[][] contours, 
+                out HierarchyIndex[] hierarchy,
+                mode: RetrievalModes.CComp,
+                method: ContourApproximationModes.ApproxSimple
+            );
 
-            using (MatOfByte3 mat3 = new MatOfByte3(src))
+            
+            // Filter the best candidate squares for the grid
+            List<Point[]> grid = FindGrid(FilterSquares(dilated));
+
+            //if(grid.Count == 9)
+            if(true)
             {
-                var indexer = mat3.GetIndexer();
-
-                // Iterates through all contours
-                for (int i = 0; i >= 0;)
+                using (MatOfByte3 mat3 = new MatOfByte3(src))
                 {
-                    Point[] ps = Cv2.ApproxPolyDP(contours[i], 3, true);
-                    Rect R = Cv2.BoundingRect(ps);
+                    var indexer = mat3.GetIndexer();
 
-                    if (R.Width > 20 && R.Height > 20 && Math.Abs(R.Width - R.Height) < 2 && ps.Length == 4)
+                    foreach (Point[] ps in grid)
                     {
+                        Rect R = Cv2.BoundingRect(ps);
                         int r = 0, g = 0, b = 0;
 
-                        // 
                         for (int j = R.X; j < R.Width + R.X; j++)
                         {
                             for (int k = R.Y; k < R.Height + R.Y; k++)
                             {
-                                
+
                                 Vec3b color = indexer[k, j];
                                 r += color.Item0;
                                 g += color.Item1;
@@ -69,30 +73,67 @@ namespace OpenCVPlayground
 
                         int pixels = R.Width * R.Height;
                         Scalar c = new Scalar(r / pixels, g / pixels, b / pixels);
-                        
+
                         Cv2.Rectangle(src, R, c, Cv2.FILLED);
-
-                        /*Cv2.DrawContours(
-                            src,
-                            contours,
-                            i,
-                            color: new Scalar(255, 0, 255),
-                            thickness: -1,
-                            lineType: LineTypes.Link8,
-                            hierarchy: hierarchy,
-                            maxLevel: int.MaxValue);*/
                     }
-
-                    i = hierarchy[i].Next;
-
                 }
             }
-
+            
             // Final output
 
             Cv2.Canny(dilated, dst, 20, 60);
-            using (new Window("src image", src))    
-            Cv2.WaitKey(10);
+            using (new Window("src image", src))
+            using (new Window("dst image", dilated))
+                Cv2.WaitKey(10);
         }
+
+        private static bool IsSquareElem(double x, double y)
+        {
+            double diff = 0.2;
+            return x / y > 1 - diff && x / y < 1 + diff;
+        }
+
+        private static List<Point[]> FilterSquares (Mat view)
+        {
+            List<Point[]> pss = new List<Point[]>();
+            Cv2.FindContours(
+                view,
+                out Point[][] contours,
+                out HierarchyIndex[] hierarchy,
+                mode: RetrievalModes.CComp,
+                method: ContourApproximationModes.ApproxSimple
+            );
+
+            // Iterates through all contours
+            for (int i = 0; i >= 0;)
+            {
+                Point[] ps = Cv2.ApproxPolyDP(contours[i], 3, true);
+                Rect R = Cv2.BoundingRect(ps);
+
+                if (ps.Length == 4)
+                {
+                    
+                    var d01 = Point.Distance(ps[0], ps[1]);
+                    var d02 = Point.Distance(ps[0], ps[2]);
+                    var d13 = Point.Distance(ps[1], ps[3]);
+                    var d23 = Point.Distance(ps[2], ps[3]);
+
+                    if (IsSquareElem(d01, d23) && IsSquareElem(d02, d13))
+                    {
+                        pss.Add(ps);
+                    }
+                }
+
+                i = hierarchy[i].Next;
+            }
+            return pss;
+        }
+
+        private static List<Point[]> FindGrid(List<Point[]> ps)
+        {
+
+            return ps;
+        }
+        
     }
 }
