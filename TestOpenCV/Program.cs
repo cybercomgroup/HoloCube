@@ -33,65 +33,29 @@ namespace OpenCVPlayground
             Mat dst = new Mat();
 
             var gray = src.CvtColor(ColorConversionCodes.BGR2GRAY);
-            var blur = gray.GaussianBlur(new Size(3,3),0);
-            var canny = blur.Canny(20, 60);
-            var dilated = canny.Dilate(0);
+            var blur = gray.GaussianBlur(new Size(11,11),0);
 
-            Cv2.FindContours(dilated, out Point[][] contours, out HierarchyIndex[] hierarchy, mode: RetrievalModes.CComp,
-                method: ContourApproximationModes.ApproxSimple);
+            var test = blur.AdaptiveThreshold(255, AdaptiveThresholdTypes.MeanC, ThresholdTypes.BinaryInv, 15,2 );
 
-            using (MatOfByte3 mat3 = new MatOfByte3(src))
+            //test.Dilate(test);
+            
+            Point[][] contours;
+            HierarchyIndex[] hierarchyIndices;
+            test.FindContours(out contours, out hierarchyIndices,RetrievalModes.CComp,ContourApproximationModes.ApproxSimple );
+
+            var cannny = test.Canny(20, 40);
+
+            var rectImg = new Mat(src.Size(),src.Type());
+            
+            for (int i = 0; i < contours.Length; i++)
             {
-                var indexer = mat3.GetIndexer();
-
-                // Iterates through all contours
-                for (int i = 0; i >= 0;)
-                {
-                    Point[] ps = Cv2.ApproxPolyDP(contours[i], 3, true);
-                    Rect R = Cv2.BoundingRect(ps);
-
-                    if (R.Width > 20 && R.Height > 20 && Math.Abs(R.Width - R.Height) < 2 && ps.Length == 4)
-                    {
-                        int r = 0, g = 0, b = 0;
-
-                        // 
-                        for (int j = R.X; j < R.Width + R.X; j++)
-                        {
-                            for (int k = R.Y; k < R.Height + R.Y; k++)
-                            {
-                                
-                                Vec3b color = indexer[k, j];
-                                r += color.Item0;
-                                g += color.Item1;
-                                b += color.Item2;
-                            }
-                        }
-
-                        int pixels = R.Width * R.Height;
-                        Scalar c = new Scalar(r / pixels, g / pixels, b / pixels);
-                        
-                        Cv2.Rectangle(src, R, c, Cv2.FILLED);
-
-                        /*Cv2.DrawContours(
-                            src,
-                            contours,
-                            i,
-                            color: new Scalar(255, 0, 255),
-                            thickness: -1,
-                            lineType: LineTypes.Link8,
-                            hierarchy: hierarchy,
-                            maxLevel: int.MaxValue);*/
-                    }
-
-                    i = hierarchy[i].Next;
-
-                }
+                var rect = Cv2.BoundingRect(contours[i]);
+                Cv2.Rectangle(rectImg,rect, new Scalar(100,100,100));
             }
-
-            // Final output
-
-            Cv2.Canny(dilated, dst, 20, 60);
-            using (new Window("src image", src))    
+            
+            using (new Window("src image", test))    
+            using (new Window("canny image", cannny))    
+            using (new Window("rect image", rectImg))    
             Cv2.WaitKey(10);
         }
     }
