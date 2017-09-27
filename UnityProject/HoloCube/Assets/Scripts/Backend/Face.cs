@@ -1,7 +1,9 @@
-﻿namespace Backend
+﻿using UnityEngine;
+
+namespace Backend
 {
     public class Face
     {
-        public FacePart[][] Parts { get; set; }
+        public Color[,] Colors { get; set; }
     }
 }
