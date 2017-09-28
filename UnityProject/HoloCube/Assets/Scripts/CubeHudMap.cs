@@ -78,7 +78,7 @@ public class CubeHudMap : MonoBehaviour
             if (didPaintBlack)
                 continue;
 
-            tex.SetPixel(x, y, face.Colors[y / scale, x / scale]);
+            tex.SetPixel(x, y, face.Colors[(x / scale), 2-(y / scale)]);
         }
         return tex;
     }
