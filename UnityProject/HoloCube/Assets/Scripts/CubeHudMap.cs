@@ -19,15 +19,10 @@ public class CubeHudMap : MonoBehaviour
         transform.position = new Vector3(0.0f, 1.0f, -7.0f);
     }
 
-    void Start()
-    {
-        Redraw();
-    }
-    
     /// <summary>
     /// Calling this will redraw the cube map
     /// </summary>
-    public void Redraw()
+    public void Draw()
     {
         var scale = 10;
 
@@ -46,25 +41,7 @@ public class CubeHudMap : MonoBehaviour
 
     private void DrawCubeMap(Texture2D textureToDrawOn, int scale)
     {
-        Cube = new Cube
-        {
-            Front = new Face(),
-            Top = new Face(),
-            Left = new Face(),
-            Right = new Face(),
-            Back = new Face(),
-            Bottom = new Face()
-        };
-
         //doing this in a loop is harden than it looks...
-        
-        SetColor(Cube.Front);
-        SetColor(Cube.Top);
-        SetColor(Cube.Left);
-        SetColor(Cube.Right);
-        SetColor(Cube.Back);
-        SetColor(Cube.Bottom);
-        
         var front = DrawFaceTexture(Cube.Front, scale);
         var top = DrawFaceTexture(Cube.Top, scale);
         var left = DrawFaceTexture(Cube.Left, scale);
@@ -115,21 +92,4 @@ public class CubeHudMap : MonoBehaviour
         }
     }
 
-    private static void SetColor(Face face)
-    {
-        face.Colors = new Color[3, 3];
-        face.Colors[0, 0] = new Color(1.0f, 0.0f, 0.0f);
-        face.Colors[0, 1] = new Color(0.0f, 1.0f, 0.0f);
-        face.Colors[0, 2] = new Color(0.0f, 0.0f, 1.0f);
-
-
-        face.Colors[1, 0] = new Color(1.0f, 0.0f, 0.0f);
-        face.Colors[1, 1] = new Color(0.0f, 1.0f, 0.0f);
-        face.Colors[1, 2] = new Color(0.0f, 0.0f, 1.0f);
-
-
-        face.Colors[2, 0] = new Color(1.0f, 0.0f, 0.0f);
-        face.Colors[2, 1] = new Color(0.0f, 1.0f, 0.0f);
-        face.Colors[2, 2] = new Color(0.0f, 0.0f, 1.0f);
-    }
 }
