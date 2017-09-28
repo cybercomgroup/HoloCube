@@ -53,11 +53,16 @@ public class CubeBehavior : MonoBehaviour
             _cube.MoveFace(true, _faces[selected]);
             CubeHudMap.Draw();
         }
-//        if (GUI.Button(new Rect(10, 320, 150, 100), "test"))
-//        {
-//            _cube.MoveFace(_faces[selected], _cube.Right, _cube.Left, _cube.Top, _cube.Bottom);
-//            CubeHudMap.Draw();
-//        }
+        if (GUI.Button(new Rect(10, 320, 150, 100), "test"))
+        {
+            var masterFace = _faces[selected];
+            var right = CubeNavigationHelper.GetFaceRightOfCurrentFace(masterFace, _cube);
+            var left = CubeNavigationHelper.GetFaceLeftOfCurrentFace(masterFace, _cube);
+            var top = CubeNavigationHelper.GetFaceUpOfCurrentFace(masterFace, _cube);
+            var bottom = CubeNavigationHelper.GetFaceDownOfCurrentFace(masterFace, _cube);
+            _cube.MoveFace(masterFace, right, left, top, bottom);
+            CubeHudMap.Draw();
+        }
     }
     
 

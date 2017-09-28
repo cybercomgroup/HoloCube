@@ -12,12 +12,12 @@ public class Cube
 
     public Cube()
     {
-        Front = new Face();
-        Top = new Face();
-        Left = new Face();
-        Right = new Face();
-        Back = new Face();
-        Bottom = new Face();
+        Front = new Face(Faces.Front);
+        Top = new Face(Faces.Top);
+        Left = new Face(Faces.Left);
+        Right = new Face(Faces.Right);
+        Back = new Face(Faces.Back);
+        Bottom = new Face(Faces.Bottom);
     }
 
     public void MoveFace(bool anticlock, Face face)
