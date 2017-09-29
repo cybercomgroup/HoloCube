@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CubeHudMap : MonoBehaviour
 {
-
     [HideInInspector]
     public Cube Cube { get; set; }
-    
+
     private Sprite mySprite;
     private SpriteRenderer sr;
 
@@ -27,12 +26,12 @@ public class CubeHudMap : MonoBehaviour
         var scale = 10;
 
         var tex = new Texture2D((3 * 3 * scale), (4 * 3 * scale));
-        DrawCubeMap(tex,scale);
+        DrawCubeMap(tex, scale);
         tex.Apply();
 
         sr.sprite = CreateSprite(tex);
     }
-    
+
     private Sprite CreateSprite(Texture2D tex)
     {
         var size = new Rect(0.0f, 0.0f, tex.width, tex.height);
@@ -58,7 +57,7 @@ public class CubeHudMap : MonoBehaviour
         AddTextureToTexture(back, textureToDrawOn, 3 * scale, 9 * scale);
     }
 
-    private Texture2D DrawFaceTexture(Face face, int scale)
+    public Texture2D DrawFaceTexture(Face face, int scale)
     {
         var tex = new Texture2D(3 * scale, 3 * scale);
         for (int y = 0; y < tex.height; y++)
@@ -91,5 +90,4 @@ public class CubeHudMap : MonoBehaviour
             master.SetPixel(offsetX + x, offsetY + y, part.GetPixel(x, y));
         }
     }
-
 }

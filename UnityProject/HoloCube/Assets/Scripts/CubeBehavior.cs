@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Backend;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class CubeBehavior : MonoBehaviour
@@ -9,19 +10,27 @@ public class CubeBehavior : MonoBehaviour
     private Cube _cube;
 
     private Dictionary<int,Face> _faces = new Dictionary<int, Face>();
+    
+    private static Color _yellow = new Color(1.0f, 1.0f, 0.0f);
+    private static Color _orange = new Color(1f, 0.39f, 0f);
+    private static Color _white = new Color(1.0f, 1.0f, 1.0f);
+    
+    private static Color _green = new Color(0.0f, 1.0f, 0.0f);
+    private static Color _red = new Color(1.0f, 0.0f, 0.0f);
+    private static Color _blue = new Color(0.0f, 0.0f, 1.0f);
 
 
     // Use this for initialization
     void Start()
     {
         _cube = new Cube();
-
-        SetColor(_cube.Front);
-        SetColor(_cube.Top);
-        SetColor(_cube.Left);
-        SetColor(_cube.Right);
-        SetColor(_cube.Back);
-        SetColor(_cube.Bottom);
+        
+        SetColor(_cube.Front,_yellow);
+        SetColor(_cube.Top,_orange);
+        SetColor(_cube.Left,_white);
+        SetColor(_cube.Right,_green);
+        SetColor(_cube.Back,_red);
+        SetColor(_cube.Bottom,_blue);
 
         
         _faces.Add(0,_cube.Front);
@@ -30,9 +39,19 @@ public class CubeBehavior : MonoBehaviour
         _faces.Add(3,_cube.Right);
         _faces.Add(4,_cube.Top);
         _faces.Add(5,_cube.Back);
+      
         
         CubeHudMap.Cube = _cube;
         CubeHudMap.Draw();
+        
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+
+            if (child.name == "Front")
+                child.gameObject.GetComponent<Renderer>().material.mainTexture =
+                    CubeHudMap.DrawFaceTexture(_cube.Front, 10);
+        }
     }
 
     static string[] options = new string[] {"Front", "Left", "Bottom", "right", "Top", "Back"};
@@ -66,10 +85,25 @@ public class CubeBehavior : MonoBehaviour
     }
     
 
-    private static void SetColor(Face face)
+    private static void SetColor(Face face, Color color)
     {
         face.Colors = new Color[3, 3];
-        face.Colors[0, 0] = new Color(1.0f, 1.0f, 0.0f);
+        
+        
+        face.Colors[0, 0] = color;
+        face.Colors[0, 1] = color;
+        face.Colors[0, 2] = color;
+       
+        face.Colors[1, 0] = color;
+        face.Colors[1, 1] = color;
+        face.Colors[1, 2] = color;
+        
+        face.Colors[2, 0] = color;
+        face.Colors[2, 1] = color;
+        face.Colors[2, 2] = color;
+       
+        /*
+           face.Colors[0, 0] = new Color(1.0f, 1.0f, 0.0f);
         face.Colors[0, 1] = new Color(1f, 0.39f, 0f);
         face.Colors[0, 2] = new Color(0.0f, 0.0f, 1.0f);
 
@@ -82,5 +116,9 @@ public class CubeBehavior : MonoBehaviour
         face.Colors[2, 0] = new Color(1.0f, 1.0f, 0.0f);
         face.Colors[2, 1] = new Color(0.0f, 1.0f, 0.0f);
         face.Colors[2, 2] = new Color(1f, 0.39f, 0f);
+           
+          */
+        
+        
     }
 }
