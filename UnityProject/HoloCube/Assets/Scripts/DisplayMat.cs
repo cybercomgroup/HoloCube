@@ -34,8 +34,6 @@ public class DisplayMat : MonoBehaviour
 		var dst = mat.clone();
 		
 		var color = new Scalar(0,255,0);
-//		Imgproc.line(dst,new Point(MinCubeX,MaxCubeY),new Point(MinCubeX,MinCubeY),color,5);
-//		Imgproc.line(dst,new Point(MaxCubeX,MaxCubeY),new Point(MaxCubeX,MinCubeY),color,5);
 
 		var cubeWidth = MaxCubeX - MinCubeX;
 		var cubeHeight = MaxCubeY - MinCubeY;
