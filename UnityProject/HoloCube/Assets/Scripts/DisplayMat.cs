@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using OpenCVForUnity;
 using OpenCVForUnityExample;
 using UnityEngine;
+using ColorMine.ColorSpaces;
 
 public class DisplayMat : MonoBehaviour
 {
@@ -54,8 +54,9 @@ public class DisplayMat : MonoBehaviour
 		for (int x = 0; x < 3; x++)
 		for (int y = 0; y < 3; y++)
 		{
-			var col = mat.get(MinCubeY+(piceHeight*y + (piceHeight/2)), MinCubeX+(piceWidth*x+ (piceWidth/2)));
-			Colors.Add(col);
+			var col = dst.get(MinCubeY + (piceHeight * y + (piceHeight / 2)), MinCubeX + (piceWidth * x + (piceWidth / 2)));
+			var rgb = GetValue(col);
+			Colors.Add(new double[] {(int) rgb.R / 100, (int) rgb.G / 100, (int) rgb.B / 100});
 		}
 		
 		
@@ -69,5 +70,13 @@ public class DisplayMat : MonoBehaviour
 		
 		GetComponent<Renderer>().material.mainTexture = _texture;
 		GetComponent<Renderer>().material.shader = Shader.Find("Unlit/Transparent");
+	}
+
+	private IRgb GetValue(double[] col)
+	{
+		var rgb = new Rgb(col[0], col[1], col[2]);
+		var hsv = rgb.To<Hsv>();
+		hsv.V = 100;
+		return hsv.ToRgb();
 	}
 }

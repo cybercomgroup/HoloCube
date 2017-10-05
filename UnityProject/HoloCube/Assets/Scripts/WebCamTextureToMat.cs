@@ -190,6 +190,8 @@ namespace OpenCVForUnityExample
         {
             if (!hasInitDone || !webCamTexture.isPlaying || !webCamTexture.didUpdateThisFrame) return null;
 
+            if (rgbaMat == null) return null;
+            
             Utils.webCamTextureToMat (webCamTexture, rgbaMat, colors);
             Imgproc.putText (rgbaMat, "W:" + rgbaMat.width () + " H:" + rgbaMat.height () + " SO:" + Screen.orientation, new Point (5, rgbaMat.rows () - 10), Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar (255, 255, 255, 255), 2, Imgproc.LINE_AA, false);
             return rgbaMat;

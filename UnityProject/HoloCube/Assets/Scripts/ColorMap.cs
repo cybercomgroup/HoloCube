@@ -17,9 +17,14 @@ public class ColorMap : MonoBehaviour
 
         for (int i = 0; i < 9; i++)
         {
-            var pice = transform.Find("Cube"+(i+1));
             var scalar = Colors[i];
+
+            var pice = transform.Find("Cube"+(i+1));
+            var text = pice.transform.Find("Text");
+
             var col = new Color(RgbToFloat(scalar[0]),RgbToFloat(scalar[1]),RgbToFloat(scalar[2]));
+            
+            text.GetComponent<TextMesh>().text = string.Format("{0}\n{1}\n{2}\n",scalar[0],scalar[1],scalar[2]);
             pice.GetComponent<Renderer>().material.color = col;    
         }
         
