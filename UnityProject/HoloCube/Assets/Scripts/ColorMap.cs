@@ -49,11 +49,13 @@ public class ColorMap : MonoBehaviour
 
     private RubicColors GetColorFromScalarColor(double[] scalar)
     {
-
         var red = (int) scalar[0];
         var green = (int) scalar[1];
         var blue = (int) scalar[2];
         
+        if ((red + green + blue) / 3 > 200) return RubicColors.White;
+
+
         var dominantColor = GetDominantColorFromScalar(red, green, blue);
 
         switch (dominantColor)
@@ -63,7 +65,7 @@ public class ColorMap : MonoBehaviour
             case RgbEnums.Green:
                 return RubicColors.Green;
             case RgbEnums.Blue:
-                return RubicColors.Blue;
+                return CalculateBlue(red, green, blue);
             default: throw new ArgumentOutOfRangeException();
         }
     }
@@ -75,35 +77,35 @@ public class ColorMap : MonoBehaviour
         var deltaGreenRed = Math.Abs(green - red);
 
 
-        if (deltaGreenBlue > 40 && deltaGreenRed < 60)
+        if (deltaGreenBlue > 70 && deltaGreenRed < 60)
             return RubicColors.Yellow;
 
-        if (deltaGreenBlue > 40)
+        if (Math.Min(green, blue) * 1.7 < Math.Max(green, blue))
             return RubicColors.Orange;
 
         return RubicColors.Red;
     }
 
     //Green
-    private RubicColors CalculateGreen(int red, int blue)
+    private RubicColors CalculateGreen(int red, int green, int blue)
     {
         return RubicColors.Green;
     }
 
     //blue and white
-    private RubicColors CalculateBlue(int red, int green)
+    private RubicColors CalculateBlue(int red, int green, int blue)
     {
         return RubicColors.Blue;
     }
 
-    
+
     private RgbEnums GetDominantColorFromScalar(int red, int green, int blue)
     {
-        var dict = new Dictionary<RgbEnums,int>
+        var dict = new Dictionary<RgbEnums, int>
         {
-            {RgbEnums.Blue,blue},
-            {RgbEnums.Green,green},
-            {RgbEnums.Red,red}
+            {RgbEnums.Blue, blue},
+            {RgbEnums.Green, green},
+            {RgbEnums.Red, red}
         };
 
         var max = Math.Max(red, Math.Max(green, blue));

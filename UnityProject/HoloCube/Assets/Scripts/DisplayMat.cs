@@ -59,8 +59,8 @@ public class DisplayMat : MonoBehaviour
                 }
 
                 Colors = new List<double[]>();
-                for (int x = 0; x < 3; x++)
                 for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 3; x++)
                 {
                     var row = MinCubeY + (piceHeight * y + (piceHeight / 2));
                     var col = MinCubeX + (piceWidth * x + (piceWidth / 2));
