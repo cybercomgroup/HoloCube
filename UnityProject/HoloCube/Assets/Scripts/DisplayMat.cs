@@ -66,7 +66,7 @@ public class DisplayMat : MonoBehaviour
                     var col = MinCubeX + (piceWidth * x + (piceWidth / 2));
                     var color = dst.get(row, col);
                     var rgb = GetValue(color);
-                    Colors.Add(new double[] {(int) rgb.R / 100, (int) rgb.G / 100, (int) rgb.B / 100});
+                    Colors.Add(new double[] {rgb.R , rgb.G , rgb.B });
                 }
 
 
@@ -84,8 +84,9 @@ public class DisplayMat : MonoBehaviour
     private IRgb GetValue(double[] col)
     {
         var rgb = new Rgb(col[0], col[1], col[2]);
-        var hsv = rgb.To<Hsv>();
-        hsv.V = 100;
-        return hsv.ToRgb();
+//        var hsv = rgb.To<Hsv>();
+//        hsv.V = 100;
+//        return hsv.ToRgb();
+        return rgb;
     }
 }

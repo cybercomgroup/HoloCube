@@ -10,10 +10,7 @@ public class ColorMap : MonoBehaviour
 {
     [HideInInspector] public List<double[]> Colors;
 
-    private static float RgbToFloat(double d)
-    {
-        return (float) (d / 255.0f);
-    }
+    public bool PauseOnColorNotFound;
 
     public void Redraw()
     {
@@ -26,8 +23,11 @@ public class ColorMap : MonoBehaviour
 
             var pice = transform.Find("Cube" + (i + 1));
             var text = pice.transform.Find("Text");
+            var rgb = new Rgb(scalar[0], scalar[1], scalar[2]);
+            var hsv = rgb.To<Hsv>();
 
-            text.GetComponent<TextMesh>().text = string.Format("{0}\n{1}\n{2}\n", scalar[0], scalar[1], scalar[2]);
+            text.GetComponent<TextMesh>().text = string.Format("{0}\n{1}\n{2}\n", (int) hsv.H, (int) (hsv.S * 100),
+                (int) (hsv.V * 100));
             pice.GetComponent<Renderer>().material.color = color;
         }
     }
@@ -42,9 +42,56 @@ public class ColorMap : MonoBehaviour
             case RubicColors.Blue: return Color.blue;
             case RubicColors.Yellow: return Color.yellow;
             case RubicColors.Orange: return new Color(1f, 0.39f, 0f);
+            case RubicColors.Black: return Color.black;
             default:
                 throw new ArgumentOutOfRangeException("c", c, null);
         }
+    }
+
+    public class ColorRange
+    {
+        public int Start1 { get; set; }
+        public int End1 { get; set; }
+
+
+        public ColorRange(int start1, int end1)
+        {
+            Start1 = start1;
+            End1 = end1;
+        }
+
+        public bool IsInRange(int nr)
+        {
+            if (Start1 > End1)
+            {
+                if (nr > Start1) return true;
+                if (nr < End1) return true;
+                return false;
+            }
+
+            var b = nr > Start1 && nr < End1;
+            return b;
+        }
+    }
+
+
+    public ColorRange Yellow;
+    public ColorRange White;
+    public ColorRange Red;
+    public ColorRange Orange;
+    public ColorRange Blue;
+    public ColorRange Green;
+
+
+    private void Start()
+    {
+        White = new ColorRange(0, 20); // check Saturation
+
+        Yellow = new ColorRange(40, 70);
+        Red = new ColorRange(340, 11);
+        Orange = new ColorRange(10, 40);
+        Blue = new ColorRange(195, 260);
+        Green = new ColorRange(80, 170);
     }
 
     private RubicColors GetColorFromScalarColor(double[] scalar)
@@ -52,7 +99,22 @@ public class ColorMap : MonoBehaviour
         var red = (int) scalar[0];
         var green = (int) scalar[1];
         var blue = (int) scalar[2];
-        
+
+        var fromHsvColor = ColorFromHsvColor(red, green, blue);
+        var fromRgbColor = ColorFromRgbColor(red, green, blue);
+
+        if (fromHsvColor == fromRgbColor)
+        {
+            return fromHsvColor;
+        }
+        //rgb is way better at detecting white..
+        if (fromRgbColor == RubicColors.White) return RubicColors.White;
+
+        return fromHsvColor;
+    }
+
+    private RubicColors ColorFromRgbColor(int red, int green, int blue)
+    {
         if ((red + green + blue) / 3 > 200) return RubicColors.White;
 
 
@@ -63,11 +125,31 @@ public class ColorMap : MonoBehaviour
             case RgbEnums.Red:
                 return CalculateRed(red, green, blue);
             case RgbEnums.Green:
-                return RubicColors.Green;
+                return CalculateGreen(red, green, blue);
             case RgbEnums.Blue:
                 return CalculateBlue(red, green, blue);
             default: throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private RubicColors ColorFromHsvColor(int red, int green, int blue)
+    {
+        var rgb = new Rgb(red, green, blue);
+
+        var hsv = rgb.To<Hsv>();
+
+        var saturation = (int) (hsv.S * 100);
+        if (White.IsInRange(saturation)) return RubicColors.White;
+
+        if (Yellow.IsInRange((int) hsv.H)) return RubicColors.Yellow;
+        if (Red.IsInRange((int) hsv.H)) return RubicColors.Red;
+        if (Orange.IsInRange((int) hsv.H)) return RubicColors.Orange;
+        if (Blue.IsInRange((int) hsv.H)) return RubicColors.Blue;
+        if (Green.IsInRange((int) hsv.H)) return RubicColors.Green;
+
+        Debug.Log("Can't find color." + string.Format("h:{0} s:{1} v:{2}", hsv.H, hsv.S, hsv.V));
+        if (PauseOnColorNotFound) UnityEditor.EditorApplication.isPaused = true;
+        return RubicColors.Black;
     }
 
     //red,orange and yellow
@@ -89,6 +171,7 @@ public class ColorMap : MonoBehaviour
     //Green
     private RubicColors CalculateGreen(int red, int green, int blue)
     {
+        if (red > 100) return RubicColors.Yellow;
         return RubicColors.Green;
     }
 
@@ -127,6 +210,7 @@ public class ColorMap : MonoBehaviour
         Green,
         Blue,
         Yellow,
-        Orange
+        Orange,
+        Black
     }
 }
