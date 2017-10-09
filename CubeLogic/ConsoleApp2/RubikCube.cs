@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApp2
 {
-    class RubikCube
+    public class RubikCube
     {
         //private Dictionary<Vector3, Piece> pieces = new Dictionary<Vector3, Piece>();
 
@@ -283,6 +283,43 @@ namespace ConsoleApp2
 
             return s;
      
+        }
+
+        public void ExecuteMove(Move move)
+        {
+            switch(move.Action)
+            {
+                case CubeAction.Up:
+                    RotateUp(false);
+                    break;
+                case CubeAction.UpI:
+                    RotateUp(true);
+                    break;
+                case CubeAction.Down:
+                    RotateUp(false);
+                    break;
+                case CubeAction.DownI:
+                    RotateUp(true);
+                    break;
+                case CubeAction.Front:
+                    RotateFront(false);
+                    break;
+                case CubeAction.FrontI:
+                    RotateFront(true);
+                    break;
+                case CubeAction.Right:
+                    RotateFront(false);
+                    break;
+                case CubeAction.RightI:
+                    RotateFront(true);
+                    break;
+                case CubeAction.Left:
+                    RotateFront(false);
+                    break;
+                case CubeAction.LeftI:
+                    RotateFront(true);
+                    break;
+            }
         }
     }
 }
