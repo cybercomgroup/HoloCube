@@ -29,7 +29,7 @@ namespace OpenCVForUnityExample.ColorDetection
             Green = new ColorRange(80, 180);
         }
         
-        public Color UnityColorFromEnum(RubicColors c)
+        public static Color UnityColorFromEnum(RubicColors c)
         {
             switch (c)
             {
