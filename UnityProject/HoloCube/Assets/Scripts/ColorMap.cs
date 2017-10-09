@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using ColorMine.ColorSpaces;
 using OpenCVForUnityExample.ColorDetection;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using Face = Backend.Face;
 
@@ -63,6 +65,8 @@ public class ColorMap : MonoBehaviour
 
 
 }
+#if UNITY_EDITOR
+//todo expand this code for easier color reqognition
 
 [CustomEditor(typeof(ColorMap))]
 public class ColorDetectionEditor : Editor
@@ -72,10 +76,8 @@ public class ColorDetectionEditor : Editor
         var myTarget = (ColorMap)target;
         
         EditorGUILayout.BeginHorizontal();
-//        myTarget.Width = EditorGUILayout.IntField("Hue", myTarget.Width);
-//        myTarget.Length = EditorGUILayout.IntField("S", myTarget.Length);
-//        myTarget.Length = EditorGUILayout.IntField("V", myTarget.Length);
         EditorGUILayout.EndHorizontal();
 
     }
 }
+#endif

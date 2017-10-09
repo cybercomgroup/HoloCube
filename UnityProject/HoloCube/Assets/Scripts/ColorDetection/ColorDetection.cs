@@ -99,7 +99,9 @@ namespace OpenCVForUnityExample.ColorDetection
             if (Green.IsInRange((int) hsv.H)) return RubicColors.Green;
 
             Debug.Log("Can't find color." + string.Format("h:{0} s:{1} v:{2}", hsv.H, hsv.S, hsv.V));
+            #if UNITY_EDITOR
             if (PauseOnColorNotFound) UnityEditor.EditorApplication.isPaused = true;
+            #endif
             return RubicColors.Black;
         }
 
