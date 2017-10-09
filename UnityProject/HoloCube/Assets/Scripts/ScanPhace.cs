@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using OpenCVForUnityExample.ColorDetection;
 using UnityEngine;
 
 public class ScanPhace : MonoBehaviour
@@ -12,17 +13,35 @@ public class ScanPhace : MonoBehaviour
 	private int _progress;
 
 	private List<GameObject> _scanFaces;
+
+	private Dictionary<RubicColors, RubicColors> _scanningInstructions;
 	
 	// Use this for initialization
 	void Start ()
 	{
+		//it's face color, and top color
+		_scanningInstructions = new Dictionary<RubicColors, RubicColors>()
+		{
+			{RubicColors.Orange, RubicColors.White},
+			{RubicColors.Blue, RubicColors.White},
+			{RubicColors.Red, RubicColors.White},
+			{RubicColors.Green, RubicColors.White},
+			{RubicColors.White, RubicColors.Green},
+			{RubicColors.Yellow, RubicColors.Orange},
+		};
 		_progress = 0;
 		_scanFaces = new List<GameObject>();
 
+		var keys = _scanningInstructions.Keys.ToList();
 		for (int i = 0; i < 6; i++)
 		{
-			var scanFace = GameObject.Find("ScanFace" + i);
-			_scanFaces.Add(scanFace);
+			var obj = GameObject.Find("ScanFace" + i);
+			var scanface = obj.GetComponent<ScanedFace>();
+			scanface.Face.MiddleColor = keys[i];
+			scanface.Face.TopColor = _scanningInstructions[keys[i]];
+			scanface.Redraw();
+			
+			_scanFaces.Add(obj);
 		}
 		
 		
@@ -31,7 +50,6 @@ public class ScanPhace : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
 		if(Input.GetKeyUp("space"))
 		{
 			if(ScanPhaseIsDone())
@@ -53,15 +71,6 @@ public class ScanPhace : MonoBehaviour
 
 	private void FinishPhase()
 	{
-
-		for (int i = 0; i < _scanFaces.Count; i++)
-		{
-			var scannedFace = _scanFaces[i].GetComponent<ScanedFace>();
-			var face = scannedFace.Face;
-			var colors = face.Colors.Select(e => e.ToString()).ToList();
-			var middle = face.MiddleColor.ToString();
-			var top = face.TopColor;
-		}
 		print("We are done!");
 	}
 

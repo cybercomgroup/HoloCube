@@ -24,6 +24,7 @@ public class ScanedFace : MonoBehaviour
         }
 
         SetColor("Middle", Face.MiddleColor, true);
+        SetColor("TopColor", Face.TopColor, true);
     }
 
     private void SetColor(string name, RubicColors rubicColor, bool shouldBeEnabled)
