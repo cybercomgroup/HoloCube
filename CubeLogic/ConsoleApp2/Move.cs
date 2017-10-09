@@ -7,7 +7,7 @@ namespace ConsoleApp2
 
     public enum CubeAction
     {
-        Up, UpI, Down, DownI, Front, FrontI, Right, RightI, Left, LeftI
+        Up, UpI, Down, DownI, Front, FrontI, Right, RightI, Left, LeftI, Mid, MidI
     }
 
     public class Move

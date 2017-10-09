@@ -9,7 +9,7 @@ namespace ConsoleApp2
         White, Green, Yellow, Orange, Blue, Red, Empty
     }
 
-    class Piece
+    public class Piece
     {
         public CubeColor xColor;
         public CubeColor yColor;
@@ -41,6 +41,11 @@ namespace ConsoleApp2
             CubeColor temp = yColor;
             yColor = zColor;
             zColor = temp;
+        }
+
+        public bool ContainsColor(CubeColor color)
+        {
+            return color == xColor || color == yColor || color == zColor;
         }
 
         public static String ColorToString(CubeColor color)

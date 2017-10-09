@@ -4,11 +4,28 @@ using System.Numerics;
 using System.Text;
 
 namespace ConsoleApp2
+
+
 {
+    public class CubePos
+    {
+        public int X;
+        public int Y;
+        public int Z;
+        public CubePos(int x, int y, int z)
+        {
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+    }
+
     public class RubikCube
     {
         private Dictionary<CubeAction, Action> moveMap = new Dictionary<CubeAction, Action>();
         private Piece[,,] pieces = new Piece[3,3,3];
+
+        
         
         public RubikCube()
         {
@@ -23,6 +40,9 @@ namespace ConsoleApp2
             moveMap.Add(CubeAction.RightI, () => RotateRight(true));
             moveMap.Add(CubeAction.Front, () => RotateFront(false));
             moveMap.Add(CubeAction.FrontI, () => RotateFront(true));
+            moveMap.Add(CubeAction.Mid, () => RotateFront(false));
+            moveMap.Add(CubeAction.MidI, () => RotateFront(true));
+
 
 
             // Corners
@@ -59,6 +79,9 @@ namespace ConsoleApp2
             pieces[0, 1, 1] = new Piece(CubeColor.Empty, CubeColor.Orange, CubeColor.Empty);
             pieces[2, 1, 1] = new Piece(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
             pieces[1, 0, 1] = new Piece(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
+
+            // Middle
+            pieces[1, 1, 1] = new Piece(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);
 
 
 
@@ -299,6 +322,36 @@ namespace ConsoleApp2
         public void ExecuteMove(Move move)
         {
             moveMap[move.Action].Invoke();
+        }
+
+        public Tuple<Piece, CubePos> FindFace(CubeColor c1)
+        {
+            return FindCorner(c1, CubeColor.Empty, CubeColor.Empty);
+        }
+
+        public Tuple<Piece, CubePos> FindEdge(CubeColor c1, CubeColor c2)
+        {
+            return FindCorner(c1, c2, CubeColor.Empty);
+        }
+
+        public Tuple<Piece, CubePos> FindCorner(CubeColor c1, CubeColor c2, CubeColor c3)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        Piece piece = pieces[i, j, k];
+                        if(piece.ContainsColor(c1) && piece.ContainsColor(c2) && piece.ContainsColor(c3))
+                        {
+                            return new Tuple<Piece, CubePos>(piece, new CubePos(i,j,k));
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
 
         public void Scramble()
