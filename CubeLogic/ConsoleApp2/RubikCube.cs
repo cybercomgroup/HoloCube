@@ -7,12 +7,24 @@ namespace ConsoleApp2
 {
     public class RubikCube
     {
-        //private Dictionary<Vector3, Piece> pieces = new Dictionary<Vector3, Piece>();
-
+        private Dictionary<CubeAction, Action> moveMap = new Dictionary<CubeAction, Action>();
         private Piece[,,] pieces = new Piece[3,3,3];
         
         public RubikCube()
         {
+
+            moveMap.Add(CubeAction.Up, () => RotateUp(false));
+            moveMap.Add(CubeAction.UpI, () => RotateUp(true));
+            moveMap.Add(CubeAction.Down, () => RotateDown(false));
+            moveMap.Add(CubeAction.DownI, () => RotateDown(true));
+            moveMap.Add(CubeAction.Left, () => RotateLeft(false));
+            moveMap.Add(CubeAction.LeftI, () => RotateLeft(true));
+            moveMap.Add(CubeAction.Right, () => RotateRight(false));
+            moveMap.Add(CubeAction.RightI, () => RotateRight(true));
+            moveMap.Add(CubeAction.Front, () => RotateFront(false));
+            moveMap.Add(CubeAction.FrontI, () => RotateFront(true));
+
+
             // Corners
             pieces[0, 0, 0] = new Piece(CubeColor.White, CubeColor.Orange, CubeColor.Green);
             pieces[2, 0, 0] = new Piece(CubeColor.White, CubeColor.Red, CubeColor.Green);
@@ -24,7 +36,6 @@ namespace ConsoleApp2
             pieces[2, 2, 2] = new Piece(CubeColor.Yellow, CubeColor.Red, CubeColor.Blue);
 
             // Middle pieces
-
             pieces[1, 0, 0] = new Piece(CubeColor.White, CubeColor.Empty, CubeColor.Green);
             pieces[0, 1, 0] = new Piece(CubeColor.White, CubeColor.Orange, CubeColor.Empty);
             pieces[2, 1, 0] = new Piece(CubeColor.White, CubeColor.Red, CubeColor.Empty);
@@ -287,39 +298,19 @@ namespace ConsoleApp2
 
         public void ExecuteMove(Move move)
         {
-            switch(move.Action)
+            moveMap[move.Action].Invoke();
+        }
+
+        public void Scramble()
+        {
+            Random random = new Random();
+            for(int i=0; i<50; i++)
             {
-                case CubeAction.Up:
-                    RotateUp(false);
-                    break;
-                case CubeAction.UpI:
-                    RotateUp(true);
-                    break;
-                case CubeAction.Down:
-                    RotateUp(false);
-                    break;
-                case CubeAction.DownI:
-                    RotateUp(true);
-                    break;
-                case CubeAction.Front:
-                    RotateFront(false);
-                    break;
-                case CubeAction.FrontI:
-                    RotateFront(true);
-                    break;
-                case CubeAction.Right:
-                    RotateFront(false);
-                    break;
-                case CubeAction.RightI:
-                    RotateFront(true);
-                    break;
-                case CubeAction.Left:
-                    RotateFront(false);
-                    break;
-                case CubeAction.LeftI:
-                    RotateFront(true);
-                    break;
+                Array values = Enum.GetValues(typeof(CubeAction));
+                CubeAction randomBar = (CubeAction)values.GetValue(random.Next(values.Length));
+                (moveMap[randomBar]).Invoke();
             }
         }
     }
+
 }

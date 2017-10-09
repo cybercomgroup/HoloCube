@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp2
 {
@@ -16,9 +17,14 @@ namespace ConsoleApp2
         private static void Solve()
         {
             RubikCube cube = new RubikCube();
+            cube.Scramble();
             Console.WriteLine(cube);
-            Solver.Solve(cube);
+            List<Move> moves = Solver.Solve(cube);
             Console.WriteLine(cube);
+            foreach(Move move in moves)
+            {
+                Console.WriteLine(move);
+            }
             Console.ReadKey();
         }
 
