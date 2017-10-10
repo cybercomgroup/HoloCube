@@ -192,7 +192,7 @@ Transform:
   - {fileID: 384063403}
   - {fileID: 1374731245}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &73056203
 GameObject:
@@ -487,7 +487,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 494709499}
-  m_Text: 'Use VoiceComs:'
+  m_Text: 'See Tutorial:'
   m_OffsetZ: 0
   m_CharacterSize: 1.8
   m_LineSpacing: 1
@@ -616,7 +616,7 @@ Transform:
   - {fileID: 73056204}
   - {fileID: 1676529215}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061312289
 GameObject:
@@ -701,7 +701,7 @@ Transform:
   - {fileID: 1081977627}
   - {fileID: 1683995565}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081977626
 GameObject:
@@ -813,7 +813,7 @@ Transform:
   m_Children:
   - {fileID: 1228539925}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200690778
 GameObject:
@@ -852,7 +852,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1200690778}
-  m_Text: 'Use VoiceComs:'
+  m_Text: 'See Timer:'
   m_OffsetZ: 0
   m_CharacterSize: 1.8
   m_LineSpacing: 1
@@ -914,9 +914,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63bc25ec5bfca74ea245acf300be00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySceneAssets:
-    m_SceneAsset: {fileID: 102900000, guid: 78efec0fa6336f947b35db0bff20839f, type: 3}
-    m_SceneName: Start
+  MySceneAssets:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
 --- !u!1 &1228539924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1046,48 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1676529214}
   m_Script: {fileID: 11500000, guid: 2ad786f6c560d9741a449bdf80613b9b, type: 3}
+--- !u!1001 &1467262543
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 90749889d87976143a9e21072d2434b4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1676529214
 Prefab:
   m_ObjectHideFlags: 0
@@ -1237,7 +1279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 102146420554083976, guid: f91628148d9ac6d4e85de23d7e0d0e14,
         type: 2}
