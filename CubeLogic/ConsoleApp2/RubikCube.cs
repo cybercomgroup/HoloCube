@@ -18,6 +18,11 @@ namespace ConsoleApp2
             this.Y = y;
             this.Z = z;
         }
+
+        public static bool EqualPos(CubePos p1, CubePos p2)
+        {
+            return p1.X == p2.X && p1.Y == p2.Y && p1.Z == p2.Z;
+        }
     }
 
     public enum CubeSide
@@ -34,24 +39,35 @@ namespace ConsoleApp2
         
         public RubikCube()
         {
-
+            // Face
+            moveMap.Add(CubeAction.U,   () => RotateXZ(2, false));
+            moveMap.Add(CubeAction.UI,  () => RotateXZ(2, true));
+            moveMap.Add(CubeAction.L,   () => RotateYZ(0, true));
+            moveMap.Add(CubeAction.LI,  () => RotateYZ(0, false));
+            moveMap.Add(CubeAction.F,   () => RotateXY(0, false));
+            moveMap.Add(CubeAction.FI,  () => RotateXY(0, true));
+            moveMap.Add(CubeAction.R,   () => RotateYZ(2, false));
+            moveMap.Add(CubeAction.RI,  () => RotateYZ(2, true));
+            moveMap.Add(CubeAction.B,   () => RotateXY(2, true));
+            moveMap.Add(CubeAction.BI,  () => RotateXY(2, false));
+            moveMap.Add(CubeAction.D,   () => RotateXZ(0, true));
+            moveMap.Add(CubeAction.DI,  () => RotateXZ(0, false));
             
+            // Slice
+            moveMap.Add(CubeAction.E,   () => RotateXZ(1, true));
+            moveMap.Add(CubeAction.EI,  () => RotateXZ(1, false));
+            moveMap.Add(CubeAction.M,   () => RotateYZ(1, true));
+            moveMap.Add(CubeAction.MI,  () => RotateYZ(1, false));
+            moveMap.Add(CubeAction.S,   () => RotateXY(1, false));
+            moveMap.Add(CubeAction.SI,  () => RotateXY(1, true));
 
-            moveMap.Add(CubeAction.Up, () => RotateUp(false));
-            moveMap.Add(CubeAction.UpI, () => RotateUp(true));
-            moveMap.Add(CubeAction.Down, () => RotateDown(false));
-            moveMap.Add(CubeAction.DownI, () => RotateDown(true));
-            moveMap.Add(CubeAction.Left, () => RotateLeft(false));
-            moveMap.Add(CubeAction.LeftI, () => RotateLeft(true));
-            moveMap.Add(CubeAction.Right, () => RotateRight(false));
-            moveMap.Add(CubeAction.RightI, () => RotateRight(true));
-            moveMap.Add(CubeAction.Front, () => RotateFront(false));
-            moveMap.Add(CubeAction.FrontI, () => RotateFront(true));
-            moveMap.Add(CubeAction.Mid, () => RotateFront(false));
-            moveMap.Add(CubeAction.MidI, () => RotateFront(true));
-            moveMap.Add(CubeAction.Back, () => RotateBack(false));
-            moveMap.Add(CubeAction.BackI, () => RotateBack(true));
-
+            // Whole
+            moveMap.Add(CubeAction.X,   () => RotateX(false));
+            moveMap.Add(CubeAction.XI,  () => RotateX(true));
+            moveMap.Add(CubeAction.Y,   () => RotateY(false));
+            moveMap.Add(CubeAction.YI,  () => RotateY(true));
+            moveMap.Add(CubeAction.Z,   () => RotateZ(false));
+            moveMap.Add(CubeAction.ZI,  () => RotateZ(true));
 
 
             // Corners
@@ -91,9 +107,6 @@ namespace ConsoleApp2
 
             // Middle
             cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);
-
-
-
         }
 
         int Mod(int x, int m)
@@ -101,49 +114,35 @@ namespace ConsoleApp2
             return (x % m + m) % m;
         }
 
-        public void RotateUp(bool inverse)
-        {
-            RotateXZ(2, inverse);
-        }
-
-        public void RotateMid(bool inverse)
-        {
-            RotateXZ(1, inverse);
-        }
-
-        public void RotateDown(bool inverse)
-        {
-            RotateXZ(0, inverse);
-        }
-
-        public void RotateRight(bool inverse)
-        {
-            RotateYZ(2, inverse);
-        }
-
-        public void RotateLeft(bool inverse)
-        {
-            RotateYZ(0, inverse);
-        }
-
-        public void RotateFront(bool inverse)
-        {
-            RotateXY(0, inverse);
-        }
-
-        public void RotateBack(bool inverse)
-        {
-            RotateXY(2, !inverse);
-        }
-
         // TODO:    Use matrix data type to represent the cubie matrix.
         //          Use matrix rotation to turn the cube.
-        public void RotateY()
+        public void RotateX(bool inverse)
         {
             for(int i=0;i<3;i++)
             {
-                RotateXZ(i, false);
+                RotateYZ(i, inverse);
             }
+        }
+
+        public void RotateY(bool inverse)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                RotateXZ(i, inverse);
+            }
+        }
+
+        public void RotateZ(bool inverse)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                RotateXY(i, inverse);
+            }
+        }
+
+        public void Rotate(CubeAction action)
+        {
+            moveMap[action].Invoke();
         }
 
         /// <summary>
@@ -248,6 +247,14 @@ namespace ConsoleApp2
                 }
             }
 
+        }
+
+        public CubeColor GetCubicColor(CubePos pos, int vec)
+        {
+            Cubie cubie = cubies[pos.X, pos.Y, pos.Z];
+            if (vec == 0) return cubie.xColor;
+            else if (vec == 0) return cubie.yColor;
+            else return cubie.yColor;
         }
 
         public CubeColor FaceColor(CubeSide side)

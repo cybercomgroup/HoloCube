@@ -82,6 +82,15 @@ namespace ConsoleApp2
 
             return "X";
         }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -539632471;
+            hashCode = hashCode * -1521134295 + xColor.GetHashCode();
+            hashCode = hashCode * -1521134295 + yColor.GetHashCode();
+            hashCode = hashCode * -1521134295 + zColor.GetHashCode();
+            return hashCode;
+        }
     }
 
 }

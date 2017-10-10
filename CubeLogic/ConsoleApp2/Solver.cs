@@ -10,23 +10,29 @@ namespace ConsoleApp2
             List<Move> moves = new List<Move>();
 
             // Top corners
-            moves.AddRange(SolveTopCorners(cube, CubeColor.White));
+            moves.AddRange(SolveTopCorners(cube));
 
-            return moves;
+            // Top edges
+            moves.AddRange(SolveTopEdges(cube));
+
+            // Roate mid layer
+            moves.AddRange(SolveMidLayer(cube));
+            
+            return Move.Trim(moves);
         }
 
-        private static List<Move> SolveTopCorners(RubikCube cube, CubeColor crossColor)
+        private static List<Move> SolveTopCorners(RubikCube cube)
         {
             List<Move> moves = new List<Move>();
 
             moves.AddRange(PlaceTopCorner(cube, true));
-            cube.RotateY();
+            cube.RotateY(false);
             moves.AddRange(PlaceTopCorner(cube, false));
-            cube.RotateY();
+            cube.RotateY(false);
             moves.AddRange(PlaceTopCorner(cube, false));
-            cube.RotateY();
+            cube.RotateY(false);
             moves.AddRange(PlaceTopCorner(cube, false));
-            cube.RotateY();
+            cube.RotateY(false);
 
             return moves;
         }
@@ -44,27 +50,27 @@ namespace ConsoleApp2
             {
                 if(cubie.Item2.Y == 0)
                 {
-                    ExecuteMove(cube,CubeAction.Down, moves);
+                    ExecuteMove(cube,CubeAction.DI, moves);
                 }
                 else
                 {
                     if (firstCorner)
                     {
-                        ExecuteMove(cube, CubeAction.Up, moves);
+                        ExecuteMove(cube, CubeAction.U, moves);
                     }
                     else
                     {
                         if(cubie.Item2.X == 0)
                         {
-                            ExecuteMove(cube, CubeAction.Back, moves);
-                            ExecuteMove(cube, CubeAction.Down, moves);
-                            ExecuteMove(cube, CubeAction.BackI, moves);
+                            ExecuteMove(cube, CubeAction.B, moves);
+                            ExecuteMove(cube, CubeAction.DI, moves);
+                            ExecuteMove(cube, CubeAction.BI, moves);
                         }
                         else
                         {
-                            ExecuteMove(cube, CubeAction.BackI, moves);
-                            ExecuteMove(cube, CubeAction.Down, moves);
-                            ExecuteMove(cube, CubeAction.Back, moves);
+                            ExecuteMove(cube, CubeAction.BI, moves);
+                            ExecuteMove(cube, CubeAction.DI, moves);
+                            ExecuteMove(cube, CubeAction.B, moves);
                         }
                     }
                 }
@@ -73,99 +79,197 @@ namespace ConsoleApp2
 
             }
 
-            /*if (cubie.Item1.xColor == frontColor && cubie.Item1.yColor == rightColor && cubie.Item1.zColor == topColor)
-            {
-                return moves;
-            }*/
-
             if(cubie.Item2.Y == 0)
             {
                 if(cubie.Item1.xColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.Down, moves);
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
                 }
                 else if (cubie.Item1.yColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.Down, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
                 }
                 else if(cubie.Item1.zColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.Down, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
                 }
             }
             else
             {
                 if (cubie.Item1.xColor == topColor)
-                {
-                    ExecuteMove(cube, CubeAction.Front, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.Front, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
+                { 
+                    ExecuteMove(cube, CubeAction.F, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.F, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
                 }
                 else if(cubie.Item1.yColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.Down, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
-                    ExecuteMove(cube, CubeAction.DownI, moves);
-                    ExecuteMove(cube, CubeAction.RightI, moves);
-                    ExecuteMove(cube, CubeAction.Down, moves);
-                    ExecuteMove(cube, CubeAction.Right, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.RI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.R, moves);
                 }
+            }
+
+           
+            return moves;
+        }
+
+        private static List<Move> SolveTopEdges(RubikCube cube)
+        {
+            List<Move> moves = new List<Move>();
+            moves.AddRange(SolveTopEdge(cube));
+            cube.RotateY(true);
+            moves.AddRange(SolveTopEdge(cube));
+            cube.RotateY(true);
+            moves.AddRange(SolveTopEdge(cube));
+            cube.RotateY(true);
+            moves.AddRange(SolveTopEdge(cube));
+            cube.RotateY(true);
+
+
+            return moves;
+        }
+
+        private static List<Move> SolveTopEdge(RubikCube cube)
+        {
+            List<Move> moves = new List<Move>();
+            CubePos pos = new CubePos(1, 2, 0);
+            CubeColor topColor = cube.FaceColor(CubeSide.Top);
+            CubeColor frontColor = cube.GetCubicColor(new CubePos(0, 2, 0), 0);
+            Tuple<Cubie, CubePos> cubie = cube.FindEdge(topColor, frontColor);
+            // If already in place
+            if(CubePos.EqualPos(cubie.Item2,pos) && cubie.Item1.xColor == frontColor && cubie.Item1.zColor == topColor)
+            {
+                return moves;
+            }
+
+            while (cubie.Item2.Z != pos.Z || cubie.Item2.X == 0)
+            {
+                // In Bottom layer
+                if (cubie.Item2.Y == 0)
+                {
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                }
+                // In mid layer
+                else if (cubie.Item2.Y == 1)
+                {
+                    ExecuteMove(cube, CubeAction.EI, moves);
+                }
+                // In top layer
+                else
+                {
+                    if(cubie.Item2.X == 1 && cubie.Item2.Z == 0)
+                    {
+                        break;
+                    }
+                    else if(cubie.Item2.X == 0 && cubie.Item2.Z == 1)
+                    {
+                        ExecuteMove(cube, CubeAction.SI, moves);
+                        ExecuteMove(cube, CubeAction.D, moves);
+                        ExecuteMove(cube, CubeAction.S, moves);
+                    }
+                    else if (cubie.Item2.X == 2 && cubie.Item2.Z == 1)
+                    {
+                        ExecuteMove(cube, CubeAction.S, moves);
+                        ExecuteMove(cube, CubeAction.DI, moves);
+                        ExecuteMove(cube, CubeAction.SI, moves);
+                    }
+                    else
+                    {
+                        ExecuteMove(cube, CubeAction.MI, moves);
+                        ExecuteMove(cube, CubeAction.DI, moves);
+                        ExecuteMove(cube, CubeAction.M, moves);
+                    }
+                }
+                
+                cubie = cube.FindEdge(topColor, frontColor);
+
+            }
+
+            if(cubie.Item1.xColor == topColor)
+            {
+                // 2
+                if (cubie.Item2.Y == 0)
+                {
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.M, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.MI, moves);
+                    
+                }
+                // 4
+                else if (cubie.Item2.Y == 1)
+                {
+                    ExecuteMove(cube, CubeAction.E, moves);
+                    ExecuteMove(cube, CubeAction.FI, moves);
+                    ExecuteMove(cube, CubeAction.EI, moves);
+                    ExecuteMove(cube, CubeAction.EI, moves);
+                    ExecuteMove(cube, CubeAction.F, moves);
+                }
+                // 5
+                else
+                {
+                    ExecuteMove(cube, CubeAction.M, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.MI, moves);
+                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, CubeAction.M, moves);
+                    ExecuteMove(cube, CubeAction.D, moves);
+                    ExecuteMove(cube, CubeAction.MI, moves);
+                }
+            }
+            // 1
+            else if (cubie.Item1.zColor == topColor)
+            {
+                ExecuteMove(cube, CubeAction.M, moves);
+                ExecuteMove(cube, CubeAction.DI, moves);
+                ExecuteMove(cube, CubeAction.DI, moves);
+                ExecuteMove(cube, CubeAction.MI, moves);
+            }
+            // 3
+            else
+            {
+                ExecuteMove(cube, CubeAction.E, moves);
+                ExecuteMove(cube, CubeAction.F, moves);
+                ExecuteMove(cube, CubeAction.EI, moves);
+                ExecuteMove(cube, CubeAction.FI, moves);
             }
 
             return moves;
         }
 
-        private static List<Move> CrossLeftOrRight(RubikCube cube, Tuple<Cubie, CubePos> piece, CubeColor crossColor, CubeColor sideColor)
+        private static List<Move> SolveMidLayer(RubikCube cube)
         {
-            /*// If already correct
-            if (piece.Item1.xColor == crossColor && piece.Item1.yColor == sideColor)
-            {
-                return null;
-            }
-
             List<Move> moves = new List<Move>();
 
-            // Check piece at z = 0
-            if(piece.Item2.Z == 0)
+            while(cube.GetCubicColor(new CubePos(1,2,0), 0) != cube.FaceColor(CubeSide.Front))
             {
-                CubePos pos;
-                int counter = 0;
-                while((pos = cube.FindEdge(piece.Item1)) != new CubePos(0, 1, 0))
-                {
-                    ExecuteMove(cube, CubeAction.Front, moves);
-                    counter++;
-                    if(counter > 4)
-                    {
-                        Console.WriteLine("Stuck in loop");
-                        return null;
-                    }
-                }
+                ExecuteMove(cube, CubeAction.EI, moves);
             }
-            else
-            {
 
-            }*/
-
-            return null;
-
+            return moves;
         }
 
         private static void ExecuteMove(RubikCube cube, CubeAction action, List<Move> moves)
