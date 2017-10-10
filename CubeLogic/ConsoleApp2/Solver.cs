@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp2
 {
@@ -35,8 +34,13 @@ namespace ConsoleApp2
 
             //Tuple<Piece, CubePos> p1 = ;
 
+            moves.AddRange(PlaceTopCorner(cube));
+            /*RotateY();
             PlaceTopCorner(cube);
-
+            RotateY();
+            PlaceTopCorner(cube);
+            RotateY();
+            PlaceTopCorner(cube);*/
 
             //ExecuteMove(cube, CubeAction.Up, moves);
 
@@ -57,15 +61,19 @@ namespace ConsoleApp2
         {
             List<Move> moves = new List<Move>();
             CubePos pos = new CubePos(2,2,0);
-            Tuple<Piece, CubePos> piece = cube.FindCorner(CubeColor.Blue, CubeColor.White, CubeColor.Red);
+            CubeColor topColor = cube.FaceColor(CubeSide.Top);
+            CubeColor frontColor = cube.FaceColor(CubeSide.Front);
+            CubeColor rightColor = cube.FaceColor(CubeSide.Right);
+            Tuple<Cubie, CubePos> cubie = cube.FindCorner(topColor, frontColor, rightColor);
+
             int counter = 0;
-            while (piece.Item2.Z != pos.Z || piece.Item2.X != pos.X)
+            while (cubie.Item2.Z != pos.Z || cubie.Item2.X != pos.X)
             {
-                if(piece.Item2.Y == 0)
+                if(cubie.Item2.Y == 0)
                 {
                     ExecuteMove(cube,CubeAction.Down, moves);
                 }
-                else if(piece.Item2.Y == 1)
+                else if(cubie.Item2.Y == 1)
                 {
                     ExecuteMove(cube, CubeAction.Mid, moves);
                 }
@@ -81,25 +89,25 @@ namespace ConsoleApp2
                     return null;
                 }
 
-                piece = cube.FindCorner(CubeColor.Blue, CubeColor.White, CubeColor.Red);
+                cubie = cube.FindCorner(cube.FaceColor(CubeSide.Top), cube.FaceColor(CubeSide.Front), cube.FaceColor(CubeSide.Right));
 
             }
 
-            /*if (piece.Item1.xColor == CubeColor.White && piece.Item1.yColor == CubeColor.Red && piece.Item1.zColor == CubeColor.Blue)
+            if (cubie.Item1.xColor == CubeColor.White && cubie.Item1.yColor == CubeColor.Red && cubie.Item1.zColor == CubeColor.Blue)
             {
                 return moves;
-            }*/
+            }
 
-            if(piece.Item2.Y == 0)
+            if(cubie.Item2.Y == 0)
             {
-                if(piece.Item1.xColor == CubeColor.Blue)
+                if(cubie.Item1.xColor == cube.FaceColor(CubeSide.Top))
                 {
                     ExecuteMove(cube, CubeAction.Down, moves);
                     ExecuteMove(cube, CubeAction.RightI, moves);
                     ExecuteMove(cube, CubeAction.DownI, moves);
                     ExecuteMove(cube, CubeAction.Right, moves);
                 }
-                else if (piece.Item1.yColor == CubeColor.Blue)
+                else if (cubie.Item1.yColor == cube.FaceColor(CubeSide.Top))
                 {
                     ExecuteMove(cube, CubeAction.RightI, moves);
                     ExecuteMove(cube, CubeAction.Down, moves);
@@ -108,18 +116,33 @@ namespace ConsoleApp2
             }
             else
             {
-                /*if (piece.Item1.xColor == CubeColor.Blue)
+                if (cubie.Item1.xColor == topColor)
+                {
+                    ExecuteMove(cube, CubeAction.Front, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.Front, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.RightI, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.Right, moves);
+                }
+                else if(cubie.Item1.yColor == topColor)
                 {
                     ExecuteMove(cube, CubeAction.RightI, moves);
                     ExecuteMove(cube, CubeAction.Down, moves);
                     ExecuteMove(cube, CubeAction.Right, moves);
-                }*/
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.RightI, moves);
+                    ExecuteMove(cube, CubeAction.Down, moves);
+                    ExecuteMove(cube, CubeAction.Right, moves);
+                }
             }
 
             return moves;
         }
 
-        private static List<Move> CrossLeftOrRight(RubikCube cube, Tuple<Piece, CubePos> piece, CubeColor crossColor, CubeColor sideColor)
+        private static List<Move> CrossLeftOrRight(RubikCube cube, Tuple<Cubie, CubePos> piece, CubeColor crossColor, CubeColor sideColor)
         {
             /*// If already correct
             if (piece.Item1.xColor == crossColor && piece.Item1.yColor == sideColor)

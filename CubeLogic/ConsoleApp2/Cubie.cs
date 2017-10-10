@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ConsoleApp2
@@ -9,13 +10,13 @@ namespace ConsoleApp2
         White, Green, Yellow, Orange, Blue, Red, Empty
     }
 
-    public class Piece
+    public class Cubie
     {
         public CubeColor xColor;
         public CubeColor yColor;
         public CubeColor zColor;
 
-        public Piece(CubeColor xColor, CubeColor yColor, CubeColor zColor)
+        public Cubie(CubeColor xColor, CubeColor yColor, CubeColor zColor)
         {
             this.xColor = xColor;
             this.yColor = yColor;
@@ -46,6 +47,17 @@ namespace ConsoleApp2
         public bool ContainsColor(CubeColor color)
         {
             return color == xColor || color == yColor || color == zColor;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Cubie){
+                Cubie c = (Cubie) obj;
+                List<CubeColor> l1 = new List<CubeColor>{ xColor, yColor, zColor };
+                List<CubeColor> l2 = new List<CubeColor> { c.xColor, c.yColor, c.zColor };
+                return l1.All(l2.Contains);
+            }
+            return false;
         }
 
         public static String ColorToString(CubeColor color)
