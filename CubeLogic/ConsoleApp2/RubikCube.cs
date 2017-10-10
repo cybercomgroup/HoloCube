@@ -133,7 +133,7 @@ namespace ConsoleApp2
 
         public void RotateBack(bool inverse)
         {
-            RotateXY(2, inverse);
+            RotateXY(2, !inverse);
         }
 
         // TODO:    Use matrix data type to represent the cubie matrix.

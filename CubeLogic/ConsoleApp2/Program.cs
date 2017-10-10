@@ -13,9 +13,9 @@ namespace ConsoleApp2
         private static void Solve()
         {
             RubikCube cube = new RubikCube();
+
             cube.Scramble();
             
-            //cube.RotateFront(true);
             Console.WriteLine(cube);
             List<Move> moves = Solver.Solve(cube);
             Console.WriteLine(cube);
