@@ -35,6 +35,8 @@ namespace ConsoleApp2
         public RubikCube()
         {
 
+            
+
             moveMap.Add(CubeAction.Up, () => RotateUp(false));
             moveMap.Add(CubeAction.UpI, () => RotateUp(true));
             moveMap.Add(CubeAction.Down, () => RotateDown(false));
@@ -132,9 +134,14 @@ namespace ConsoleApp2
             RotateXY(2, inverse);
         }
 
+        // TODO:    Use matrix data type to represent the cubie matrix.
+        //          Use matrix rotation to turn the cube.
         public void RotateY()
         {
-
+            for(int i=0;i<3;i++)
+            {
+                RotateXZ(i, false);
+            }
         }
 
         /// <summary>

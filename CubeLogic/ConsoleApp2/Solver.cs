@@ -35,13 +35,13 @@ namespace ConsoleApp2
             //Tuple<Piece, CubePos> p1 = ;
 
             moves.AddRange(PlaceTopCorner(cube));
-            /*RotateY();
-            PlaceTopCorner(cube);
-            RotateY();
-            PlaceTopCorner(cube);
-            RotateY();
-            PlaceTopCorner(cube);*/
-
+            cube.RotateY();
+            moves.AddRange(PlaceTopCorner(cube));
+            cube.RotateY();
+            moves.AddRange(PlaceTopCorner(cube));
+            cube.RotateY();
+            moves.AddRange(PlaceTopCorner(cube));
+            cube.RotateY();
             //ExecuteMove(cube, CubeAction.Up, moves);
 
             /*# place the UP-LEFT piece
@@ -89,26 +89,37 @@ namespace ConsoleApp2
                     return null;
                 }
 
-                cubie = cube.FindCorner(cube.FaceColor(CubeSide.Top), cube.FaceColor(CubeSide.Front), cube.FaceColor(CubeSide.Right));
+                cubie = cube.FindCorner(topColor, frontColor, rightColor);
 
             }
 
-            if (cubie.Item1.xColor == CubeColor.White && cubie.Item1.yColor == CubeColor.Red && cubie.Item1.zColor == CubeColor.Blue)
+            if (cubie.Item1.xColor == frontColor && cubie.Item1.yColor == rightColor && cubie.Item1.zColor == topColor)
             {
                 return moves;
             }
 
             if(cubie.Item2.Y == 0)
             {
-                if(cubie.Item1.xColor == cube.FaceColor(CubeSide.Top))
+                if(cubie.Item1.xColor == topColor)
                 {
                     ExecuteMove(cube, CubeAction.Down, moves);
                     ExecuteMove(cube, CubeAction.RightI, moves);
                     ExecuteMove(cube, CubeAction.DownI, moves);
                     ExecuteMove(cube, CubeAction.Right, moves);
                 }
-                else if (cubie.Item1.yColor == cube.FaceColor(CubeSide.Top))
+                else if (cubie.Item1.yColor == topColor)
                 {
+                    ExecuteMove(cube, CubeAction.RightI, moves);
+                    ExecuteMove(cube, CubeAction.Down, moves);
+                    ExecuteMove(cube, CubeAction.Right, moves);
+                }
+                else if(cubie.Item1.zColor == topColor)
+                {
+                    ExecuteMove(cube, CubeAction.RightI, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.Right, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
+                    ExecuteMove(cube, CubeAction.DownI, moves);
                     ExecuteMove(cube, CubeAction.RightI, moves);
                     ExecuteMove(cube, CubeAction.Down, moves);
                     ExecuteMove(cube, CubeAction.Right, moves);
