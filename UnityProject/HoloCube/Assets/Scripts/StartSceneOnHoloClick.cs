@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneOnHoloClick : MonoBehaviour,IInputClickHandler
 {
-	public SceneField mySceneAssets;
+	public SceneField MySceneAssets;
 
 	public void OnInputClicked(InputClickedEventData eventData)
 	{
-		SceneManager.LoadScene(mySceneAssets.SceneName);
+		SceneManager.LoadScene(MySceneAssets.SceneName);
 	}
 }
