@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MySceneAssets:
-    m_SceneAsset: {fileID: 0}
-    m_SceneName: 
+    m_SceneAsset: {fileID: 102900000, guid: 78efec0fa6336f947b35db0bff20839f, type: 3}
+    m_SceneName: Start
 --- !u!1001 &694602459
 Prefab:
   m_ObjectHideFlags: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MySceneAssets:
-    m_SceneAsset: {fileID: 0}
-    m_SceneName: 
+    m_SceneAsset: {fileID: 102900000, guid: 7cd6b2f527380dd43a7ffa5b89433bcd, type: 3}
+    m_SceneName: Options
 --- !u!1001 &1500776857
 Prefab:
   m_ObjectHideFlags: 0

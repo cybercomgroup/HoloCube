@@ -915,8 +915,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MySceneAssets:
-    m_SceneAsset: {fileID: 0}
-    m_SceneName: 
+    m_SceneAsset: {fileID: 102900000, guid: 78efec0fa6336f947b35db0bff20839f, type: 3}
+    m_SceneName: Start
 --- !u!1 &1228539924
 GameObject:
   m_ObjectHideFlags: 0
