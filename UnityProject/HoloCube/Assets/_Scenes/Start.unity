@@ -108,6 +108,25 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &308585003 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1601881387686582, guid: f91628148d9ac6d4e85de23d7e0d0e14,
+    type: 2}
+  m_PrefabInternal: {fileID: 957762021}
+--- !u!114 &308585004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308585003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63bc25ec5bfca74ea245acf300be00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySceneAssets:
+    m_SceneAsset: {fileID: 102900000, guid: df64b075137b7cf478d835ad3281b932, type: 3}
+    m_SceneName: ScanCube
 --- !u!1 &830247188
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +307,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1085416485 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1601881387686582, guid: f91628148d9ac6d4e85de23d7e0d0e14,
+    type: 2}
+  m_PrefabInternal: {fileID: 1500776857}
+--- !u!114 &1085416486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085416485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63bc25ec5bfca74ea245acf300be00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySceneAssets:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
 --- !u!1001 &1500776857
 Prefab:
   m_ObjectHideFlags: 0
