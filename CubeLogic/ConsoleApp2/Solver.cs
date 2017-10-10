@@ -34,13 +34,13 @@ namespace ConsoleApp2
 
             //Tuple<Piece, CubePos> p1 = ;
 
-            moves.AddRange(PlaceTopCorner(cube));
+            moves.AddRange(PlaceTopCorner(cube, true));
             cube.RotateY();
-            moves.AddRange(PlaceTopCorner(cube));
+            moves.AddRange(PlaceTopCorner(cube, false));
             cube.RotateY();
-            moves.AddRange(PlaceTopCorner(cube));
+            moves.AddRange(PlaceTopCorner(cube, false));
             cube.RotateY();
-            moves.AddRange(PlaceTopCorner(cube));
+            moves.AddRange(PlaceTopCorner(cube, false));
             cube.RotateY();
             //ExecuteMove(cube, CubeAction.Up, moves);
 
@@ -57,7 +57,7 @@ namespace ConsoleApp2
             return moves;
         }
 
-        private static List<Move> PlaceTopCorner(RubikCube cube)
+        private static List<Move> PlaceTopCorner(RubikCube cube, bool firstCorner)
         {
             List<Move> moves = new List<Move>();
             CubePos pos = new CubePos(2,2,0);
@@ -79,7 +79,15 @@ namespace ConsoleApp2
                 }
                 else
                 {
-                    ExecuteMove(cube, CubeAction.Up, moves);
+                    if (firstCorner)
+                    {
+                        ExecuteMove(cube, CubeAction.Up, moves);
+                    }
+                    else
+                    {
+                        CubeAction action = cubie.Item2.X == 0 ? CubeAction.Back : CubeAction.BackI;
+                        ExecuteMove(cube, action, moves);
+                    }
                 }
                 
                 counter++;

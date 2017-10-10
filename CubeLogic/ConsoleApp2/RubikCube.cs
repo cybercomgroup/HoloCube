@@ -49,6 +49,8 @@ namespace ConsoleApp2
             moveMap.Add(CubeAction.FrontI, () => RotateFront(true));
             moveMap.Add(CubeAction.Mid, () => RotateFront(false));
             moveMap.Add(CubeAction.MidI, () => RotateFront(true));
+            moveMap.Add(CubeAction.Back, () => RotateBack(false));
+            moveMap.Add(CubeAction.BackI, () => RotateBack(true));
 
 
 
