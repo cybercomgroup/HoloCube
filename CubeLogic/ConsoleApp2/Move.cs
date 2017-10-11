@@ -5,6 +5,9 @@ using System.Text;
 namespace ConsoleApp2
 {
 
+    /// <summary>
+    /// All possible cube rotations.
+    /// </summary>
     public enum CubeAction
     {
         // Face rotations
@@ -129,7 +132,7 @@ namespace ConsoleApp2
 
         public override String ToString()
         {
-            return Action.ToString() + " 90 degrees.";
+            return "With " + TopColor + " on top and " + FrontColor + " in front, " + Action.ToString() + " 90 degrees.";
         }
         
     }
