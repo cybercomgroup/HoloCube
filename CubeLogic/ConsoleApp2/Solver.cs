@@ -52,33 +52,29 @@ namespace ConsoleApp2
             CubeColor rightColor = cube.FaceColor(CubeSide.Right);
             Tuple<Cubie, CubePos> cubie = cube.FindCorner(topColor, frontColor, rightColor);
 
+            if (CubePos.EqualPos(cubie.Item2, pos) && cubie.Item1.xColor == frontColor && cubie.Item1.yColor == rightColor && cubie.Item1.zColor == topColor)
+            {
+                return moves;
+            }
+
+            // Adjust the cubie to a valid start location.
             while (cubie.Item2.Z != pos.Z || cubie.Item2.X != pos.X)
             {
                 if(cubie.Item2.Y == 0)
                 {
                     ExecuteMove(cube,CubeAction.DI, moves);
                 }
+                else if(firstCorner)
+                {
+                    ExecuteMove(cube, "U", moves);
+                }
+                else if (cubie.Item2.X == 0)
+                {
+                    ExecuteMove(cube, "B DI BI", moves);
+                }
                 else
                 {
-                    if (firstCorner)
-                    {
-                        ExecuteMove(cube, CubeAction.U, moves);
-                    }
-                    else
-                    {
-                        if(cubie.Item2.X == 0)
-                        {
-                            ExecuteMove(cube, CubeAction.B, moves);
-                            ExecuteMove(cube, CubeAction.DI, moves);
-                            ExecuteMove(cube, CubeAction.BI, moves);
-                        }
-                        else
-                        {
-                            ExecuteMove(cube, CubeAction.BI, moves);
-                            ExecuteMove(cube, CubeAction.DI, moves);
-                            ExecuteMove(cube, CubeAction.B, moves);
-                        }
-                    }
+                    ExecuteMove(cube, "BI DI B", moves);
                 }
                 
                 cubie = cube.FindCorner(topColor, frontColor, rightColor);
@@ -89,51 +85,26 @@ namespace ConsoleApp2
             {
                 if(cubie.Item1.xColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, "DI RI D R", moves);
                 }
                 else if (cubie.Item1.yColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, "RI DI R", moves);
                 }
                 else if(cubie.Item1.zColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, "RI D R D D RI DI R", moves);
                 }
             }
             else
             {
                 if (cubie.Item1.xColor == topColor)
-                { 
-                    ExecuteMove(cube, CubeAction.F, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.F, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
+                {
+                    ExecuteMove(cube, "F D F D D RI D R", moves);
                 }
                 else if(cubie.Item1.yColor == topColor)
                 {
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.RI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.R, moves);
+                    ExecuteMove(cube, "RI DI R D RI DI R", moves);
                 }
             }
 
@@ -175,12 +146,12 @@ namespace ConsoleApp2
                 // In Bottom layer
                 if (cubie.Item2.Y == 0)
                 {
-                    ExecuteMove(cube, CubeAction.DI, moves);
+                    ExecuteMove(cube, "DI", moves);
                 }
                 // In mid layer
                 else if (cubie.Item2.Y == 1)
                 {
-                    ExecuteMove(cube, CubeAction.EI, moves);
+                    ExecuteMove(cube, "EI", moves);
                 }
                 // In top layer
                 else
@@ -191,21 +162,15 @@ namespace ConsoleApp2
                     }
                     else if(cubie.Item2.X == 0 && cubie.Item2.Z == 1)
                     {
-                        ExecuteMove(cube, CubeAction.SI, moves);
-                        ExecuteMove(cube, CubeAction.D, moves);
-                        ExecuteMove(cube, CubeAction.S, moves);
+                        ExecuteMove(cube, "SI D S", moves);
                     }
                     else if (cubie.Item2.X == 2 && cubie.Item2.Z == 1)
                     {
-                        ExecuteMove(cube, CubeAction.S, moves);
-                        ExecuteMove(cube, CubeAction.DI, moves);
-                        ExecuteMove(cube, CubeAction.SI, moves);
+                        ExecuteMove(cube, "S DI SI", moves);
                     }
                     else
                     {
-                        ExecuteMove(cube, CubeAction.MI, moves);
-                        ExecuteMove(cube, CubeAction.DI, moves);
-                        ExecuteMove(cube, CubeAction.M, moves);
+                        ExecuteMove(cube, "MI DI M", moves);
                     }
                 }
                 
@@ -218,49 +183,28 @@ namespace ConsoleApp2
                 // 2
                 if (cubie.Item2.Y == 0)
                 {
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.M, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.MI, moves);
-                    
+                    ExecuteMove(cube, "DI M D MI", moves);
                 }
                 // 4
                 else if (cubie.Item2.Y == 1)
                 {
-                    ExecuteMove(cube, CubeAction.E, moves);
-                    ExecuteMove(cube, CubeAction.FI, moves);
-                    ExecuteMove(cube, CubeAction.EI, moves);
-                    ExecuteMove(cube, CubeAction.EI, moves);
-                    ExecuteMove(cube, CubeAction.F, moves);
+                    ExecuteMove(cube, "E FI EI EI F", moves);
                 }
                 // 5
                 else
                 {
-                    ExecuteMove(cube, CubeAction.M, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.MI, moves);
-                    ExecuteMove(cube, CubeAction.DI, moves);
-                    ExecuteMove(cube, CubeAction.M, moves);
-                    ExecuteMove(cube, CubeAction.D, moves);
-                    ExecuteMove(cube, CubeAction.MI, moves);
+                    ExecuteMove(cube, "M DI DI MI DI M D MI", moves);
                 }
             }
             // 1
             else if (cubie.Item1.zColor == topColor)
             {
-                ExecuteMove(cube, CubeAction.M, moves);
-                ExecuteMove(cube, CubeAction.DI, moves);
-                ExecuteMove(cube, CubeAction.DI, moves);
-                ExecuteMove(cube, CubeAction.MI, moves);
+                ExecuteMove(cube, "M DI DI MI", moves);
             }
             // 3
             else
             {
-                ExecuteMove(cube, CubeAction.E, moves);
-                ExecuteMove(cube, CubeAction.F, moves);
-                ExecuteMove(cube, CubeAction.EI, moves);
-                ExecuteMove(cube, CubeAction.FI, moves);
+                ExecuteMove(cube, "E F EI FI", moves);
             }
 
             return moves;
@@ -283,6 +227,20 @@ namespace ConsoleApp2
             Move move = new Move(action, cube.FaceColor(CubeSide.Front), cube.FaceColor(CubeSide.Top));
             cube.ExecuteMove(move);
             moves.Add(move);
+        }
+
+        private static void ExecuteMove(RubikCube cube, String actionString, List<Move> moves)
+        {
+            string[] actionStrings = actionString.Split(' ');
+            foreach(String s in actionStrings)
+            {
+                ExecuteMove(cube, StringToCubeAction(s), moves);
+            }
+        }
+
+        private static CubeAction StringToCubeAction(String s)
+        {
+            return (CubeAction)Enum.Parse(typeof(CubeAction), s);
         }
         
     }
