@@ -17,10 +17,10 @@ namespace ConsoleApp2
             List<Move> moves = Solver.Solve(cube);
             Console.WriteLine(cube);
             Console.WriteLine("\nTotal number of moves: " + moves.Count + "\n");
-           /* foreach(Move move in moves)
+            foreach(Move move in moves)
             {
                 Console.WriteLine(move);
-            }*/
+            }
             Console.ReadKey();
         }
         
