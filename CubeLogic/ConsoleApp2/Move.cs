@@ -27,6 +27,9 @@ namespace ConsoleApp2
         Z, ZI
     }
 
+    /// <summary>
+    /// Represents a move performed on the cube.
+    /// </summary>
     public class Move
     {
         public CubeAction Action;
@@ -40,6 +43,12 @@ namespace ConsoleApp2
             this.TopColor = topColor;
         }
 
+        /// <summary>
+        /// Trims a list of moves by replacing sequencees of three equal moves
+        /// with the corresponding inverse.
+        /// </summary>
+        /// <param name="moves">List of moves.</param>
+        /// <returns>A trimmed version of the original list.</returns>
         public static List<Move> Trim(List<Move> moves)
         {
             List<Move> trimmed = new List<Move>();
@@ -72,6 +81,11 @@ namespace ConsoleApp2
             return trimmed;
         }
 
+        /// <summary>
+        /// Finds the inverse of every CubeAction.
+        /// </summary>
+        /// <param name="move">Move to be inverted.</param>
+        /// <returns>A move with the inverted CubeAction.</returns>
         public static Move InvertedMove(Move move)
         {
             switch(move.Action)
