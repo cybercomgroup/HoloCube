@@ -5,6 +5,12 @@ namespace ConsoleApp2
 {
     public class Solver
     {
+        /// <summary>
+        /// Tries to solve the cube. Returns a list of
+        /// moves required for the solution.
+        /// </summary>
+        /// <param name="cube">The Rubik'scube object.</param>
+        /// <returns>List of all moves for the solution.</returns>
         public static List<Move> Solve(RubikCube cube)
         {
             List<Move> moves = new List<Move>();
@@ -274,7 +280,7 @@ namespace ConsoleApp2
 
         private static void ExecuteMove(RubikCube cube, CubeAction action, List<Move> moves)
         {
-            Move move = new Move(action);
+            Move move = new Move(action, cube.FaceColor(CubeSide.Front), cube.FaceColor(CubeSide.Top));
             cube.ExecuteMove(move);
             moves.Add(move);
         }

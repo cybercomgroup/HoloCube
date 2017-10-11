@@ -7,11 +7,15 @@ namespace ConsoleApp2
 
 
 {
+    /// <summary>
+    ///  Helper class for positions in the cube matrix.
+    /// </summary>
     public class CubePos
     {
         public int X;
         public int Y;
         public int Z;
+
         public CubePos(int x, int y, int z)
         {
             this.X = x;
@@ -19,17 +23,30 @@ namespace ConsoleApp2
             this.Z = z;
         }
 
+        /// <summary>
+        /// Determines whether two positions are equal.
+        /// </summary>
+        /// <param name="p1">First position-</param>
+        /// <param name="p2">Second position.</param>
+        /// <returns>True if equal, else false.</returns>
         public static bool EqualPos(CubePos p1, CubePos p2)
         {
             return p1.X == p2.X && p1.Y == p2.Y && p1.Z == p2.Z;
         }
     }
 
+    /// <summary>
+    /// Representation of all six cube sides.
+    /// </summary>
     public enum CubeSide
     {
         Back, Top, Front, Left, Right, Bottom
     }
 
+    /// <summary>
+    /// A representation of a Rubik's cube.
+    /// Contains methods for manipulating the cube using rotations.
+    /// </summary>
     public class RubikCube
     {
         private Dictionary<CubeAction, Action> moveMap = new Dictionary<CubeAction, Action>();
@@ -68,7 +85,6 @@ namespace ConsoleApp2
             moveMap.Add(CubeAction.YI,  () => RotateY(true));
             moveMap.Add(CubeAction.Z,   () => RotateZ(false));
             moveMap.Add(CubeAction.ZI,  () => RotateZ(true));
-
 
             // Corners
             cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
@@ -109,13 +125,16 @@ namespace ConsoleApp2
             cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);
         }
 
-        int Mod(int x, int m)
+        // Mod method to handle negative cases for mod.
+        private int Mod(int x, int m)
         {
             return (x % m + m) % m;
         }
 
-        // TODO:    Use matrix data type to represent the cubie matrix.
-        //          Use matrix rotation to turn the cube.
+        /// <summary>
+        /// Rotates the entire cube around the x-axis-
+        /// </summary>
+        /// <param name="inverse">True if counterclockwise.</param>
         public void RotateX(bool inverse)
         {
             for(int i=0;i<3;i++)
@@ -124,6 +143,10 @@ namespace ConsoleApp2
             }
         }
 
+        /// <summary>
+        /// Rotates the entire cube around the y-axis-
+        /// </summary>
+        /// <param name="inverse">True if counterclockwise.</param>
         public void RotateY(bool inverse)
         {
             for (int i = 0; i < 3; i++)
@@ -132,6 +155,10 @@ namespace ConsoleApp2
             }
         }
 
+        /// <summary>
+        /// Rotates the entire cube around the z-axis-
+        /// </summary>
+        /// <param name="inverse">True if counterclockwise.</param>
         public void RotateZ(bool inverse)
         {
             for (int i = 0; i < 3; i++)
@@ -140,15 +167,20 @@ namespace ConsoleApp2
             }
         }
 
+        /// <summary>
+        /// Invokes the corresponding rotation method to the given
+        /// CubeAction.
+        /// </summary>
+        /// <param name="action">Action to be exectued.</param>
         public void Rotate(CubeAction action)
         {
             moveMap[action].Invoke();
         }
 
         /// <summary>
-        /// Horizontal rotation of the cube.
+        /// Rotation of one block around the y-axis.
         /// </summary>
-        /// <param name="y">Cube layer.</param>
+        /// <param name="y">Cube layer determined by y-value.</param>
         /// <param name="inverse">True if counterclockwise.</param>
         public void RotateXZ(int y, bool inverse)
         {
@@ -183,6 +215,11 @@ namespace ConsoleApp2
                     
         }
 
+        /// <summary>
+        /// Rotation of one block around the x-axis.
+        /// </summary>
+        /// <param name="x">Cube layer determined by x-value.</param>
+        /// <param name="inverse">True if counterclockwise.</param>
         public void RotateYZ(int x, bool inverse)
         {
             List<Tuple<int, int, int, Cubie>> layer = new List<Tuple<int, int, int, Cubie>>();
@@ -216,6 +253,11 @@ namespace ConsoleApp2
                     
         }
 
+        /// <summary>
+        /// Rotation of one block around the z-axis.
+        /// </summary>
+        /// <param name="z">Cube layer determined by z-value.</param>
+        /// <param name="inverse">True if counterclockwise.</param>
         public void RotateXY(int z, bool inverse)
         {
             List<Tuple<int, int, int, Cubie>> layer = new List<Tuple<int, int, int, Cubie>>();
@@ -249,14 +291,25 @@ namespace ConsoleApp2
 
         }
 
+        /// <summary>
+        /// Finds the color of a cubic on a specified side.
+        /// </summary>
+        /// <param name="pos">Matrix position of the cubie.</param>
+        /// <param name="vec">Cube side in [0..2]. </param>
+        /// <returns>Color on the specified position.</returns>
         public CubeColor GetCubicColor(CubePos pos, int vec)
         {
             Cubie cubie = cubies[pos.X, pos.Y, pos.Z];
             if (vec == 0) return cubie.xColor;
-            else if (vec == 0) return cubie.yColor;
+            else if (vec == 1) return cubie.yColor;
             else return cubie.yColor;
         }
 
+        /// <summary>
+        /// Finds the current face color of a given cube side.
+        /// </summary>
+        /// <param name="side">Side of the cube.</param>
+        /// <returns>Face color of the given side.</returns>
         public CubeColor FaceColor(CubeSide side)
         {
             switch(side)
@@ -329,7 +382,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[0, 2 - i, 2 - j];
+                    Cubie p = cubies[0, j, 2 - i];
                     s += p != null ? Cubie.ColorToString(p.yColor) + " " : "X ";
                 }
 
@@ -342,7 +395,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[2, 2 - i, j];
+                    Cubie p = cubies[2, 2 - j, 2 - j];
                     s += p != null ? Cubie.ColorToString(p.yColor) + " " : "X ";
                 }
 
@@ -366,21 +419,43 @@ namespace ConsoleApp2
      
         }
 
+        /// <summary>
+        /// Executes a given move by invoking the corresponding method.
+        /// </summary>
+        /// <param name="move">Move to be executed.</param>
         public void ExecuteMove(Move move)
         {
             moveMap[move.Action].Invoke();
         }
 
+        /// <summary>
+        /// Finds the face-cubie matching the given color.
+        /// </summary>
+        /// <param name="c1">Face color.</param>
+        /// <returns>Tuple of the cubie and its position in the matrix.</returns>
         public Tuple<Cubie, CubePos> FindFace(CubeColor c1)
         {
             return FindCorner(c1, CubeColor.Empty, CubeColor.Empty);
         }
 
+        /// <summary>
+        /// Finds the edge-cubie matching the given colors.
+        /// </summary>
+        /// <param name="c1">First color.</param>
+        /// <param name="c2">Second color.</param>
+        /// <returns>Tuple of the cubie and its position in the matrix.</returns>
         public Tuple<Cubie, CubePos> FindEdge(CubeColor c1, CubeColor c2)
         {
             return FindCorner(c1, c2, CubeColor.Empty);
         }
 
+        /// <summary>
+        /// Finds the corner-cubie matching the given colors.
+        /// </summary>
+        /// <param name="c1">First color.</param>
+        /// <param name="c2">Second color.</param>
+        /// <param name="c3">Third color.</param>
+        /// <returns>Tuple of the cubie and its position in the matrix.</returns>
         public Tuple<Cubie, CubePos> FindCorner(CubeColor c1, CubeColor c2, CubeColor c3)
         {
             for(int i = 0; i < 3; i++)
@@ -401,10 +476,23 @@ namespace ConsoleApp2
             return null;
         }
 
+        
+        /// <summary>
+        /// Scrambles the cube using 50 randomly generated moves.
+        /// </summary>
         public void Scramble()
         {
+            Scramble(50);
+        }
+
+        /// <summary>
+        /// Scrambles the cube using a given number of randomly generated moves.
+        /// </summary>
+        /// <param name="iterations">Number of random moves.</param>
+        public void Scramble(int iterations)
+        {
             Random random = new Random();
-            for(int i=0; i<50; i++)
+            for (int i = 0; i < iterations; i++)
             {
                 Array values = Enum.GetValues(typeof(CubeAction));
                 CubeAction randomBar = (CubeAction)values.GetValue(random.Next(values.Length));
