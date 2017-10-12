@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Color;
 using ColorMine.ColorSpaces;
 using UnityEngine;
 
-namespace Color
+namespace ColorThings
 {
     public class ColorDetection
     {

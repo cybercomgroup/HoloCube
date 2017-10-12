@@ -1,4 +1,4 @@
-﻿namespace Color
+﻿namespace ColorThings
 {
     public class ColorRange
     {
