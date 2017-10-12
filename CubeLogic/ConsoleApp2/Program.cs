@@ -8,6 +8,8 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Solve();
+          
+            
         }
 
         private static void Solve()

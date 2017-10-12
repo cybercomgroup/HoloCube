@@ -23,6 +23,11 @@ namespace ConsoleApp2
             this.zColor = zColor;
         }
 
+        public Cubie()
+        {
+            
+        }
+
         public void RotateHorizontal()
         {
             CubeColor temp = xColor;
@@ -90,6 +95,11 @@ namespace ConsoleApp2
             hashCode = hashCode * -1521134295 + yColor.GetHashCode();
             hashCode = hashCode * -1521134295 + zColor.GetHashCode();
             return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return xColor + " " + yColor + " " + zColor;
         }
     }
 
