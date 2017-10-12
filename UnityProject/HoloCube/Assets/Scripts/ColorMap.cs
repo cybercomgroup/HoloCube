@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Color;
 using ColorMine.ColorSpaces;
 using ColorThings;
 #if UNITY_EDITOR
