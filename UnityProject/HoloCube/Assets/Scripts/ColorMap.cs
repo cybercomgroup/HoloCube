@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Color;
 using ColorMine.ColorSpaces;
-using OpenCVForUnityExample.ColorDetection;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

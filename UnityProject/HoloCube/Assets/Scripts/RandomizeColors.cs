@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Backend;
-using NUnit.Framework;
-using OpenCVForUnityExample.ColorDetection;
+using Color;
 using UnityEngine;
 
 public class RandomizeColors : MonoBehaviour

@@ -1,5 +1,5 @@
 ﻿using Backend;
-using OpenCVForUnityExample.ColorDetection;
+using Color;
 using UnityEngine;
 
 public class ScanedFace : MonoBehaviour

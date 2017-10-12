@@ -4,7 +4,7 @@ using System.Linq;
 using ColorMine.ColorSpaces;
 using UnityEngine;
 
-namespace OpenCVForUnityExample.ColorDetection
+namespace Color
 {
     public class ColorDetection
     {
@@ -29,17 +29,17 @@ namespace OpenCVForUnityExample.ColorDetection
             Green = new ColorRange(80, 180);
         }
         
-        public static Color UnityColorFromEnum(RubicColors c)
+        public static UnityEngine.Color UnityColorFromEnum(RubicColors c)
         {
             switch (c)
             {
-                case RubicColors.White: return Color.white;
-                case RubicColors.Red: return Color.red;
-                case RubicColors.Green: return Color.green;
-                case RubicColors.Blue: return Color.blue;
-                case RubicColors.Yellow: return Color.yellow;
-                case RubicColors.Orange: return new Color(1f, 0.39f, 0f);
-                case RubicColors.Black: return Color.black;
+                case RubicColors.White: return UnityEngine.Color.white;
+                case RubicColors.Red: return UnityEngine.Color.red;
+                case RubicColors.Green: return UnityEngine.Color.green;
+                case RubicColors.Blue: return UnityEngine.Color.blue;
+                case RubicColors.Yellow: return UnityEngine.Color.yellow;
+                case RubicColors.Orange: return new UnityEngine.Color(1f, 0.39f, 0f);
+                case RubicColors.Black: return UnityEngine.Color.black;
                 default:
                     throw new ArgumentOutOfRangeException("c", c, null);
             }

@@ -1,4 +1,4 @@
-﻿namespace OpenCVForUnityExample.ColorDetection
+﻿namespace Color
 {
     public enum RubicColors
     {

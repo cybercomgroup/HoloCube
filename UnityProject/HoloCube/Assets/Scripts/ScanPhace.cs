@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Color;
 using OpenCVForUnity;
-using OpenCVForUnityExample.ColorDetection;
 using UnityEngine;
 
 public class ScanPhace : MonoBehaviour
