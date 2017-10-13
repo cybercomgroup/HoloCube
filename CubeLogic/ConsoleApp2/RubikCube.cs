@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace ConsoleApp2
@@ -35,6 +36,10 @@ namespace ConsoleApp2
         private Dictionary<CubeAction, Action> moveMap = new Dictionary<CubeAction, Action>();
         private Cubie[,,] cubies = new Cubie[3,3,3];
 
+       public Cubie[,,] Cubies => cubies;
+
+        
+        
         
         
         public RubikCube()
