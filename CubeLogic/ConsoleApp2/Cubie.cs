@@ -7,7 +7,7 @@ namespace ConsoleApp2
 {
     public enum CubeColor
     {
-        White, Green, Yellow, Orange, Blue, Red, Empty
+        White = 0, Green = 1 , Yellow = 2, Orange = 3, Blue = 4, Red = 5, Empty = 6
     }
 
     public class Cubie

@@ -2,135 +2,133 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace ConsoleApp2
 {
     public class Translator
     {
-        private RubikCube testCube = new RubikCube();
-        public List<Face> ScannedSides = new List<Face>();
-        
-        
-        public Cubie[,,] translatedCubies = new Cubie[3,3,3];
+        private static List<Face> ScannedSides = new List<Face>();
+        public Dictionary<CubeSide, Face> faceDict;
+
+
+        private static void makeUpScannedSides()
+        {
+            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.Yellow));
+            ScannedSides.Add(new Face(CubeColor.Yellow, CubeColor.Blue));
+            ScannedSides.Add(new Face(CubeColor.Blue, CubeColor.White));
+            ScannedSides.Add(new Face(CubeColor.Red, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.Orange, CubeColor.Green));
+        }
 
         public Translator()
         {
-            
+            makeUpScannedSides();
+            faceDict = setSides();
+            Console.WriteLine(Print2Dmap());
+
+            Console.WriteLine();
+            // Back
         }
 
-        public void setSides()
+        public String Print2Dmap()
         {
+            var s = "";
+
+            foreach (var face in faceDict)
+            {
+                s += "\n" + face.Key + "\n";
+                s += "\n";
+                s += "X X X\n";
+                s += "X " + ColorToString(face.Value.MiddleColor) + " X" + "\n";
+                s += "X X X \n";
+            }
+
+            return s;
+        }
+
+        public static String ColorToString(CubeColor color)
+        {
+            switch (color)
+            {
+                case CubeColor.White:
+                    return "W";
+                case CubeColor.Red:
+                    return "R";
+                case CubeColor.Blue:
+                    return "B";
+                case CubeColor.Green:
+                    return "G";
+                case CubeColor.Orange:
+                    return "O";
+                case CubeColor.Yellow:
+                    return "Y";
+                case CubeColor.Empty:
+                    return "?";
+            }
+
+            return "X";
+        }
+
+
+        public Dictionary<CubeSide, Face> setSides()
+        {
+            var front = new Face();
+            var top = new Face();
+            var back = new Face();
+            var right = new Face();
+            var bot = new Face();
+            var left = new Face();
+
             for (int i = 0; i < ScannedSides.Count; i++)
             {
                 switch (ScannedSides[i].MiddleColor)
                 {
                     case CubeColor.White:
-                        var whiteSide = GetFaceByColor(CubeColor.White,ScannedSides);
+                        front = GetFaceByColor(CubeColor.White, ScannedSides);
                         break;
                     case CubeColor.Green:
-                        var greenSide = GetFaceByColor(CubeColor.Green,ScannedSides);
+                        top = GetFaceByColor(CubeColor.Green, ScannedSides);
                         break;
                     case CubeColor.Yellow:
-                        var yellowSide = GetFaceByColor(CubeColor.Yellow,ScannedSides);
+                        back = GetFaceByColor(CubeColor.Yellow, ScannedSides);
 
                         break;
                     case CubeColor.Orange:
-                        var orangeSide = GetFaceByColor(CubeColor.Orange,ScannedSides);
+                        right = GetFaceByColor(CubeColor.Orange, ScannedSides);
 
                         break;
                     case CubeColor.Blue:
-                        var blueSide = GetFaceByColor(CubeColor.Blue,ScannedSides);
+                        bot = GetFaceByColor(CubeColor.Blue, ScannedSides);
 
                         break;
                     case CubeColor.Red:
-                        var redSide = GetFaceByColor(CubeColor.Red,ScannedSides);
+                        left = GetFaceByColor(CubeColor.Red, ScannedSides);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
+
+            var dict = new Dictionary<CubeSide, Face>
+            {
+                {CubeSide.Front, front},
+                {CubeSide.Back, back},
+                {CubeSide.Bottom, bot},
+                {CubeSide.Top, top},
+                {CubeSide.Right, right},
+                {CubeSide.Left, left}
+            };
+
+            return dict;
         }
 
 
-        
         public static Face GetFaceByColor(CubeColor color, List<Face> scannedFaces)
         {
-            return scannedFaces.FirstOrDefault(f => f.MiddleColor == color);            
+            return scannedFaces.FirstOrDefault(f => f.MiddleColor == color);
         }
-
-        
-        
-      
-        
-        public void SetCubies()
-        {
-
-            var dict = new Dictionary<CubeSide,CubeColor >
-            {
-                {CubeSide.Front,CubeColor.White},
-                {CubeSide.Back,CubeColor.Yellow},
-                {CubeSide.Right,CubeColor.Red},
-                {CubeSide.Left,CubeColor.Orange},
-                {CubeSide.Top,CubeColor.Blue},
-                {CubeSide.Bottom,CubeColor.Green},
-            };
-            
-            
-            var whiteCubei = new Cubie(CubeColor.White,CubeColor.Empty,CubeColor.Empty);
-            var orange = new Cubie(CubeColor.Empty,CubeColor.Orange,CubeColor.Empty);
-            var green = new Cubie(CubeColor.Empty,CubeColor.Empty,CubeColor.Green);
-            
-
-            whiteCubei.xColor = CubeColor.White;
-            orange.yColor = CubeColor.Orange;
-            green.zColor = CubeColor.Green;
-
-            
-            Cubie middleCubie = new Cubie();
-            
-
-            var whiteFront = GetFaceByColor(CubeColor.White, ScannedSides);
-            var currentTop = GetFaceByColor(whiteFront.TopColor, ScannedSides);
-
-            
-            /*var bottomLeftFront = new Cubie(whiteFront.Colors[6],);
-                
-            var red = GetFaceByColor(CubeColor.Red, ScannedSides);
-            
-            
-            
-            var topFace = GetFaceByColor(currentFace.TopColor, ScannedSides);
-            
-            
-
-            middleCubie.xColor = currentFace.Colors[1];
-            middleCubie.yColor = topFace.Colors[5];
-            middleCubie.zColor = CubeColor.Empty;
-            */
-            
-            
-         
-            
-
-
-
-
-            
-
-
-
-
-            /*translatedCubies[1, 1, 2] = new Cubie(scannedSides, CubeColor.Empty, CubeColor.Empty);
-            translatedCubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Blue);
-            translatedCubies[1, 1, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Empty);
-            translatedCubies[0, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Empty);
-            translatedCubies[2, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
-            translatedCubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
-            */
-
-        }
-    
     }
-    
-    
 }

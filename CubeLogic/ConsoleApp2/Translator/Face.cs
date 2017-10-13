@@ -24,31 +24,18 @@ namespace ConsoleApp2
             public Face()
             {
                 Colors = new List<CubeColor>();
+                
             }
 
-           /* public List<Face> getSixHardCodedFaces()
+            public Face(CubeColor middleColor, CubeColor topColor )
             {
-                var facesList = new List<Face>();
-                var face = new Face();
+                MiddleColor = middleColor;
+                TopColor = topColor;
+            }
 
-                for (int i = 0; i < UPPER; i++)
-                {
-                    
-                }
-                face.Colors[0] = CubeColor.Yellow;
-                face.Colors[1] = CubeColor.Red;
-                face.Colors[2] = CubeColor.Blue;
-                face.Colors[3] = CubeColor.White;
-                face.Colors[4] = CubeColor.Orange;
-                face.Colors[5] = CubeColor.Red;
-                face.Colors[6] = CubeColor.Green;
-                face.Colors[7] = CubeColor.Blue;
-                face.MiddleColor = CubeColor.White;
-                face.TopColor = CubeColor.Green;
-                
-                
-                return 
-            } */
+           
+            
+            
             
         }
     
