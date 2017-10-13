@@ -41,9 +41,9 @@ namespace ConsoleApp2
             {
                 s += "\n" + face.Key + "\n";
                 s += "\n";
-                s += "X X X\n";
-                s += "X " + ColorToString(face.Value.MiddleColor) + " X" + "\n";
-                s += "X X X \n";
+               // s += "{0} {1} {2}\n", face.Value.Colors[0].ToString(), face.Value.Colors[1].ToString(), face.Value.Colors[2].ToString();
+                s += "7 " + ColorToString(face.Value.MiddleColor) + " 3" + "\n";
+                s += "6 5 4 \n";
             }
 
             return s;
