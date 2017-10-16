@@ -13,7 +13,7 @@ namespace ConsoleApp2
 
             Console.WriteLine("Before /////////////");
             Console.WriteLine(cube.ToString());
-            cube.rotateCubeToChosenColor(CubeColor.Green, CubeColor.Yellow);
+            cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Red);
 
             
             

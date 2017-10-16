@@ -298,29 +298,33 @@ namespace ConsoleApp2
 
         public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
-            var count = 0;
-
             while (FaceColor(CubeSide.Front) != front)
             {
-                if (count > 3)
-                {
-                    Console.WriteLine("Couldn't find {0} on Y-axis. Rotating  x \n");
-                    RotateX(false);
-                }
-
-                if (FaceColor(CubeSide.Front) != front && count < 3)
-                {
-                    Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
-                    RotateY(true);
-                    Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
-
-                    count++;
-                }
-
+                Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
+                RotateY(true);
+                Console.WriteLine("Rotated Y Counter Clockwise");
                 if (FaceColor(CubeSide.Front) == front)
                 {
                     Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
+                    break;
+                    
                 }
+                RotateX(false);
+                Console.WriteLine("Rotated X Clockwise");
+                Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
+                Console.ReadKey();
+
+            }
+            
+            
+            while (FaceColor(CubeSide.Top) != top)
+            {
+                Console.WriteLine("Topcolor is: " + FaceColor(CubeSide.Top));
+
+                Console.ReadKey();
+                
+                RotateZ(false);
+                Console.WriteLine("Rotated... TopColor is now " + FaceColor(CubeSide.Top));
             }
         }
 

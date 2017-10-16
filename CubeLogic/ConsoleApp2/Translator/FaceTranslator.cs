@@ -88,20 +88,20 @@ namespace ConsoleApp2
                     case CubeColor.White:
                         front = GetFaceByColor(CubeColor.White, ScannedSides);
                         break;
-                    case CubeColor.Green:
+                    case CubeColor.Blue:
                         top = GetFaceByColor(CubeColor.Blue, ScannedSides);
                         break;
                     case CubeColor.Yellow:
                         back = GetFaceByColor(CubeColor.Yellow, ScannedSides);
                         break;
-                    case CubeColor.Blue:
-                        bot = GetFaceByColor(CubeColor.Blue, ScannedSides);
+                    case CubeColor.Green:
+                        bot = GetFaceByColor(CubeColor.Green, ScannedSides);
                         break;
                     case CubeColor.Orange:
-                        right = GetFaceByColor(CubeColor.Orange, ScannedSides);
+                        left = GetFaceByColor(CubeColor.Orange, ScannedSides);
                         break;
                     case CubeColor.Red:
-                        left = GetFaceByColor(CubeColor.Red, ScannedSides);
+                        right = GetFaceByColor(CubeColor.Red, ScannedSides);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
