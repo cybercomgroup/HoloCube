@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -41,7 +42,12 @@ namespace ConsoleApp2
     /// </summary>
     public enum CubeSide
     {
-        Back, Top, Front, Left, Right, Bottom
+        Back,
+        Top,
+        Front,
+        Left,
+        Right,
+        Bottom
     }
 
     /// <summary>
@@ -51,85 +57,80 @@ namespace ConsoleApp2
     public class RubikCube
     {
         private Dictionary<CubeAction, Action> moveMap = new Dictionary<CubeAction, Action>();
-        private Cubie[,,] cubies = new Cubie[3,3,3];
+        private Cubie[,,] cubies = new Cubie[3, 3, 3];
 
-       public Cubie[,,] Cubies => cubies;
+        public Cubie[,,] Cubies => cubies;
 
-        
-        
-        
-        
+
         public RubikCube()
         {
             // Face
-            moveMap.Add(CubeAction.U,   () => RotateXZ(2, false));
-            moveMap.Add(CubeAction.UI,  () => RotateXZ(2, true));
-            moveMap.Add(CubeAction.L,   () => RotateYZ(0, true));
-            moveMap.Add(CubeAction.LI,  () => RotateYZ(0, false));
-            moveMap.Add(CubeAction.F,   () => RotateXY(0, false));
-            moveMap.Add(CubeAction.FI,  () => RotateXY(0, true));
-            moveMap.Add(CubeAction.R,   () => RotateYZ(2, false));
-            moveMap.Add(CubeAction.RI,  () => RotateYZ(2, true));
-            moveMap.Add(CubeAction.B,   () => RotateXY(2, true));
-            moveMap.Add(CubeAction.BI,  () => RotateXY(2, false));
-            moveMap.Add(CubeAction.D,   () => RotateXZ(0, true));
-            moveMap.Add(CubeAction.DI,  () => RotateXZ(0, false));
-            
+            moveMap.Add(CubeAction.U, () => RotateXZ(2, false));
+            moveMap.Add(CubeAction.UI, () => RotateXZ(2, true));
+            moveMap.Add(CubeAction.L, () => RotateYZ(0, true));
+            moveMap.Add(CubeAction.LI, () => RotateYZ(0, false));
+            moveMap.Add(CubeAction.F, () => RotateXY(0, false));
+            moveMap.Add(CubeAction.FI, () => RotateXY(0, true));
+            moveMap.Add(CubeAction.R, () => RotateYZ(2, false));
+            moveMap.Add(CubeAction.RI, () => RotateYZ(2, true));
+            moveMap.Add(CubeAction.B, () => RotateXY(2, true));
+            moveMap.Add(CubeAction.BI, () => RotateXY(2, false));
+            moveMap.Add(CubeAction.D, () => RotateXZ(0, true));
+            moveMap.Add(CubeAction.DI, () => RotateXZ(0, false));
+
             // Slice
-            moveMap.Add(CubeAction.E,   () => RotateXZ(1, true));
-            moveMap.Add(CubeAction.EI,  () => RotateXZ(1, false));
-            moveMap.Add(CubeAction.M,   () => RotateYZ(1, true));
-            moveMap.Add(CubeAction.MI,  () => RotateYZ(1, false));
-            moveMap.Add(CubeAction.S,   () => RotateXY(1, false));
-            moveMap.Add(CubeAction.SI,  () => RotateXY(1, true));
+            moveMap.Add(CubeAction.E, () => RotateXZ(1, true));
+            moveMap.Add(CubeAction.EI, () => RotateXZ(1, false));
+            moveMap.Add(CubeAction.M, () => RotateYZ(1, true));
+            moveMap.Add(CubeAction.MI, () => RotateYZ(1, false));
+            moveMap.Add(CubeAction.S, () => RotateXY(1, false));
+            moveMap.Add(CubeAction.SI, () => RotateXY(1, true));
 
             // Whole
-            moveMap.Add(CubeAction.X,   () => RotateX(false));
-            moveMap.Add(CubeAction.XI,  () => RotateX(true));
-            moveMap.Add(CubeAction.Y,   () => RotateY(false));
-            moveMap.Add(CubeAction.YI,  () => RotateY(true));
-            moveMap.Add(CubeAction.Z,   () => RotateZ(false));
-            moveMap.Add(CubeAction.ZI,  () => RotateZ(true));
-            
-            
-            
-         /*   // Corners
-            cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
-            cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
-            cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
-            cubies[2, 2, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Blue);
-            cubies[0, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
-            cubies[2, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
-            cubies[0, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Blue);
-            cubies[2, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Blue);
+            moveMap.Add(CubeAction.X, () => RotateX(false));
+            moveMap.Add(CubeAction.XI, () => RotateX(true));
+            moveMap.Add(CubeAction.Y, () => RotateY(false));
+            moveMap.Add(CubeAction.YI, () => RotateY(true));
+            moveMap.Add(CubeAction.Z, () => RotateZ(false));
+            moveMap.Add(CubeAction.ZI, () => RotateZ(true));
 
-            // Middle pieces
-            cubies[1, 0, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Green);
-            cubies[0, 1, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Empty);
-            cubies[2, 1, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Empty);
-            cubies[1, 2, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Blue);
-
-            cubies[0, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Green);
-            cubies[2, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Green);
-            cubies[0, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Blue);
-            cubies[2, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Blue);
-
-            cubies[1, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Green);
-            cubies[0, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Empty);
-            cubies[2, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Empty);
-            cubies[1, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Blue);
-
-
-            // Faces
-            cubies[1, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Empty);
-            cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Blue);
-            cubies[1, 1, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Empty);
-            cubies[0, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Empty);
-            cubies[2, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
-            cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
-
-            // Middle
-            cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);*/
+            /*   // Corners
+               cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
+               cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
+               cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
+               cubies[2, 2, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Blue);
+               cubies[0, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
+               cubies[2, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
+               cubies[0, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Blue);
+               cubies[2, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Blue);
+   
+               // Middle pieces
+               cubies[1, 0, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Green);
+               cubies[0, 1, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Empty);
+               cubies[2, 1, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Empty);
+               cubies[1, 2, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Blue);
+   
+               cubies[0, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Green);
+               cubies[2, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Green);
+               cubies[0, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Blue);
+               cubies[2, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Blue);
+   
+               cubies[1, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Green);
+               cubies[0, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Empty);
+               cubies[2, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Empty);
+               cubies[1, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Blue);
+   
+   
+               // Faces
+               cubies[1, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Empty);
+               cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Blue);
+               cubies[1, 1, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Empty);
+               cubies[0, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Empty);
+               cubies[2, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
+               cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
+   
+               // Middle
+               cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);*/
         }
 
         // Mod method to handle negative cases for mod.
@@ -144,7 +145,7 @@ namespace ConsoleApp2
         /// <param name="inverse">True if counterclockwise.</param>
         public void RotateX(bool inverse)
         {
-            for(int i=0;i<3;i++)
+            for (int i = 0; i < 3; i++)
             {
                 RotateYZ(i, inverse);
             }
@@ -199,27 +200,26 @@ namespace ConsoleApp2
             }
 
             layer.Add(new Tuple<int, int, int, Cubie>(2, y, 1, cubies[2, y, 1]));
-            
+
             for (int i = 0; i < 3; i++)
             {
                 layer.Add(new Tuple<int, int, int, Cubie>(2 - i, y, 0, cubies[2 - i, y, 0]));
             }
 
             layer.Add(new Tuple<int, int, int, Cubie>(0, y, 1, cubies[0, y, 1]));
-            
-            for (int i=0; i < layer.Count; i++)
+
+            for (int i = 0; i < layer.Count; i++)
             {
                 int direction = inverse ? -2 : 2;
                 Tuple<int, int, int, Cubie> next = layer[Mod((i + direction), layer.Count)];
                 Tuple<int, int, int, Cubie> piece = layer[i];
                 cubies[next.Item1, next.Item2, next.Item3] = piece.Item4;
 
-                if(piece.Item4 != null)
+                if (piece.Item4 != null)
                 {
                     piece.Item4.RotateHorizontal();
                 }
             }
-                    
         }
 
         /// <summary>
@@ -237,27 +237,26 @@ namespace ConsoleApp2
             }
 
             layer.Add(new Tuple<int, int, int, Cubie>(x, 2, 1, cubies[x, 2, 1]));
-            
+
             for (int i = 0; i < 3; i++)
             {
                 layer.Add(new Tuple<int, int, int, Cubie>(x, 2 - i, 0, cubies[x, 2 - i, 0]));
             }
 
             layer.Add(new Tuple<int, int, int, Cubie>(x, 0, 1, cubies[x, 0, 1]));
-            
-            for (int i=0; i < layer.Count; i++)
+
+            for (int i = 0; i < layer.Count; i++)
             {
                 int direction = inverse ? 2 : -2;
                 Tuple<int, int, int, Cubie> next = layer[Mod((i + direction), layer.Count)];
                 Tuple<int, int, int, Cubie> piece = layer[i];
                 cubies[next.Item1, next.Item2, next.Item3] = piece.Item4;
 
-                if(piece.Item4 != null)
+                if (piece.Item4 != null)
                 {
                     piece.Item4.RotateVertical();
                 }
             }
-                    
         }
 
         /// <summary>
@@ -295,16 +294,34 @@ namespace ConsoleApp2
                     piece.Item4.RotateZ();
                 }
             }
-
         }
-        
-        public void SetTOpAndFront(CubeColor front, CubeColor top)
+
+        public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
+            var count = 0;
+
             while (FaceColor(CubeSide.Front) != front)
             {
-                RotateY(false);
-            }            
-            
+                if (count > 3)
+                {
+                    Console.WriteLine("Couldn't find {0} on Y-axis. Rotating  x \n");
+                    RotateX(false);
+                }
+
+                if (FaceColor(CubeSide.Front) != front && count < 3)
+                {
+                    Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
+                    RotateY(true);
+                    Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
+
+                    count++;
+                }
+
+                if (FaceColor(CubeSide.Front) == front)
+                {
+                    Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
+                }
+            }
         }
 
         /// <summary>
@@ -328,7 +345,7 @@ namespace ConsoleApp2
         /// <returns>Face color of the given side.</returns>
         public CubeColor FaceColor(CubeSide side)
         {
-            switch(side)
+            switch (side)
             {
                 case CubeSide.Back:
                     return cubies[1, 1, 2].xColor;
@@ -344,7 +361,6 @@ namespace ConsoleApp2
                     return cubies[1, 0, 1].zColor;
                 default:
                     throw new Exception();
-
             }
         }
 
@@ -352,10 +368,9 @@ namespace ConsoleApp2
         {
             String s = "";
 
-
             // Back
             s += "Back\n";
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
@@ -364,7 +379,6 @@ namespace ConsoleApp2
                 }
                 s += "\n";
             }
-           
 
             // Top
             s += "\nTop\n";
@@ -398,7 +412,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[0, 2-i, 2 - j];
+                    Cubie p = cubies[0, 2 - i, 2 - j];
                     s += p != null ? Cubie.ColorToString(p.yColor) + " " : "X ";
                 }
 
@@ -424,7 +438,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[j, 0, i];//[j, 2, 2 - i];
+                    Cubie p = cubies[j, 0, i]; //[j, 2, 2 - i];
                     s += p != null ? Cubie.ColorToString(p.zColor) + " " : "X ";
                 }
 
@@ -432,8 +446,8 @@ namespace ConsoleApp2
             }
 
             return s;
-     
         }
+
 
         /// <summary>
         /// Executes a given move by invoking the corresponding method.
@@ -453,6 +467,7 @@ namespace ConsoleApp2
         {
             return FindCorner(c1, CubeColor.Empty, CubeColor.Empty);
         }
+
 
         /// <summary>
         /// Finds the edge-cubie matching the given colors.
@@ -474,16 +489,16 @@ namespace ConsoleApp2
         /// <returns>Tuple of the cubie and its position in the matrix.</returns>
         public Tuple<Cubie, CubePos> FindCorner(CubeColor c1, CubeColor c2, CubeColor c3)
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
                     for (int k = 0; k < 3; k++)
                     {
                         Cubie piece = cubies[i, j, k];
-                        if(piece.ContainsColor(c1) && piece.ContainsColor(c2) && piece.ContainsColor(c3))
+                        if (piece.ContainsColor(c1) && piece.ContainsColor(c2) && piece.ContainsColor(c3))
                         {
-                            return new Tuple<Cubie, CubePos>(piece, new CubePos(i,j,k));
+                            return new Tuple<Cubie, CubePos>(piece, new CubePos(i, j, k));
                         }
                     }
                 }
@@ -492,7 +507,7 @@ namespace ConsoleApp2
             return null;
         }
 
-        
+
         /// <summary>
         /// Scrambles the cube using 50 randomly generated moves.
         /// </summary>
@@ -511,10 +526,9 @@ namespace ConsoleApp2
             for (int i = 0; i < iterations; i++)
             {
                 Array values = Enum.GetValues(typeof(CubeAction));
-                CubeAction randomBar = (CubeAction)values.GetValue(random.Next(values.Length));
+                CubeAction randomBar = (CubeAction) values.GetValue(random.Next(values.Length));
                 (moveMap[randomBar]).Invoke();
             }
         }
     }
-
 }

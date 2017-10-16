@@ -11,19 +11,21 @@ namespace ConsoleApp2
             Translator t = new Translator();
             var cube = t.setSides();
 
-            cube.RotateX(false);
+            Console.WriteLine("Before /////////////");
+            Console.WriteLine(cube.ToString());
+            cube.rotateCubeToChosenColor(CubeColor.Green, CubeColor.Yellow);
 
-            while (cube.FaceColor(CubeSide.Front) != CubeColor.Orange)
-            {
-                cube.RotateY(false);
-            }
+            
             
             
 //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
 //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
+
+            Console.WriteLine("After /////////////");
+            
             Console.WriteLine(cube.ToString());
 
-
+            
         }
 
         private static void Solve()
