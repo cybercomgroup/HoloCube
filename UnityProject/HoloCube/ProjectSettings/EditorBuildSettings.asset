@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Instructions.unity
     guid: 5ba1c9a5c4451b54fbf88b4afcf668c0
+  - enabled: 1
+    path: Assets/_Scenes/TextToSpeechTest.unity
+    guid: 84029721498068a4e87a210433d0ee83

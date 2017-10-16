@@ -1,13 +1,14 @@
-﻿using HoloToolkit.Unity.InputModule;
+﻿using System.Collections.Generic;
+using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartSceneOnHoloClick : MonoBehaviour,IInputClickHandler
 {
-	public SceneField MySceneAssets;
+	public List<SceneField> MySceneAssets;
 
 	public void OnInputClicked(InputClickedEventData eventData)
 	{
-		SceneManager.LoadScene(MySceneAssets.SceneName);
+		SceneManager.LoadScene(MySceneAssets[0].SceneName);
 	}
 }
