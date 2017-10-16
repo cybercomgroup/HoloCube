@@ -7,7 +7,7 @@ namespace ConsoleApp2
 {
     public enum CubeColor
     {
-        White, Green, Yellow, Orange, Blue, Red, Empty
+        White = 0, Green = 1 , Yellow = 2, Orange = 3, Blue = 4, Red = 5, Empty = 6
     }
 
     public class Cubie
@@ -21,6 +21,11 @@ namespace ConsoleApp2
             this.xColor = xColor;
             this.yColor = yColor;
             this.zColor = zColor;
+        }
+
+        public Cubie()
+        {
+            
         }
 
         public void RotateHorizontal()
@@ -90,6 +95,11 @@ namespace ConsoleApp2
             hashCode = hashCode * -1521134295 + yColor.GetHashCode();
             hashCode = hashCode * -1521134295 + zColor.GetHashCode();
             return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return xColor + " " + yColor + " " + zColor;
         }
     }
 

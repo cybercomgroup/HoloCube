@@ -7,7 +7,12 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Solve();
+            //Solve();
+
+            Translator t = new Translator();
+           
+
+
         }
 
         private static void Solve()

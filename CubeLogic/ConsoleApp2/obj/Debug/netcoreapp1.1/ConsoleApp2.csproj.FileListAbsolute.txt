@@ -18,3 +18,13 @@ C:\Users\johag2\Documents\HoloCube2\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\net
 C:\Users\johag2\Documents\HoloCube2\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.AssemblyInfo.cs
 C:\Users\johag2\Documents\HoloCube2\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.dll
 C:\Users\johag2\Documents\HoloCube2\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.pdb
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\bin\Debug\netcoreapp1.1\ConsoleApp2.deps.json
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\bin\Debug\netcoreapp1.1\ConsoleApp2.runtimeconfig.json
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\bin\Debug\netcoreapp1.1\ConsoleApp2.runtimeconfig.dev.json
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.csprojResolveAssemblyReference.cache
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.AssemblyInfo.cs
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.dll
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\obj\Debug\netcoreapp1.1\ConsoleApp2.pdb
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\bin\Debug\netcoreapp1.1\ConsoleApp2.dll
+C:\Users\sirie1\Documents\Github Projects\Cybercom\HoloCube\CubeLogic\ConsoleApp2\bin\Debug\netcoreapp1.1\ConsoleApp2.pdb
