@@ -5,6 +5,9 @@ using System.Text;
 namespace ConsoleApp2
 {
 
+    /// <summary>
+    /// All possible cube rotations.
+    /// </summary>
     public enum CubeAction
     {
         // Face rotations
@@ -24,15 +27,28 @@ namespace ConsoleApp2
         Z, ZI
     }
 
+    /// <summary>
+    /// Represents a move performed on the cube.
+    /// </summary>
     public class Move
     {
         public CubeAction Action;
+        public CubeColor FrontColor;
+        public CubeColor TopColor;
 
-        public Move(CubeAction action)
+        public Move(CubeAction action, CubeColor frontColor, CubeColor topColor)
         {
             this.Action = action;
+            this.FrontColor = frontColor;
+            this.TopColor = topColor;
         }
 
+        /// <summary>
+        /// Trims a list of moves by replacing sequencees of three equal moves
+        /// with the corresponding inverse.
+        /// </summary>
+        /// <param name="moves">List of moves.</param>
+        /// <returns>A trimmed version of the original list.</returns>
         public static List<Move> Trim(List<Move> moves)
         {
             List<Move> trimmed = new List<Move>();
@@ -65,67 +81,27 @@ namespace ConsoleApp2
             return trimmed;
         }
 
+        /// <summary>
+        /// Finds the inverse of every CubeAction.
+        /// </summary>
+        /// <param name="move">Move to be inverted.</param>
+        /// <returns>A move with the inverted CubeAction.</returns>
         public static Move InvertedMove(Move move)
         {
-            switch(move.Action)
+            string ms = move.ToString();
+            if(ms.Length == 1)
             {
-                case CubeAction.U:
-                    return new Move(CubeAction.UI);
-                case CubeAction.UI:
-                    return new Move(CubeAction.U);
-                case CubeAction.L:
-                    return new Move(CubeAction.LI);
-                case CubeAction.LI:
-                    return new Move(CubeAction.L);
-                case CubeAction.F:
-                    return new Move(CubeAction.FI);
-                case CubeAction.FI:
-                    return new Move(CubeAction.F);
-                case CubeAction.R:
-                    return new Move(CubeAction.RI);
-                case CubeAction.RI:
-                    return new Move(CubeAction.R);
-                case CubeAction.B:
-                    return new Move(CubeAction.BI);
-                case CubeAction.BI:
-                    return new Move(CubeAction.B);
-                case CubeAction.D:
-                    return new Move(CubeAction.DI);
-                case CubeAction.DI:
-                    return new Move(CubeAction.D);
-                case CubeAction.M:
-                    return new Move(CubeAction.MI);
-                case CubeAction.MI:
-                    return new Move(CubeAction.M);
-                case CubeAction.E:
-                    return new Move(CubeAction.EI);
-                case CubeAction.EI:
-                    return new Move(CubeAction.E);
-                case CubeAction.S:
-                    return new Move(CubeAction.SI);
-                case CubeAction.SI:
-                    return new Move(CubeAction.S);
-                case CubeAction.X:
-                    return new Move(CubeAction.XI);
-                case CubeAction.XI:
-                    return new Move(CubeAction.X);
-                case CubeAction.Y:
-                    return new Move(CubeAction.YI);
-                case CubeAction.YI:
-                    return new Move(CubeAction.Y);
-                case CubeAction.Z:
-                    return new Move(CubeAction.ZI);
-                case CubeAction.ZI:
-                    return new Move(CubeAction.Z);
-                default:
-                    return null;
+                return new Move((CubeAction)Enum.Parse(typeof(CubeAction), ms + 'I'), move.FrontColor, move.TopColor);
             }
-
+            else
+            {
+                return new Move((CubeAction)Enum.Parse(typeof(CubeAction), ms.Substring(0,1)), move.FrontColor, move.TopColor);
+            }
         }
 
         public override String ToString()
         {
-            return Action.ToString() + " 90 degrees.";
+            return "With " + TopColor + " on top and " + FrontColor + " in front, " + Action.ToString() + " 90 degrees.";
         }
         
     }
