@@ -90,8 +90,10 @@ namespace ConsoleApp2
             moveMap.Add(CubeAction.YI,  () => RotateY(true));
             moveMap.Add(CubeAction.Z,   () => RotateZ(false));
             moveMap.Add(CubeAction.ZI,  () => RotateZ(true));
-
-            // Corners
+            
+            
+            
+         /*   // Corners
             cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
             cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
             cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
@@ -127,7 +129,7 @@ namespace ConsoleApp2
             cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
 
             // Middle
-            cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);
+            cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);*/
         }
 
         // Mod method to handle negative cases for mod.
@@ -295,6 +297,15 @@ namespace ConsoleApp2
             }
 
         }
+        
+        public void SetTOpAndFront(CubeColor front, CubeColor top)
+        {
+            while (FaceColor(CubeSide.Front) != front)
+            {
+                RotateY(false);
+            }            
+            
+        }
 
         /// <summary>
         /// Finds the color of a cubic on a specified side.
@@ -387,7 +398,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[0, j, 2 - i];
+                    Cubie p = cubies[0, 2-i, 2 - j];
                     s += p != null ? Cubie.ColorToString(p.yColor) + " " : "X ";
                 }
 
@@ -400,7 +411,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[2, 2 - j, 2 - j];
+                    Cubie p = cubies[2, 2 - i, j];
                     s += p != null ? Cubie.ColorToString(p.yColor) + " " : "X ";
                 }
 
@@ -413,7 +424,7 @@ namespace ConsoleApp2
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Cubie p = cubies[j, 0, i];
+                    Cubie p = cubies[j, 0, i];//[j, 2, 2 - i];
                     s += p != null ? Cubie.ColorToString(p.zColor) + " " : "X ";
                 }
 

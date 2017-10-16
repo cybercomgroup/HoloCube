@@ -228,6 +228,8 @@ namespace ConsoleApp2
             cube.ExecuteMove(move);
             moves.Add(move);
         }
+        
+       
 
         private static void ExecuteMove(RubikCube cube, String actionString, List<Move> moves)
         {

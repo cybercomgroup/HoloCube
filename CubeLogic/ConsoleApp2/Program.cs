@@ -7,10 +7,21 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            //Solve();
-
+//            Solve();
             Translator t = new Translator();
-           
+            var cube = t.setSides();
+
+            cube.RotateX(false);
+
+            while (cube.FaceColor(CubeSide.Front) != CubeColor.Orange)
+            {
+                cube.RotateY(false);
+            }
+            
+            
+//            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
+//            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
+            Console.WriteLine(cube.ToString());
 
 
         }
@@ -18,6 +29,7 @@ namespace ConsoleApp2
         private static void Solve()
         {
             RubikCube cube = new RubikCube();
+           
             cube.Scramble();
             List<Move> moves = Solver.Solve(cube);
             Console.WriteLine(cube);
