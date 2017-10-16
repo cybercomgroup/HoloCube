@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -298,6 +301,26 @@ namespace ConsoleApp2
 
         public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
+            var colorCombo = new Tuple<CubeColor, CubeColor>(front, top);
+                        
+            List<Tuple<CubeColor, CubeColor>> forbiddenCombinations = new List<Tuple<CubeColor, CubeColor>>();
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.White, CubeColor.Yellow));
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.Yellow, CubeColor.White));
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.Green, CubeColor.Blue));
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.Blue, CubeColor.Green));
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.Red, CubeColor.Orange));
+            forbiddenCombinations.Add(Tuple.Create(CubeColor.Orange, CubeColor.Red));
+
+            for (int i = 0; i < forbiddenCombinations.Count; i++)
+            {  
+                if (forbiddenCombinations.Contains(colorCombo))
+                {
+                    Console.WriteLine("Error!");
+                }
+                
+            }
+         
+            
             while (FaceColor(CubeSide.Front) != front)
             {
                 Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
