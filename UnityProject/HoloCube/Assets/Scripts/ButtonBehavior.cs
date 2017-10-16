@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class ButtonBehavior : MonoBehaviour, IInputClickHandler
 {
-	private bool hasBeenTriggerd;
+	private bool _hasBeenTriggerd;
 
 	
 	public void OnInputClicked(InputClickedEventData eventData)
 	{
-		hasBeenTriggerd= true;
+		_hasBeenTriggerd= true;
 	}
 	
 	
 	public bool HasBeenTriggered()
 	{
-		var toReturn = hasBeenTriggerd;
-		hasBeenTriggerd = false;
+		var toReturn = _hasBeenTriggerd;
+		_hasBeenTriggerd = false;
 		return toReturn;
 	}
 	
