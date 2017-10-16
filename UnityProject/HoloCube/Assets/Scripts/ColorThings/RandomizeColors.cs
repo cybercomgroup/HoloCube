@@ -39,26 +39,24 @@ public class RandomizeColors : MonoBehaviour
             });
         }
 
-        var shader = Shader.Find("Unlit/Color");
 
         for (int i = 0; i < 6; i++)
         {
             var obj = transform.Find("Face" + i);
             var middle = obj.transform.Find("Middle");
 
-            SetColor(middle,faces[i].MiddleColor,shader);
+            SetColor(middle,faces[i].MiddleColor);
             for (int j = 0; j < 8; j++)
             {
                 var pice = obj.transform.Find("Cube" + j);
-                SetColor(pice,faces[i].Colors[j],shader);
+                SetColor(pice,faces[i].Colors[j]);
             }
         }
     }
     
-    private void SetColor(Transform trans,RubicColors c,Shader shader )
+    private void SetColor(Transform trans,RubicColors c)
     {
         var material = trans.GetComponent<Renderer>().material;
-        material.shader = shader;
         material.color = ColorDetection.UnityColorFromEnum(c);
     }
 

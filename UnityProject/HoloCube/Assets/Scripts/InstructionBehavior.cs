@@ -28,10 +28,6 @@ public class InstructionBehavior : MonoBehaviour
 		}
 	}
 
-	private void Start()
-	{
-		FacingColor.material.shader = Shader.Find("Unlit/Color");
-	}
 
 	private void Update()
 	{
