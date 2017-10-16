@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ColorThings;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InstructionBehavior : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InstructionBehavior : MonoBehaviour
 	public TextMesh TextMesh;
 	public MeshRenderer FacingColor;
 	public SpriteRenderer Arrow;
+	public SceneField NextScene;
 
 	private int _index;
 	public List<object> ListOfMoves{ get; set; }
@@ -26,10 +28,6 @@ public class InstructionBehavior : MonoBehaviour
 		}
 	}
 
-	private void Start()
-	{
-		FacingColor.material.shader = Shader.Find("Unlit/Color");
-	}
 
 	private void Update()
 	{
@@ -42,6 +40,13 @@ public class InstructionBehavior : MonoBehaviour
 
 	public void NextMove()
 	{
+
+		if (_index == ListOfMoves.Count)
+		{
+			SceneManager.LoadScene(NextScene.SceneName);
+			return;
+		}
+		
 		var move = ListOfMoves[_index++];
 //		SetNewInstruction();
 	}
