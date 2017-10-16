@@ -30,8 +30,16 @@ public class InstructionBehavior : MonoBehaviour
 	{
 		FacingColor.material.shader = Shader.Find("Unlit/Color");
 	}
-	
-	
+
+	private void Update()
+	{
+		if(Input.GetKeyUp("space"))
+		{
+			NextMove();
+		}
+	}
+
+
 	public void NextMove()
 	{
 		var move = ListOfMoves[_index++];
