@@ -302,7 +302,7 @@ namespace ConsoleApp2
         public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
             var colorCombo = new Tuple<CubeColor, CubeColor>(front, top);
-                        
+
             List<Tuple<CubeColor, CubeColor>> forbiddenCombinations = new List<Tuple<CubeColor, CubeColor>>();
             forbiddenCombinations.Add(Tuple.Create(CubeColor.White, CubeColor.Yellow));
             forbiddenCombinations.Add(Tuple.Create(CubeColor.Yellow, CubeColor.White));
@@ -312,15 +312,13 @@ namespace ConsoleApp2
             forbiddenCombinations.Add(Tuple.Create(CubeColor.Orange, CubeColor.Red));
 
             for (int i = 0; i < forbiddenCombinations.Count; i++)
-            {  
-                if (forbiddenCombinations.Contains(colorCombo))
+            {
+                if (forbiddenCombinations[i].Equals(colorCombo))
                 {
-                    Console.WriteLine("Error!");
+                    throw new ArgumentException("Colorcombination is invalid: Color1: " + colorCombo.Item1 + " Color2: " + colorCombo.Item2, "colorCombo");
                 }
-                
             }
-         
-            
+
             while (FaceColor(CubeSide.Front) != front)
             {
                 Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
@@ -330,22 +328,16 @@ namespace ConsoleApp2
                 {
                     Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
                     break;
-                    
                 }
                 RotateX(false);
                 Console.WriteLine("Rotated X Clockwise");
                 Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
-                Console.ReadKey();
-
             }
-            
-            
+
             while (FaceColor(CubeSide.Top) != top)
             {
                 Console.WriteLine("Topcolor is: " + FaceColor(CubeSide.Top));
 
-                Console.ReadKey();
-                
                 RotateZ(false);
                 Console.WriteLine("Rotated... TopColor is now " + FaceColor(CubeSide.Top));
             }
