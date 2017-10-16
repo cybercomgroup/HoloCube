@@ -7037,22 +7037,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\johag2\\.nuget\\packages\\": {}
+    "C:\\Users\\sirie1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\johag2\\Documents\\HoloCube2\\HoloCube\\CubeLogic\\ConsoleApp2\\ConsoleApp2.csproj",
+      "projectUniqueName": "C:\\Users\\sirie1\\Documents\\Github Projects\\Cybercom\\HoloCube\\CubeLogic\\ConsoleApp2\\ConsoleApp2.csproj",
       "projectName": "ConsoleApp2",
-      "projectPath": "C:\\Users\\johag2\\Documents\\HoloCube2\\HoloCube\\CubeLogic\\ConsoleApp2\\ConsoleApp2.csproj",
-      "packagesPath": "C:\\Users\\johag2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johag2\\Documents\\HoloCube2\\HoloCube\\CubeLogic\\ConsoleApp2\\obj\\",
+      "projectPath": "C:\\Users\\sirie1\\Documents\\Github Projects\\Cybercom\\HoloCube\\CubeLogic\\ConsoleApp2\\ConsoleApp2.csproj",
+      "packagesPath": "C:\\Users\\sirie1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sirie1\\Documents\\Github Projects\\Cybercom\\HoloCube\\CubeLogic\\ConsoleApp2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\johag2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sirie1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7073,8 +7070,7 @@
         "dependencies": {
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "1.1.2",
-            "autoReferenced": true
+            "version": "1.1.2"
           }
         }
       }
