@@ -8,32 +8,49 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
 //            Solve();
-            Translator t = new Translator();
-            var cube = t.setSides();
-
-            Console.WriteLine("Before /////////////");
-            Console.WriteLine(cube.ToString());
-            try
+        /*    Translator t = new Translator();
+            var cube = t.setSides();*/
+            var face = new Face();
+            face.Colors = new List<CubeColor>
             {
-                cube.rotateCubeToChosenColor(CubeColor.Orange, CubeColor.White);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return;
-            }
+                CubeColor.Orange,
+                CubeColor.Yellow,
+                CubeColor.Red,
+                CubeColor.Orange,
+                CubeColor.Blue,
+                CubeColor.Green,
+                CubeColor.Orange,
+                CubeColor.Red,
+            };
+            
+            face.RotateColors(3);
+           
+            
 
-            
-            
-            
-//            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
-//            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
 
-            Console.WriteLine("After /////////////");
-            
-            Console.WriteLine(cube.ToString());
+            /* Console.WriteLine("Before /////////////");
+             Console.WriteLine(cube.ToString());
+             try
+             {
+                 cube.rotateCubeToChosenColor(CubeColor.Orange, CubeColor.White);
+             }
+             catch (Exception e)
+             {
+                 Console.WriteLine(e);
+                 return;
+             }
+ 
+             
+             
+             
+ //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
+ //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
+ 
+             Console.WriteLine("After /////////////");
+             
+             Console.WriteLine(cube.ToString());
+ */
 
-            
         }
 
         private static void Solve()

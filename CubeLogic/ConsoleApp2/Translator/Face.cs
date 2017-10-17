@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -33,6 +34,21 @@ namespace ConsoleApp2
         
         public void RotateColors(int nr)
         {
+            
+            
+            for (int j = 0; j < nr; j++)
+            {
+                var temp = Colors.ToArray();
+            
+                for (int i = 0; i < Colors.Count; i++)
+                {
+                    // [Mod(i + 2 //*nr// , Colors.Count)];
+                    
+                    temp[i] = Colors[Mod(i + 2, Colors.Count)];
+                }
+
+                Colors = new List<CubeColor>(temp);
+            }
             
         }
         
