@@ -311,46 +311,21 @@ namespace ConsoleApp2
         {
             for (int i = 0; i < 6; i++)
             {
-                Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
-                RotateY(true);
-                Console.WriteLine("Rotated Y Counter Clockwise");
-                if (FaceColor(CubeSide.Front) == front)
-                {
-                    Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
-                    break;
-                }
+                if (FaceColor(CubeSide.Front) == front)break;
                 
                 RotateX(false);
-                if (FaceColor(CubeSide.Front) == front)
-                {
-                    Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
-                    break;
-                }
-
-                Console.WriteLine("Rotated X Clockwise");
-                Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
+                if (FaceColor(CubeSide.Front) == front)break;
             }
 
             for (int i = 0; i < 4; i++)
             {
-                Console.WriteLine("Topcolor is: " + FaceColor(CubeSide.Top));
-
+                if (FaceColor(CubeSide.Top) == top)break;
                 RotateZ(false);
-                Console.WriteLine("Rotated... TopColor is now " + FaceColor(CubeSide.Top));
-
-                if (FaceColor(CubeSide.Top) == top)
-                {
-                    Console.WriteLine("Succeded to get {0} to top. Current color top: {1}\n", top.ToString(), FaceColor(CubeSide.Top));
-                    break;
+                if (FaceColor(CubeSide.Top) == top)break;
                 }
-            }
 
-            if (FaceColor(CubeSide.Top) != top)
-            {
-                Console.WriteLine("Current colors : {0}, {1}", front, top);
-                throw new ArgumentException("Error! The frontcolor (" + front + ") and top color (" + top + ") is incompatible");
+            if (FaceColor(CubeSide.Top) != top)throw new ArgumentException("Error! The frontcolor (" + front + ") and top color (" + top + ") is incompatible");
             }
-        }
 
         /// <summary>
         /// Finds the color of a cubic on a specified side.
