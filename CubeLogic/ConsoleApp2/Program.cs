@@ -15,7 +15,7 @@ namespace ConsoleApp2
             Console.WriteLine(cube.ToString());
             try
             {
-                cube.rotateCubeToChosenColor(CubeColor.Green, CubeColor.Red);
+                cube.rotateCubeToChosenColor(CubeColor.Orange, CubeColor.White);
             }
             catch (Exception e)
             {

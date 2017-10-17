@@ -30,5 +30,15 @@ namespace ConsoleApp2
             MiddleColor = middleColor;
             TopColor = topColor;
         }
+        
+        public void RotateColors(int nr)
+        {
+            
+        }
+        
+        private int Mod(int x, int m)
+        {
+            return (x % m + m) % m;
+        }
     }
 }

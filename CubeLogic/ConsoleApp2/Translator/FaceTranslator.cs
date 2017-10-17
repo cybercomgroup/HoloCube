@@ -14,7 +14,7 @@ namespace ConsoleApp2
         public Dictionary<CubeSide, Face> faceDict;
         public RubikCube cube = new RubikCube();
         private Solver solver = new Solver();
-        
+
         private static void makeUpScannedSides()
         {
         }
@@ -23,8 +23,7 @@ namespace ConsoleApp2
         {
             makeUpScannedSides();
             //faceDict = setSides();
-            
-            
+
             // Back
         }
 
@@ -118,8 +117,10 @@ namespace ConsoleApp2
                 {CubeSide.Left, left}
             };
 
+            
+            
             //CornerCubies            
-            cube.Cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
+            cube.Cubies[0, 0, 0] = new Cubie(front.Colors[6], left.Colors[4], bot.Colors[0]);
             cube.Cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
             cube.Cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
             cube.Cubies[2, 2, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Blue);
@@ -141,10 +142,6 @@ namespace ConsoleApp2
             cube.Cubies[0, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Left].MiddleColor, CubeColor.Empty);
             //Right
             cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Right].MiddleColor, CubeColor.Empty);
-
-            
-            
-          
 
             return cube;
         }

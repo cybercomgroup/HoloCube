@@ -307,25 +307,32 @@ namespace ConsoleApp2
         /// <param name="front">The color you want at the front</param>
         /// <param name="top">The color you want at the top</param>
         /// <exception cref="ArgumentException">Your colors cant be front and top at the same time.</exception>
-        public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
+        public int rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
+            int zRotations = 0;
+            
             for (int i = 0; i < 6; i++)
             {
-                if (FaceColor(CubeSide.Front) == front)break;
-                
+                if (FaceColor(CubeSide.Front) == front) break;
+
+                RotateY(true);
+                if (FaceColor(CubeSide.Front) == front) break;
+
                 RotateX(false);
-                if (FaceColor(CubeSide.Front) == front)break;
+                if (FaceColor(CubeSide.Front) == front) break;
             }
 
             for (int i = 0; i < 4; i++)
             {
-                if (FaceColor(CubeSide.Top) == top)break;
-                RotateZ(false);
-                if (FaceColor(CubeSide.Top) == top)break;
-                }
+                if (FaceColor(CubeSide.Top) == top) return zRotations; 
 
-            if (FaceColor(CubeSide.Top) != top)throw new ArgumentException("Error! The frontcolor (" + front + ") and top color (" + top + ") is incompatible");
+                RotateZ(false);
+                zRotations++;
+                if (FaceColor(CubeSide.Top) == top) return zRotations;
             }
+            if (FaceColor(CubeSide.Front) != front || FaceColor(CubeSide.Top) != top) throw new ArgumentException("Error! The frontcolor (" + front + ") and top color (" + top + ") is incompatible");
+            return zRotations;
+        }
 
         /// <summary>
         /// Finds the color of a cubic on a specified side.
