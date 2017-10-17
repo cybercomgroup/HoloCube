@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -299,27 +300,16 @@ namespace ConsoleApp2
             }
         }
 
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="front">The color you want at the front</param>
+        /// <param name="top">The color you want at the top</param>
+        /// <exception cref="ArgumentException">Your colors cant be front and top at the same time.</exception>
         public void rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
-            var colorCombo = new Tuple<CubeColor, CubeColor>(front, top);
-
-            List<Tuple<CubeColor, CubeColor>> forbiddenCombinations = new List<Tuple<CubeColor, CubeColor>>();
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.White, CubeColor.Yellow));
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.Yellow, CubeColor.White));
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.Green, CubeColor.Blue));
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.Blue, CubeColor.Green));
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.Red, CubeColor.Orange));
-            forbiddenCombinations.Add(Tuple.Create(CubeColor.Orange, CubeColor.Red));
-
-            for (int i = 0; i < forbiddenCombinations.Count; i++)
-            {
-                if (forbiddenCombinations[i].Equals(colorCombo))
-                {
-                    throw new ArgumentException("Colorcombination is invalid: Color1: " + colorCombo.Item1 + " Color2: " + colorCombo.Item2, "colorCombo");
-                }
-            }
-
-            while (FaceColor(CubeSide.Front) != front)
+            for (int i = 0; i < 6; i++)
             {
                 Console.WriteLine("Current frontcolor: " + FaceColor(CubeSide.Front));
                 RotateY(true);
@@ -329,17 +319,36 @@ namespace ConsoleApp2
                     Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
                     break;
                 }
+                
                 RotateX(false);
+                if (FaceColor(CubeSide.Front) == front)
+                {
+                    Console.WriteLine("Succeded to get {0} to front. Current color front: {1}\n", front.ToString(), FaceColor(CubeSide.Front));
+                    break;
+                }
+
                 Console.WriteLine("Rotated X Clockwise");
                 Console.WriteLine("Tried to get {0} to front. Current color front: {1} \n", front.ToString(), FaceColor(CubeSide.Front));
             }
 
-            while (FaceColor(CubeSide.Top) != top)
+            for (int i = 0; i < 4; i++)
             {
                 Console.WriteLine("Topcolor is: " + FaceColor(CubeSide.Top));
 
                 RotateZ(false);
                 Console.WriteLine("Rotated... TopColor is now " + FaceColor(CubeSide.Top));
+
+                if (FaceColor(CubeSide.Top) == top)
+                {
+                    Console.WriteLine("Succeded to get {0} to top. Current color top: {1}\n", top.ToString(), FaceColor(CubeSide.Top));
+                    break;
+                }
+            }
+
+            if (FaceColor(CubeSide.Top) != top)
+            {
+                Console.WriteLine("Current colors : {0}, {1}", front, top);
+                throw new ArgumentException("Error! The frontcolor (" + front + ") and top color (" + top + ") is incompatible");
             }
         }
 
