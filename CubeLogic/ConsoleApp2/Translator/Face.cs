@@ -49,7 +49,7 @@ namespace ConsoleApp2
 
                 Colors = new List<CubeColor>(temp);
                 
-                //workathome?
+                //workAThome
             }
             
         }
