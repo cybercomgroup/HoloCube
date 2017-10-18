@@ -7,66 +7,73 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-//            Solve();
-        /*    Translator t = new Translator();
-            var cube = t.setSides();*/
-            var face = new Face();
-            face.Colors = new List<CubeColor>
+//          Solve();
+            Translator t = new Translator();
+            var cubeAndFaceDict = t.setSides();
+            var cube = cubeAndFaceDict.Item1;
+            var faces = cubeAndFaceDict.Item2;
+            faces[CubeSide.Front].Colors = new List<CubeColor>
             {
-                CubeColor.Blue,
-                CubeColor.Yellow,
-                CubeColor.Green,
-                CubeColor.Orange,
-                CubeColor.Yellow,
                 CubeColor.White,
                 CubeColor.White,
-                CubeColor.Green,
+                CubeColor.White,
+                CubeColor.White,
+                CubeColor.Yellow,
+                CubeColor.Yellow,
+                CubeColor.Yellow,
+                CubeColor.White
             };
-            
-            face.RotateColorsClockwise(3);
-           
-            
 
+            int zRotations;
 
-            /* Console.WriteLine("Before /////////////");
-             Console.WriteLine(cube.ToString());
-             try
-             {
-                 cube.rotateCubeToChosenColor(CubeColor.Orange, CubeColor.White);
-             }
-             catch (Exception e)
-             {
-                 Console.WriteLine(e);
-                 return;
-             }
- 
-             
-             
-             
- //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
- //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
- 
-             Console.WriteLine("After /////////////");
-             
-             Console.WriteLine(cube.ToString());
- */
+            Console.WriteLine("Before ///////////// \n");
+            Console.WriteLine(cube.ToString());
 
+            for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)
+            {
+                Console.WriteLine(faces[CubeSide.Front].Colors[i]);
+            }
+
+            Console.WriteLine("TopColor of frontface: " + faces[CubeSide.Front].TopColor + "\n");
+
+            Console.WriteLine("Rotating... \n");
+            try
+            {
+                zRotations = cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Green);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+
+            faces[CubeSide.Front].RotateColorsClockwise(zRotations);
+
+            Console.WriteLine("After /////////////\n");
+            for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)
+            {
+                Console.WriteLine(faces[CubeSide.Front].Colors[i]);
+            }
+            Console.WriteLine(cube.ToString());
+
+            //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
+            //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
         }
+
 
         private static void Solve()
         {
             RubikCube cube = new RubikCube();
-           
+
             cube.Scramble();
             List<Move> moves = Solver.Solve(cube);
             Console.WriteLine(cube);
             Console.WriteLine("\nTotal number of moves: " + moves.Count + "\n");
-            foreach(Move move in moves)
+            foreach (Move move in moves)
             {
                 Console.WriteLine(move);
             }
             Console.ReadKey();
         }
-        
     }
 }

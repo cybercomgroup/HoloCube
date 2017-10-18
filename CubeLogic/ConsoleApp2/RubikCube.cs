@@ -306,7 +306,7 @@ namespace ConsoleApp2
         /// </summary>
         /// <param name="front">The color you want at the front</param>
         /// <param name="top">The color you want at the top</param>
-        /// <exception cref="ArgumentException">Your colors cant be front and top at the same time.</exception>
+        /// <exception cref="ArgumentException">The colors you have chosen, cant be fitted as front and topcolor together.</exception>
         public int rotateCubeToChosenColor(CubeColor front, CubeColor top)
         {
             int zRotations = 0;

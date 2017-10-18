@@ -52,8 +52,11 @@ namespace ConsoleApp2
         }
 
 
-        public RubikCube setSides()
+        public Tuple<RubikCube, Dictionary<CubeSide, Face>> setSides()
         {
+            
+            
+            
             var front = new Face();
             var top = new Face();
             var back = new Face();
@@ -120,12 +123,12 @@ namespace ConsoleApp2
             
             
             //CornerCubies            
-            cube.Cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
-            cube.Cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
+            cube.Cubies[0, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
+            cube.Cubies[2, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
             cube.Cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
             cube.Cubies[2, 2, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Blue);
-            cube.Cubies[0, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
-            cube.Cubies[2, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
+            cube.Cubies[0, 0, 2] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
+            cube.Cubies[2, 0, 2] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
             cube.Cubies[0, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Blue);
             cube.Cubies[2, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Blue);
 
@@ -143,7 +146,9 @@ namespace ConsoleApp2
             //Right
             cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Right].MiddleColor, CubeColor.Empty);
 
-            return cube;
+            
+            var cubeAndFaceDict = new Tuple<RubikCube, Dictionary<CubeSide, Face>>(cube, dict);
+            return cubeAndFaceDict;
         }
 
 
