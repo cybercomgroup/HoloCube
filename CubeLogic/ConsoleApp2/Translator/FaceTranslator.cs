@@ -61,17 +61,17 @@ namespace ConsoleApp2
             var bot = new Face();
             var left = new Face();
             //Front
-            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Blue));
             //Top
-            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.Yellow));
+            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.White));
             //Back
-            ScannedSides.Add(new Face(CubeColor.Yellow, CubeColor.Blue));
+            ScannedSides.Add(new Face(CubeColor.Yellow, CubeColor.Green));
             //Bot
-            ScannedSides.Add(new Face(CubeColor.Blue, CubeColor.White));
+            ScannedSides.Add(new Face(CubeColor.Blue, CubeColor.Yellow));
             //Right
-            ScannedSides.Add(new Face(CubeColor.Orange, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.Orange, CubeColor.Blue));
             //Left
-            ScannedSides.Add(new Face(CubeColor.Red, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.Red, CubeColor.Blue));
 
 //            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Green));
 //            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.Yellow));
@@ -120,7 +120,7 @@ namespace ConsoleApp2
             
             
             //CornerCubies            
-            cube.Cubies[0, 0, 0] = new Cubie(front.Colors[6], left.Colors[4], bot.Colors[0]);
+            cube.Cubies[0, 0, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Green);
             cube.Cubies[2, 0, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Green);
             cube.Cubies[0, 2, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Blue);
             cube.Cubies[2, 2, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Blue);
