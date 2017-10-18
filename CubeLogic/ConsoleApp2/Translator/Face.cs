@@ -31,29 +31,23 @@ namespace ConsoleApp2
             MiddleColor = middleColor;
             TopColor = topColor;
         }
-        
-        public void RotateColors(int nr)
+
+        public void RotateColorsClockwise(int nr)
         {
-            
-            
+            var directionClockwise = -2;
             for (int j = 0; j < nr; j++)
             {
                 var temp = Colors.ToArray();
-            
+
                 for (int i = 0; i < Colors.Count; i++)
                 {
-                    // [Mod(i + 2 //*nr// , Colors.Count)];
-                    
-                    temp[i] = Colors[Mod(i + 2, Colors.Count)];
+                    temp[i] = Colors[Mod(i + directionClockwise, Colors.Count)];
                 }
 
                 Colors = new List<CubeColor>(temp);
-                
-                //workAThome
             }
-            
         }
-        
+
         private int Mod(int x, int m)
         {
             return (x % m + m) % m;

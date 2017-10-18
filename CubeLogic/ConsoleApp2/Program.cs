@@ -13,17 +13,17 @@ namespace ConsoleApp2
             var face = new Face();
             face.Colors = new List<CubeColor>
             {
-                CubeColor.Orange,
-                CubeColor.Yellow,
-                CubeColor.Red,
-                CubeColor.Orange,
                 CubeColor.Blue,
+                CubeColor.Yellow,
                 CubeColor.Green,
                 CubeColor.Orange,
-                CubeColor.Red,
+                CubeColor.Yellow,
+                CubeColor.White,
+                CubeColor.White,
+                CubeColor.Green,
             };
             
-            face.RotateColors(3);
+            face.RotateColorsClockwise(3);
            
             
 
