@@ -12,6 +12,9 @@ public class InstructionBehavior : MonoBehaviour
 	public SpriteRenderer Arrow;
 	public SceneField NextScene;
 
+	[HideInInspector]
+	public bool IsTutorial;
+
 	private int _index;
 	public List<object> ListOfMoves{ get; set; }
 	
@@ -19,7 +22,12 @@ public class InstructionBehavior : MonoBehaviour
 	public RubicColors Color;
 	public bool Inverse;
 	public bool DoublMove;
-	
+
+	private void Start()
+	{
+		ListOfMoves = new List<object>();
+	}
+
 	private void OnGUI()
 	{
 		if (GUI.Button(new Rect(0,0,100,20), "SetNewInstruction"))
@@ -31,6 +39,8 @@ public class InstructionBehavior : MonoBehaviour
 
 	private void Update()
 	{
+		if(IsTutorial)return;
+		
 		if(Input.GetKeyUp("space"))
 		{
 			NextMove();
