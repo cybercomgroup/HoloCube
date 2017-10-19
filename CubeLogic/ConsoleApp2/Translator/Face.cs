@@ -35,17 +35,22 @@ namespace ConsoleApp2
         public void RotateColorsClockwise(int nr)
         {
             var directionClockwise = -2;
-            for (int j = 0; j < nr; j++)
+            if (nr != 0)
             {
-                var temp = Colors.ToArray();
-
-                for (int i = 0; i < Colors.Count; i++)
+                for (int j = 0; j <= nr; j++)
                 {
-                    temp[i] = Colors[Mod(i + directionClockwise, Colors.Count)];
-                }
+                    var temp = Colors.ToArray();
 
-                Colors = new List<CubeColor>(temp);
+                    for (int i = 0; i < Colors.Count; i++)
+                    {
+                        temp[i] = Colors[Mod(i + directionClockwise, Colors.Count)];
+                    }
+
+                    Colors = new List<CubeColor>(temp);
+                }
+                
             }
+           
         }
 
         private int Mod(int x, int m)

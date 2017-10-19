@@ -19,18 +19,18 @@ namespace ConsoleApp2
                 var zRotations = cube.rotateCubeToChosenColor(faces[side].MiddleColor, faces[side].TopColor);
                 cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
                 faces[side].RotateColorsClockwise(zRotations);
+                
+                Console.WriteLine("\nFaceColor: {0} FaceKey: {1} FaceTopColor {2} \n", faces[side].MiddleColor, side,faces[side].TopColor );
+                
+                
+                for (int i = 0; i < faces[side].Colors.Count; i++)
+                {
+                    Console.WriteLine(faces[side].Colors[i]);
+                }
+                Console.WriteLine();
              }
 
-            foreach (var kvp in faces  )
-            {
-                Console.WriteLine("\nFaceColor: {0} FaceKey: {1} FaceTopColor {2}", kvp.Value.MiddleColor, kvp.Key, kvp.Value.TopColor);
-                foreach (var color in kvp.Value.Colors)
-                {
-                    Console.WriteLine(color);
-                }
-                
-            }
-            Console.WriteLine();
+      
             
 
            /* Console.WriteLine("\n Before ///////////// \n");
