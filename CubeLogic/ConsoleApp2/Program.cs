@@ -12,21 +12,9 @@ namespace ConsoleApp2
             var cubeAndFaceDict = t.setSides();
             var cube = cubeAndFaceDict.Item1;
             var faces = cubeAndFaceDict.Item2;
-            faces[CubeSide.Front].Colors = new List<CubeColor>
-            {
-                CubeColor.White,
-                CubeColor.White,
-                CubeColor.White,
-                CubeColor.White,
-                CubeColor.Yellow,
-                CubeColor.Yellow,
-                CubeColor.Yellow,
-                CubeColor.White
-            };
+             int zRotations;
 
-            int zRotations;
-
-            Console.WriteLine("Before ///////////// \n");
+            Console.WriteLine("\n Before ///////////// \n");
             Console.WriteLine(cube.ToString());
 
             for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)

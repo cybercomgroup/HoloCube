@@ -54,9 +54,6 @@ namespace ConsoleApp2
 
         public Tuple<RubikCube, Dictionary<CubeSide, Face>> setSides()
         {
-            
-            
-            
             var front = new Face();
             var top = new Face();
             var back = new Face();
@@ -116,12 +113,18 @@ namespace ConsoleApp2
                 {CubeSide.Back, back},
                 {CubeSide.Bottom, bot},
                 {CubeSide.Top, top},
-                {CubeSide.Right, right},
-                {CubeSide.Left, left}
+                {CubeSide.Left, left},
+                {CubeSide.Right, right}
             };
+            
+            setColorsOnFaces(dict);
 
+            foreach (var color in dict[CubeSide.Right].Colors)
+            {
+                Console.WriteLine(color);
+            }
             
-            
+
             //CornerCubies            
             cube.Cubies[0, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
             cube.Cubies[2, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
@@ -146,9 +149,96 @@ namespace ConsoleApp2
             //Right
             cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Right].MiddleColor, CubeColor.Empty);
 
-            
             var cubeAndFaceDict = new Tuple<RubikCube, Dictionary<CubeSide, Face>>(cube, dict);
             return cubeAndFaceDict;
+        }
+
+        private void setColorsOnFaces(Dictionary<CubeSide, Face> dict)
+        {
+            foreach (var face in dict.Values)
+            {
+                switch (face.MiddleColor)
+                {
+                        case CubeColor.White:
+                            face.Colors = new List<CubeColor>
+                            {
+                                CubeColor.Blue,
+                                CubeColor.Orange,
+                                CubeColor.Blue,
+                                CubeColor.Yellow,
+                                CubeColor.Green,
+                                CubeColor.Green,
+                                CubeColor.Orange,
+                                CubeColor.Red
+                            };
+                            break;
+                        case CubeColor.Blue:
+                            face.Colors = new List<CubeColor>
+                            {
+                                CubeColor.Green,
+                                CubeColor.Red,
+                                CubeColor.Blue,
+                                CubeColor.White,
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
+                                CubeColor.White
+                           };
+                            break;
+                        case CubeColor.Yellow:
+                            face.Colors = new List<CubeColor>
+                            {
+                                CubeColor.White,
+                                CubeColor.Red,
+                                CubeColor.Yellow,
+                                CubeColor.Blue,
+                                CubeColor.Red,
+                                CubeColor.Yellow,
+                                CubeColor.Red,
+                                CubeColor.Yellow
+                            };
+                            break;
+                    case CubeColor.Green:
+                        face.Colors = new List<CubeColor>
+                            {
+                                CubeColor.White,
+                                CubeColor.Orange,
+                                CubeColor.Yellow,
+                                CubeColor.Green,
+                                CubeColor.Orange,
+                                CubeColor.Green,
+                                CubeColor.Blue,
+                                CubeColor.White
+                            };
+                            break;
+                    case CubeColor.Orange:
+                        face.Colors = new List<CubeColor>
+                        {
+                            CubeColor.White,
+                            CubeColor.Red,
+                            CubeColor.Orange,
+                            CubeColor.Blue,
+                            CubeColor.Green,
+                            CubeColor.Orange,
+                            CubeColor.Orange,
+                            CubeColor.Blue
+                        };
+                        break;
+                    case CubeColor.Red:
+                        face.Colors = new List<CubeColor>
+                        {
+                            CubeColor.Red,
+                            CubeColor.Blue,
+                            CubeColor.White,
+                            CubeColor.Orange,
+                            CubeColor.Green,
+                            CubeColor.White,
+                            CubeColor.Red,
+                            CubeColor.Green
+                        };
+                        break;
+                }
+            }
         }
 
 
