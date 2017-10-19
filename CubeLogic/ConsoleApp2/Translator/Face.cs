@@ -37,6 +37,9 @@ namespace ConsoleApp2
             var directionClockwise = -2;
             if (nr != 0)
             {
+                
+                //WorkAtHomeCommit
+                //Todo - Figure out how to not get the off by one error here. Simply set J to 1 ?
                 for (int j = 0; j <= nr; j++)
                 {
                     var temp = Colors.ToArray();
