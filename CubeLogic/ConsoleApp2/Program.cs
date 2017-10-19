@@ -12,9 +12,28 @@ namespace ConsoleApp2
             var cubeAndFaceDict = t.setSides();
             var cube = cubeAndFaceDict.Item1;
             var faces = cubeAndFaceDict.Item2;
-             int zRotations;
+//            int zRotations;
 
-            Console.WriteLine("\n Before ///////////// \n");
+            foreach (CubeSide side in faces.Keys)
+            {
+                var zRotations = cube.rotateCubeToChosenColor(faces[side].MiddleColor, faces[side].TopColor);
+                cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
+                faces[side].RotateColorsClockwise(zRotations);
+             }
+
+            foreach (var kvp in faces  )
+            {
+                Console.WriteLine("\nFaceColor: {0} FaceKey: {1} FaceTopColor {2}", kvp.Value.MiddleColor, kvp.Key, kvp.Value.TopColor);
+                foreach (var color in kvp.Value.Colors)
+                {
+                    Console.WriteLine(color);
+                }
+                
+            }
+            Console.WriteLine();
+            
+
+           /* Console.WriteLine("\n Before ///////////// \n");
             Console.WriteLine(cube.ToString());
 
             for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)
@@ -42,7 +61,7 @@ namespace ConsoleApp2
             {
                 Console.WriteLine(faces[CubeSide.Front].Colors[i]);
             }
-            Console.WriteLine(cube.ToString());
+            Console.WriteLine(cube.ToString());*/
 
             //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
             //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));

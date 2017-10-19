@@ -302,7 +302,7 @@ namespace ConsoleApp2
 
 
         /// <summary>
-        ///  
+        ///  Rotates the whole cube to the orientation given. (Front/Top colors)
         /// </summary>
         /// <param name="front">The color you want at the front</param>
         /// <param name="top">The color you want at the top</param>

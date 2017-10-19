@@ -119,12 +119,6 @@ namespace ConsoleApp2
             
             setColorsOnFaces(dict);
 
-            foreach (var color in dict[CubeSide.Right].Colors)
-            {
-                Console.WriteLine(color);
-            }
-            
-
             //CornerCubies            
             cube.Cubies[0, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
             cube.Cubies[2, 0, 0] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Green);
@@ -137,17 +131,17 @@ namespace ConsoleApp2
 
             //MiddleMiddleCubies
             //Front
-            cube.Cubies[1, 1, 0] = new Cubie(dict[CubeSide.Front].MiddleColor, CubeColor.Empty, CubeColor.Empty);
+            cube.Cubies[1, 1, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Empty);
             //Top
-            cube.Cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, dict[CubeSide.Top].MiddleColor);
+            cube.Cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Blue);
             //Back
-            cube.Cubies[1, 1, 2] = new Cubie(dict[CubeSide.Back].MiddleColor, CubeColor.Empty, CubeColor.Empty);
+            cube.Cubies[1, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Empty);
             //Bottom
-            cube.Cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, dict[CubeSide.Bottom].MiddleColor);
+            cube.Cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
             //Left
-            cube.Cubies[0, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Left].MiddleColor, CubeColor.Empty);
+            cube.Cubies[0, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Empty);
             //Right
-            cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, dict[CubeSide.Right].MiddleColor, CubeColor.Empty);
+            cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
 
             var cubeAndFaceDict = new Tuple<RubikCube, Dictionary<CubeSide, Face>>(cube, dict);
             return cubeAndFaceDict;
