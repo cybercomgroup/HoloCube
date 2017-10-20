@@ -35,32 +35,22 @@ namespace ConsoleApp2
         public void RotateColorsClockwise(int nr)
         {
             var directionClockwise = -2;
-            if (nr != 0)
+            if (nr < 0) return;
+            
+            //WorkAtHomeCommit
+            //Todo - Figure out how to not get the off by one error here. Simply set J to 1 ?
+                
+            for (int j = 0; j < nr; j++)            
             {
-                
-                //WorkAtHomeCommit
-                //Todo - Figure out how to not get the off by one error here. Simply set J to 1 ?
-                
-                for (int j = 0; j < nr; j++)            
+                var temp = Colors.ToArray();
+
+                for (int i = 0; i < Colors.Count; i++)
                 {
-                    var temp = Colors.ToArray();
-
-                    for (int i = 0; i < Colors.Count; i++)
-                    {
-                        temp[i] = Colors[Mod(i + directionClockwise, Colors.Count)];
-                    }
-
-                    Colors = new List<CubeColor>(temp);
-
-                    for (int i = 0; i < Colors.Count; i++)
-                    {
-                        Console.WriteLine("Rotated {1} times{0}", Colors[i], j);
-                    }
-                    Console.WriteLine();
+                    temp[i] = Colors[Mod(i + directionClockwise, Colors.Count)];
                 }
-                
+
+                Colors = new List<CubeColor>(temp);
             }
-           
         }
 
         private int Mod(int x, int m)

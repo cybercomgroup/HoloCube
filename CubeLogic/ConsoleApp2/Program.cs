@@ -14,24 +14,59 @@ namespace ConsoleApp2
             var faces = cubeAndFaceDict.Item2;
 //            int zRotations;
 
+
+            //this is now the prefered way to hold the cube.
+            var wantedOrientation = new Dictionary<CubeColor, CubeColor>
+            {
+                {CubeColor.White,CubeColor.Green},
+                {CubeColor.Red,CubeColor.Blue},
+                {CubeColor.Orange,CubeColor.Blue},
+                {CubeColor.Green,CubeColor.White},
+                {CubeColor.Yellow,CubeColor.Green},
+                {CubeColor.Blue,CubeColor.Orange},
+            };
+            
+            
             foreach (CubeSide side in faces.Keys)
             {
-                cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
-                var zRotations = cube.rotateCubeToChosenColor(faces[side].MiddleColor, faces[side].TopColor);
-                cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
-                faces[side].RotateColorsClockwise(zRotations);
-                
-                Console.WriteLine("\nFaceColor: {0} FaceKey: {1} FaceTopColor {2} \n", faces[side].MiddleColor, side,faces[side].TopColor );
-                
+                var wantedTopColor = wantedOrientation[faces[side].MiddleColor];
+                cube.rotateCubeToChosenColor(faces[side].MiddleColor,  faces[side].TopColor);
+                var zRotations = cube.rotateCubeToChosenColor(faces[side].MiddleColor,wantedTopColor);
+
+                Console.WriteLine($"Before: face:{faces[side].MiddleColor}, top: {faces[side].TopColor}");
                 
                 for (int i = 0; i < faces[side].Colors.Count; i++)
                 {
                     Console.WriteLine(faces[side].Colors[i]);
                 }
-                Console.WriteLine();
-             }
+                
+                faces[side].RotateColorsClockwise(zRotations);
+            
+                
+                Console.WriteLine($"After: face:{faces[side].MiddleColor}, top: {wantedTopColor}");
 
-      
+                
+                for (int i = 0; i < faces[side].Colors.Count; i++)
+                {
+                    Console.WriteLine(faces[side].Colors[i]);
+                }
+                Console.WriteLine("\n");
+             }
+            
+            //here is all faces in the right orientation.
+
+            //Rotate the cube to be in a prefered way.
+            var middle = faces[CubeSide.Front].MiddleColor;
+            var wantedTop = wantedOrientation[faces[CubeSide.Front].MiddleColor];
+            cube.rotateCubeToChosenColor(middle,wantedTop);
+
+            //todo 
+            /*
+             * This is now where we can start to add cubies to the cube.
+             * eg..
+             *            cube.Cubies[0,0,2] = new Cubie(faces[CubeSide.Front].Colors[4],faces[CubeSide.Bottom].Colors[4],faces[CubeSide.Right].Colors[4]);
+             * 
+             */
             
 
            /* Console.WriteLine("\n Before ///////////// \n");

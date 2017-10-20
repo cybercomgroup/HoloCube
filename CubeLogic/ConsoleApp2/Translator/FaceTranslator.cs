@@ -61,17 +61,17 @@ namespace ConsoleApp2
             var bot = new Face();
             var left = new Face();
             //Front
-            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Blue));
+            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Orange));
             //Top
-            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.White));
+            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.Red));
             //Back
-            ScannedSides.Add(new Face(CubeColor.Yellow, CubeColor.Green));
+            ScannedSides.Add(new Face(CubeColor.Yellow, CubeColor.Orange));
             //Bot
-            ScannedSides.Add(new Face(CubeColor.Blue, CubeColor.Yellow));
+            ScannedSides.Add(new Face(CubeColor.Blue, CubeColor.Red));
             //Right
-            ScannedSides.Add(new Face(CubeColor.Orange, CubeColor.Blue));
+            ScannedSides.Add(new Face(CubeColor.Orange, CubeColor.Yellow));
             //Left
-            ScannedSides.Add(new Face(CubeColor.Red, CubeColor.Blue));
+            ScannedSides.Add(new Face(CubeColor.Red, CubeColor.White));
 
 //            ScannedSides.Add(new Face(CubeColor.White, CubeColor.Green));
 //            ScannedSides.Add(new Face(CubeColor.Green, CubeColor.Yellow));
@@ -156,66 +156,66 @@ namespace ConsoleApp2
                         case CubeColor.White:
                             face.Colors = new List<CubeColor>
                             {
-                                CubeColor.Blue,
+                                CubeColor.White,
                                 CubeColor.Orange,
-                                CubeColor.Blue,
-                                CubeColor.Yellow,
-                                CubeColor.Green,
-                                CubeColor.Green,
                                 CubeColor.Orange,
-                                CubeColor.Red
+                                CubeColor.Orange,
+                                CubeColor.Orange,
+                                CubeColor.Orange,
+                                CubeColor.Orange,
+                                CubeColor.Orange
                             };
                             break;
                         case CubeColor.Blue:
                             face.Colors = new List<CubeColor>
                             {
-                                CubeColor.Green,
-                                CubeColor.Red,
                                 CubeColor.Blue,
-                                CubeColor.White,
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
-                                CubeColor.White
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
                            };
                             break;
                         case CubeColor.Yellow:
                             face.Colors = new List<CubeColor>
                             {
-                                CubeColor.White,
-                                CubeColor.Red,
-                                CubeColor.Yellow,
-                                CubeColor.Blue,
-                                CubeColor.Red,
                                 CubeColor.Yellow,
                                 CubeColor.Red,
-                                CubeColor.Yellow
+                                CubeColor.Red,
+                                CubeColor.Red,
+                                CubeColor.Red,
+                                CubeColor.Red,
+                                CubeColor.Red,
+                                CubeColor.Red,
                             };
                             break;
                     case CubeColor.Green:
                         face.Colors = new List<CubeColor>
                             {
+                                CubeColor.Green,
                                 CubeColor.White,
-                                CubeColor.Orange,
-                                CubeColor.Yellow,
-                                CubeColor.Green,
-                                CubeColor.Orange,
-                                CubeColor.Green,
-                                CubeColor.Blue,
-                                CubeColor.White
+                                CubeColor.White,
+                                CubeColor.White,
+                                CubeColor.White,
+                                CubeColor.White,
+                                CubeColor.White,
+                                CubeColor.White,
                             };
                             break;
                     case CubeColor.Orange:
                         face.Colors = new List<CubeColor>
                         {
-                            CubeColor.White,
-                            CubeColor.Red,
                             CubeColor.Orange,
-                            CubeColor.Blue,
                             CubeColor.Green,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Blue
+                            CubeColor.Green,
+                            CubeColor.Green,
+                            CubeColor.Green,
+                            CubeColor.Green,
+                            CubeColor.Green,
+                            CubeColor.Green,
                         };
                         break;
                     case CubeColor.Red:
@@ -223,12 +223,12 @@ namespace ConsoleApp2
                         {
                             CubeColor.Red,
                             CubeColor.Blue,
-                            CubeColor.White,
-                            CubeColor.Orange,
-                            CubeColor.Green,
-                            CubeColor.White,
-                            CubeColor.Red,
-                            CubeColor.Green
+                            CubeColor.Blue,
+                            CubeColor.Blue,
+                            CubeColor.Blue,
+                            CubeColor.Blue,
+                            CubeColor.Blue,
+                            CubeColor.Blue,
                         };
                         break;
                 }
