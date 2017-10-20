@@ -6,13 +6,9 @@ public class ScanedFace : MonoBehaviour
 {
     public Face Face;
 
-
-    private static Shader _shader;
-
     // Use this for initialization
     void Start()
     {
-        _shader = Shader.Find("Unlit/Color");
         Face = new Face();
     }
 
@@ -44,7 +40,6 @@ public class ScanedFace : MonoBehaviour
 
         render.enabled = shouldBeEnabled;
 
-        render.material.shader = _shader;
         render.material.color = col;
     }
 }

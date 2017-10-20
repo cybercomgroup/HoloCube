@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -122,12 +122,89 @@ MonoBehaviour:
   m_GameObject: {fileID: 308585003}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3b551e7fb368f4fadc4f357e9788a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AdjustHeadsetScene:
+    m_SceneAsset: {fileID: 102900000, guid: 6328c96cc619a8b41a866766f9513e17, type: 3}
+    m_SceneName: HeadsetAdjustment
+  CubeScanScene:
+    m_SceneAsset: {fileID: 102900000, guid: df64b075137b7cf478d835ad3281b932, type: 3}
+    m_SceneName: ScanCube
+--- !u!1001 &471887730
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.821
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761589529420494, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601881387686582, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_Name
+      value: TTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227597065063100, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+      propertyPath: m_Name
+      value: TTS test
+      objectReference: {fileID: 0}
+    - target: {fileID: 102146420554083976, guid: f91628148d9ac6d4e85de23d7e0d0e14,
+        type: 2}
+      propertyPath: m_Text
+      value: TTS test
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f91628148d9ac6d4e85de23d7e0d0e14, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &471887731 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1601881387686582, guid: f91628148d9ac6d4e85de23d7e0d0e14,
+    type: 2}
+  m_PrefabInternal: {fileID: 471887730}
+--- !u!114 &471887732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 471887731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d63bc25ec5bfca74ea245acf300be00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MySceneAssets:
-    m_SceneAsset: {fileID: 102900000, guid: df64b075137b7cf478d835ad3281b932, type: 3}
-    m_SceneName: ScanCube
+    m_SceneAsset: {fileID: 102900000, guid: 84029721498068a4e87a210433d0ee83, type: 3}
+    m_SceneName: TextToSpeechTest
 --- !u!1001 &694602459
 Prefab:
   m_ObjectHideFlags: 0
