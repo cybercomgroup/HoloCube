@@ -64,7 +64,7 @@ public class InstructionBehavior : MonoBehaviour
 	public void SetNewInstruction(RubicColors facingColor, bool inverse = false, bool doubleMove = false)
 	{
 		FacingColor.material.color = ColorDetection.UnityColorFromEnum(facingColor);
-		Arrow.flipX = inverse;
+		Arrow.flipX = !inverse;
 		TextMesh.text = doubleMove ? "180°" : "90°";
 	}
 }

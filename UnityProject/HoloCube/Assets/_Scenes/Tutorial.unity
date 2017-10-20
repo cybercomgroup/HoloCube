@@ -342,6 +342,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212353143680150712, guid: 917ed0d3e7ee85c4d923e2f092b16a43,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 917ed0d3e7ee85c4d923e2f092b16a43, type: 2}
   m_IsPrefabParent: 0
@@ -540,8 +545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextToSpeech: {fileID: 342848780}
-  InstructionsPrefab: {fileID: 54680142}
   TextHelperForEditor: {fileID: 1449244673}
+  InstructionsPrefab: {fileID: 54680142}
 --- !u!4 &1884628758
 Transform:
   m_ObjectHideFlags: 0
