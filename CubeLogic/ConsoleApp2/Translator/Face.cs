@@ -40,7 +40,8 @@ namespace ConsoleApp2
                 
                 //WorkAtHomeCommit
                 //Todo - Figure out how to not get the off by one error here. Simply set J to 1 ?
-                for (int j = 0; j <= nr; j++)
+                
+                for (int j = 0; j < nr; j++)            
                 {
                     var temp = Colors.ToArray();
 
@@ -50,6 +51,12 @@ namespace ConsoleApp2
                     }
 
                     Colors = new List<CubeColor>(temp);
+
+                    for (int i = 0; i < Colors.Count; i++)
+                    {
+                        Console.WriteLine("Rotated {1} times{0}", Colors[i], j);
+                    }
+                    Console.WriteLine();
                 }
                 
             }

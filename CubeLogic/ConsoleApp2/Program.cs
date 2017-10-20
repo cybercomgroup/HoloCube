@@ -16,6 +16,7 @@ namespace ConsoleApp2
 
             foreach (CubeSide side in faces.Keys)
             {
+                cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
                 var zRotations = cube.rotateCubeToChosenColor(faces[side].MiddleColor, faces[side].TopColor);
                 cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Blue);
                 faces[side].RotateColorsClockwise(zRotations);
