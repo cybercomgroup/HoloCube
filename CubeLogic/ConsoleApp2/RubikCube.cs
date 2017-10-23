@@ -133,8 +133,7 @@ namespace ConsoleApp2
                cubies[2, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Empty);
                cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Green);
    
-               // Middle
-               cubies[1, 1, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, CubeColor.Empty);*/
+               */
         }
 
         // Mod method to handle negative cases for mod.
