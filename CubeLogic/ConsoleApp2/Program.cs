@@ -69,35 +69,7 @@ namespace ConsoleApp2
              */
             
 
-           /* Console.WriteLine("\n Before ///////////// \n");
-            Console.WriteLine(cube.ToString());
-
-            for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)
-            {
-                Console.WriteLine(faces[CubeSide.Front].Colors[i]);
-            }
-
-            Console.WriteLine("TopColor of frontface: " + faces[CubeSide.Front].TopColor + "\n");
-
-            Console.WriteLine("Rotating... \n");
-            try
-            {
-                zRotations = cube.rotateCubeToChosenColor(CubeColor.White, CubeColor.Green);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return;
-            }
-
-            faces[CubeSide.Front].RotateColorsClockwise(zRotations);
-
-            Console.WriteLine("After /////////////\n");
-            for (int i = 0; i < faces[CubeSide.Front].Colors.Count; i++)
-            {
-                Console.WriteLine(faces[CubeSide.Front].Colors[i]);
-            }
-            Console.WriteLine(cube.ToString());*/
+          
 
             //            cube.ExecuteMove(new Move(CubeAction.U,CubeColor.White,CubeColor.Blue));
             //            cube.ExecuteMove(new Move(CubeAction.F,CubeColor.White,CubeColor.Blue));
