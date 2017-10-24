@@ -149,84 +149,84 @@ namespace ConsoleApp2
                         case CubeColor.White:
                             face.Colors = new List<CubeColor>
                             {
+                                CubeColor.Yellow,
+                                CubeColor.Green,
+                                CubeColor.Red,
+                                CubeColor.Green,
+                                CubeColor.Yellow,
+                                CubeColor.Green,
                                 CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
-                                CubeColor.White,
+                                CubeColor.Blue,
                                
                             };
                             break;
                         case CubeColor.Blue:
                             face.Colors = new List<CubeColor>
                             {
+                                CubeColor.Red,
+                                CubeColor.Red,
+                                CubeColor.White,
+                                CubeColor.Red,
                                 CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
-                                CubeColor.Blue,
+                                CubeColor.Yellow,
+                                CubeColor.Red,
+                                CubeColor.Orange,
                                
-                           };
+                            };
                             break;
-                        case CubeColor.Yellow:
+                    case CubeColor.Yellow:
                             face.Colors = new List<CubeColor>
                             {
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
-                                CubeColor.Yellow,
+                                CubeColor.Green,
+                                CubeColor.Blue,
+                                CubeColor.White,
+                                CubeColor.Red,
+                                CubeColor.Green,
+                                CubeColor.Blue,
+                                CubeColor.Blue,
+                                CubeColor.Orange,
                                
                             };
                             break;
                     case CubeColor.Green:
                         face.Colors = new List<CubeColor>
                             {
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
-                                CubeColor.Green,
+                                CubeColor.Blue,
+                                CubeColor.Red,
+                                CubeColor.Orange,
+                                CubeColor.White,
+                                CubeColor.White,
+                                CubeColor.Yellow,
+                                CubeColor.Orange,
+                                CubeColor.Blue,
                                 
                             };
                             break;
                     case CubeColor.Orange:
                         face.Colors = new List<CubeColor>
                         {
+                            CubeColor.Green,
+                            CubeColor.Yellow,
+                            CubeColor.Green,
                             CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
-                            CubeColor.Orange,
+                            CubeColor.Red,
+                            CubeColor.White,
+                            CubeColor.Yellow,
+                            CubeColor.White,
                             
                         };
                         break;
                     case CubeColor.Red:
                         face.Colors = new List<CubeColor>
                         {
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
-                            CubeColor.Red,
+                            CubeColor.Yellow,
+                            CubeColor.Yellow,
+                            CubeColor.Orange,
+                            CubeColor.Green,
+                            CubeColor.Orange,
+                            CubeColor.Orange,
+                            CubeColor.Blue,
+                            CubeColor.White,
                             
                         };
                         break;
