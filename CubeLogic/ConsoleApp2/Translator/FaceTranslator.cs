@@ -156,12 +156,14 @@ namespace ConsoleApp2
                                 CubeColor.White,
                                 CubeColor.White,
                                 CubeColor.White,
+                                CubeColor.White,
                                
                             };
                             break;
                         case CubeColor.Blue:
                             face.Colors = new List<CubeColor>
                             {
+                                CubeColor.Blue,
                                 CubeColor.Blue,
                                 CubeColor.Blue,
                                 CubeColor.Blue,
@@ -178,7 +180,8 @@ namespace ConsoleApp2
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
-                                CubeColor.Empty,
+                                CubeColor.Yellow,
+                                CubeColor.Yellow,
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
                                 CubeColor.Yellow,
@@ -188,6 +191,7 @@ namespace ConsoleApp2
                     case CubeColor.Green:
                         face.Colors = new List<CubeColor>
                             {
+                                CubeColor.Green,
                                 CubeColor.Green,
                                 CubeColor.Green,
                                 CubeColor.Green,
@@ -208,12 +212,14 @@ namespace ConsoleApp2
                             CubeColor.Orange,
                             CubeColor.Orange,
                             CubeColor.Orange,
+                            CubeColor.Orange,
                             
                         };
                         break;
                     case CubeColor.Red:
                         face.Colors = new List<CubeColor>
                         {
+                            CubeColor.Red,
                             CubeColor.Red,
                             CubeColor.Red,
                             CubeColor.Red,

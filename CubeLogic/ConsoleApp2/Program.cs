@@ -52,38 +52,40 @@ namespace ConsoleApp2
             
             // Corners
             cube.Cubies[0, 0, 0] = new Cubie(faces[CubeSide.Front].Colors[6], faces[CubeSide.Left].Colors[4], faces[CubeSide.Bottom].Colors[0]);
-            cube.Cubies[2, 0, 0] = new Cubie(faces[CubeSide.Front].Colors[4], faces[CubeSide.Right].Colors[6], faces[CubeSide.Bottom].Colors[2]);
             cube.Cubies[0, 2, 0] = new Cubie(faces[CubeSide.Front].Colors[0], faces[CubeSide.Left].Colors[2], faces[CubeSide.Top].Colors[6]);
+            cube.Cubies[2, 0, 0] = new Cubie(faces[CubeSide.Front].Colors[4], faces[CubeSide.Right].Colors[6], faces[CubeSide.Bottom].Colors[2]);
             cube.Cubies[2, 2, 0] = new Cubie(faces[CubeSide.Front].Colors[2], faces[CubeSide.Right].Colors[0], faces[CubeSide.Top].Colors[4]);
             
             cube.Cubies[0, 0, 2] = new Cubie(faces[CubeSide.Back].Colors[4], faces[CubeSide.Left].Colors[6], faces[CubeSide.Bottom].Colors[6]);
-            cube.Cubies[2, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Green);
-            cube.Cubies[0, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Blue);
-            cube.Cubies[2, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Blue);
+            cube.Cubies[0, 2, 2] = new Cubie(faces[CubeSide.Back].Colors[2], faces[CubeSide.Left].Colors[0], faces[CubeSide.Top].Colors[0]);
+            cube.Cubies[2, 0, 2] = new Cubie(faces[CubeSide.Back].Colors[6], faces[CubeSide.Right].Colors[4], faces[CubeSide.Bottom].Colors[4]);
+            cube.Cubies[2, 2, 2] = new Cubie(faces[CubeSide.Back].Colors[0], faces[CubeSide.Right].Colors[2], faces[CubeSide.Top].Colors[2]);
 
-            // Middle pieces
-            cube.Cubies[1, 0, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Green);
-            cube.Cubies[0, 1, 0] = new Cubie(CubeColor.White, CubeColor.Orange, CubeColor.Empty);
-            cube.Cubies[2, 1, 0] = new Cubie(CubeColor.White, CubeColor.Red, CubeColor.Empty);
-            cube.Cubies[1, 2, 0] = new Cubie(CubeColor.White, CubeColor.Empty, CubeColor.Blue);
+            // Edge pieces
+            cube.Cubies[1, 2, 0] = new Cubie(faces[CubeSide.Front].Colors[1], CubeColor.Empty, faces[CubeSide.Top].Colors[5]);
+            cube.Cubies[1, 2, 2] = new Cubie(faces[CubeSide.Back].Colors[1], CubeColor.Empty, faces[CubeSide.Top].Colors[2]);
+            cube.Cubies[0, 2, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Left].Colors[1], faces[CubeSide.Top].Colors[6]);
+            cube.Cubies[2, 2, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Right].Colors[1], faces[CubeSide.Top].Colors[3]);
+            
+            
+            cube.Cubies[0, 1, 0] = new Cubie(faces[CubeSide.Front].Colors[7], faces[CubeSide.Left].Colors[3], CubeColor.Empty);
+            cube.Cubies[0, 1, 2] = new Cubie(faces[CubeSide.Back].Colors[3], faces[CubeSide.Left].Colors[7], CubeColor.Empty);
+            cube.Cubies[2, 1, 0] = new Cubie(faces[CubeSide.Front].Colors[3], faces[CubeSide.Right].Colors[7], CubeColor.Empty);
+            cube.Cubies[2, 1, 2] = new Cubie(faces[CubeSide.Back].Colors[7], faces[CubeSide.Right].Colors[3], CubeColor.Empty);
 
-            cube.Cubies[0, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Green);
-            cube.Cubies[2, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Green);
-            cube.Cubies[0, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Orange, CubeColor.Blue);
-            cube.Cubies[2, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Red, CubeColor.Blue);
 
-            cube.Cubies[1, 0, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Green);
-            cube.Cubies[0, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Orange, CubeColor.Empty);
-            cube.Cubies[2, 1, 2] = new Cubie(CubeColor.Yellow, CubeColor.Red, CubeColor.Empty);
-            cube.Cubies[1, 2, 2] = new Cubie(CubeColor.Yellow, CubeColor.Empty, CubeColor.Blue);
+            cube.Cubies[0, 0, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Left].Colors[5], faces[CubeSide.Bottom].Colors[7]);
+            cube.Cubies[1, 0, 0] = new Cubie(faces[CubeSide.Front].Colors[5], CubeColor.Empty, faces[CubeSide.Bottom].Colors[1]);
+            cube.Cubies[2, 0, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Right].Colors[5], faces[CubeSide.Bottom].Colors[3]);
+            cube.Cubies[1, 0, 2] = new Cubie(faces[CubeSide.Back].Colors[5], CubeColor.Empty, faces[CubeSide.Bottom].Colors[5]);
 
             // Faces
             cube.Cubies[1, 1, 2] = new Cubie(faces[CubeSide.Back].MiddleColor, CubeColor.Empty, CubeColor.Empty);
-            cube.Cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, faces[CubeSide.Bottom].MiddleColor);
+            cube.Cubies[1, 2, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, faces[CubeSide.Top].MiddleColor);
             cube.Cubies[1, 1, 0] = new Cubie(faces[CubeSide.Front].MiddleColor, CubeColor.Empty, CubeColor.Empty);
-            cube.Cubies[0, 1, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Right].MiddleColor, CubeColor.Empty);
-            cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Left].MiddleColor, CubeColor.Empty);
-            cube.Cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, faces[CubeSide.Top].MiddleColor);
+            cube.Cubies[0, 1, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Left].MiddleColor, CubeColor.Empty);
+            cube.Cubies[2, 1, 1] = new Cubie(CubeColor.Empty, faces[CubeSide.Right].MiddleColor, CubeColor.Empty);
+            cube.Cubies[1, 0, 1] = new Cubie(CubeColor.Empty, CubeColor.Empty, faces[CubeSide.Bottom].MiddleColor);
 
             Console.WriteLine(cube);
             
