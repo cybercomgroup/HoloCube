@@ -1,6 +1,8 @@
 # HoloCube
 Solving  Rubik's Cube with Hololens
 
+# USE Unity version 2017.1.2 
+
 ## Install project
 
   * Download unity  [Link](https://unity3d.com/get-unity/download/archive)
