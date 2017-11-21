@@ -4,10 +4,12 @@ using OpenCVForUnity;
 using OpenCVForUnityExample;
 using UnityEngine;
 using ColorMine.ColorSpaces;
+using Rect = OpenCVForUnity.Rect;
+using System.Collections;
 
-public class DisplayMat : MonoBehaviour  
+public class DisplayMat : MonoBehaviour
 {
-    
+
     public WebCamTextureToMat WebCamTextureToMat;
     public ColorMap ColorMap;
 
@@ -96,82 +98,117 @@ public class DisplayMat : MonoBehaviour
             }
         }
         */
+
+
+
+        //Get new picture from camera
         imgTexture = new Texture2D(webcamTexture.width, webcamTexture.height);
         imgTexture.SetPixels(webcamTexture.GetPixels());
         imgTexture.Apply();
 
         Mat imgMat = new Mat(imgTexture.height, imgTexture.width, CvType.CV_8UC3);
         Utils.texture2DToMat(imgTexture, imgMat);
-        //Debug.Log ("imgMat dst ToString " + imgMat.ToString ());
 
         Mat grayMat = new Mat();
+
+        //Grayscale the picture
         Imgproc.cvtColor(imgMat, grayMat, Imgproc.COLOR_RGB2GRAY);
 
-        Imgproc.Canny(grayMat, grayMat, 50, 200);
+        //Blur the picture
+        Imgproc.GaussianBlur(grayMat, grayMat, new Size(3, 3), 1);
+        
+        Imgproc.equalizeHist(grayMat, grayMat);
 
-        // Apply the Hough Transform to find the lines
-        Mat lines = new Mat();
-        Imgproc.HoughLinesP(grayMat, lines, Imgproc.CV_HOUGH_GRADIENT, 3, grayMat.rows() / 100, 200, 100);
+        //Find Edges
+        Mat edgesOfPicture = new Mat();
+        Imgproc.Canny(grayMat, edgesOfPicture, 75, 225);
 
-        /*
-        Mat linesCol = new Mat();
-        Imgproc.HoughLinesP(grayMat, linesCol, Imgproc.CV_HOUGH_GRADIENT, 3, grayMat.cols() / 8, 20, 100);
-        */
-        for (int i = 0; i < lines.cols(); i++)
+        List<MatOfPoint> contours = new List<MatOfPoint>();
+        Mat hierarchy = new Mat();
+        Imgproc.findContours(edgesOfPicture, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
+
+        MatOfPoint2f matOfPoint2f = new MatOfPoint2f();
+        MatOfPoint2f approxCurve = new MatOfPoint2f();
+        try
         {
-            //double[] rho = lines.get(i, 0);
-            //double rho1 = rho[0];
-            //float rho = lines.get(i, 0);
-            //float theta = lines[i][1];
-            //double a = cos(theta), b = sin(theta);
-            //double x0 = a * rho, y0 = b * rho;
-
-            //double[] points2 = linesCol.get(0, i);
-            double[] points = lines.get(0, i);
-            if(points != null)
+            for (int idx = 0; idx >= 0; idx = (int)hierarchy.get(0, idx)[0])
             {
-                double x1, y1, x2, y2;
-                x1 = points[0];
-                y1 = points[1];
-                x2 = points[2];
-                y2 = points[3];
 
-                /*
-                double a1, b1, a2, b2;
-                a1 = points[0];
-                b1 = points[1];
-                a2 = points[2];
-                b2 = points[3];
-                */
-                Point pt1 = new Point(x1, y1);
-                Point pt2 = new Point(x2, y2);
-                /*
-                Point pta = new Point(a1, b1);
-                Point ptb = new Point(a2, b2);
-                Imgproc.line(imgMat, pta, ptb, new Scalar(255, 0, 0), 10);
-                */
-                Imgproc.line(imgMat, pt1, pt2, new Scalar(255, 0, 0), 10);
 
                 
+                    MatOfPoint contour = contours[idx];
+                    Rect rect = Imgproc.boundingRect(contour);
+                    double contourArea = Imgproc.contourArea(contour);
+                    matOfPoint2f.fromList(contour.toList());
+                    Imgproc.approxPolyDP(matOfPoint2f, approxCurve, Imgproc.arcLength(matOfPoint2f, true) * 0.02, true);
+                    long total = approxCurve.total();
+
+
+                    if (total >= 4 && total <= 6)
+                    {
+                        ArrayList cos = new ArrayList();
+                        Point[] points = approxCurve.toArray();
+
+                        for (int j = 2; j < total + 1; j++)
+                        {
+                            cos.Add(angle(points[(int)(j % total)], points[j - 2], points[j - 1]));
+                        }
+
+                        cos.Sort();
+                        Double minCos = (Double)cos[0];
+                        Double maxCos = (Double)cos[cos.Count - 1];
+                        bool isRect = total == 4 && minCos >= -0.1 && maxCos <= 0.3;
+                        if (isRect)
+                        {
+                        /*
+                        double maxVal = 0;
+                        int maxValIdx = 0;
+                        for (int contourIdx = 0; contourIdx < contours.Count; contourIdx++)
+                        {
+                            double biggestContour = Imgproc.contourArea(contours[contourIdx]);
+                            if (maxVal < biggestContour)
+                            {
+                                maxVal = biggestContour;
+                                maxValIdx = contourIdx;
+                            }
+                        }
+
+                        Imgproc.drawContours(imgMat, contours, maxValIdx, new Scalar(0, 255, 0), 5);
+                        */
+                        Imgproc.drawContours(imgMat, contours, idx, new Scalar(255, 0, 0), 10);
+                        }        
+                    } 
             }
-           
         }
+        catch (ArgumentOutOfRangeException e)
+        {
+        }
+        
 
         Texture2D texture = new Texture2D(imgMat.cols(), imgMat.rows(), TextureFormat.RGBA32, false);
         Utils.matToTexture2D(imgMat, texture);
-
         gameObject.GetComponent<Renderer>().material.mainTexture = texture;
+
     }
 
+        private double angle(Point pt1, Point pt2, Point pt0)
+        {
+            double dx1 = pt1.x - pt0.x;
+            double dy1 = pt1.y - pt0.y;
+            double dx2 = pt2.x - pt0.x;
+            double dy2 = pt2.y - pt0.y;
+            return (dx1 * dx2 + dy1 * dy2) / Math.Sqrt((dx1 * dx1 + dy1 * dy1) * (dx2 * dx2 + dy2 * dy2) + 1e-10);
+        }
+}
 
-    
 
+
+
+
+    /*
     private IRgb GetValue(double[] col)
     {
         var rgb = new Rgb(col[0], col[1], col[2]);
-//        var hsv = rgb.To<Hsv>();
-//        hsv.V = 100;
-//        return hsv.ToRgb();
         return rgb;
     }
-    }
+    */
