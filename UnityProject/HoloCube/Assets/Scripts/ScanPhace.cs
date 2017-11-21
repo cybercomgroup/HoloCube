@@ -1,9 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ColorThings;
 using OpenCVForUnity;
 using UnityEngine;
+using Backend;
 
 public class ScanPhace : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class ScanPhace : MonoBehaviour
 
 	private List<ScanningInstruction> _scanningInstructions;
 	private bool _redoScan;
+
+    
 	
 	// Use this for initialization
 	void Start ()
@@ -45,6 +48,7 @@ public class ScanPhace : MonoBehaviour
 			scanface.Face.MiddleColor = _scanningInstructions[i].FaceColor;
 			scanface.Face.TopColor = _scanningInstructions[i].TopColor;
 			scanface.Redraw();
+
 			
 			_scanFaces.Add(obj);
 		}
@@ -121,7 +125,23 @@ public class ScanPhace : MonoBehaviour
 			return;
 		}
 
-		print("We are done!");
+        List<RubicColors> yellow = _scanFaces[5].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+        List<RubicColors> blue   = _scanFaces[1].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+        List<RubicColors> white  = _scanFaces[4].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+        List<RubicColors> orange = _scanFaces[0].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+        List<RubicColors> red    = _scanFaces[2].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+        List<RubicColors> green  = _scanFaces[3].GetComponent<ScanedFace>().Face.Colors as List<RubicColors>;
+       
+      
+        new CreateRubikSides(yellow,
+        blue,
+        white,
+        orange,
+        red,
+        green);
+        
+      
+        print("We are done!");
 	}
 
 	private bool ScanPhaseIsDone()
