@@ -11,17 +11,7 @@ namespace Backend
 {
     
     public class CreateRubikSides {
-    
-    /*
-    
-        public ColorThings.RubicColors[] backYellow;
-        public  ColorThings.RubicColors[] topBlue;
-        public ColorThings.RubicColors[]  frontWhite;
-        public ColorThings.RubicColors[] leftOrange;
-        public  ColorThings.RubicColors[] rightRed;
-        public  ColorThings.RubicColors[] bottomGreen;
-     */
-    
+     
         public List<RubicColors> backYellow;
         public List<RubicColors> topBlue;
         public List<RubicColors> frontWhite;
@@ -41,13 +31,9 @@ namespace Backend
 
 
     //Skicka in alla inscannade sidor och spara dem i arrayer
-    /*
-       public CreateRubikSides (ColorThings.RubicColors[] backYellow,
-        ColorThings.RubicColors[] topBlue, ColorThings.RubicColors[] frontWhite, ColorThings.RubicColors[] leftOrange, ColorThings.RubicColors[] rightRed, ColorThings.RubicColors[] bottomGreen) {
-       */
     
         public CreateRubikSides (
-        List<RubicColors> backYellow,
+            List<RubicColors> backYellow,
             List<RubicColors> topBlue,
             List<RubicColors> frontWhite,
             List<RubicColors> leftOrange,
@@ -60,19 +46,8 @@ namespace Backend
             this.leftOrange = leftOrange;
             this.rightRed = rightRed;
             this.bottomGreen = bottomGreen;
-             
-            
-            /*
-            
-            this.yellow = yellow;
-            this.blue = blue;
-            this.white = white;
-            this.orange = orange;
-            this.red = red;
-            this.green = green;
-             */
-           
-           //Lägg dessa som instansvariabler?
+ 
+ 
            backColors = new CubeColor[8];
            topColors = new CubeColor[8];
            frontColors = new CubeColor[8];
@@ -99,33 +74,10 @@ namespace Backend
            for (int i = 0; i < 8; i++) {
                bottomColors[i] = setColor(bottomGreen[i]);
            }
+           
          
-        
-       
-       /*
-       for (int i = 0; i < 8; i++) {
-            backColors[i] = setColor(yellow.Find(i).GetComponent<>());
-        }
-        for (int i = 0; i < 8; i++) {
-            topColors[i] = setColor(blue.Find(i));
-        }
-        for (int i = 0; i < 8; i++) {
-            frontColors[i] = setColor(white.Find(i));
-        }
-        for (int i = 0; i < 8; i++) {
-            leftColors[i] = setColor(orange.Find(i));
-        }
-        for (int i = 0; i < 8; i++) {
-            rightColors[i] = setColor(red.Find(i));
-        }
-        for (int i = 0; i < 8; i++) {
-            bottomColors[i] = setColor(green.Find(i));
-        }
-
-*/
-           RubikCube kuben = new RubikCube(createCube());
+         RubikCube kuben = new RubikCube(createCube());
            List<Move> listanMedDragen = Solver.Solve(kuben);
-           //Debug.Log(listanMedDragen);
            
            foreach(Move drag in listanMedDragen) {
                Debug.Log(drag.ToString());
