@@ -176,7 +176,7 @@ public class DisplayMat : MonoBehaviour
                         Imgproc.drawContours(imgMat, contours, maxValIdx, new Scalar(0, 255, 0), 5);
                         */
                         Imgproc.drawContours(imgMat, contours, idx, new Scalar(255, 0, 0), 10);
-                        Resources.UnloadUnusedAssets(); Fixes the memory leak
+                        Resources.UnloadUnusedAssets(); //Fixes the memory leak
                         }        
                     } 
             }
