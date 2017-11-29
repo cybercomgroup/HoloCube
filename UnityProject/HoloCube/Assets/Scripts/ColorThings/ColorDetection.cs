@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ColorMine.ColorSpaces;
@@ -23,8 +23,8 @@ namespace ColorThings
             White = new ColorRange(0, 35); // check Saturation
 
             Yellow = new ColorRange(40, 70);
-            Red = new ColorRange(340, 11);
-            Orange = new ColorRange(10, 40);
+            Orange = new ColorRange(340, 11);
+            //Orange = new ColorRange(10, 40);
             Blue = new ColorRange(195, 260);
             Green = new ColorRange(80, 180);
         }
@@ -93,7 +93,7 @@ namespace ColorThings
             if (White.IsInRange(saturation)) return RubicColors.White;
 
             if (Yellow.IsInRange((int) hsv.H)) return RubicColors.Yellow;
-            if (Red.IsInRange((int) hsv.H)) return RubicColors.Red;
+            //if (Red.IsInRange((int) hsv.H)) return RubicColors.Red;
             if (Orange.IsInRange((int) hsv.H)) return RubicColors.Orange;
             if (Blue.IsInRange((int) hsv.H)) return RubicColors.Blue;
             if (Green.IsInRange((int) hsv.H)) return RubicColors.Green;
