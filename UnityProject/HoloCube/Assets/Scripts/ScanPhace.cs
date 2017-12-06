@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ColorThings;
@@ -72,7 +72,7 @@ public class ScanPhace : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(Input.GetKeyUp("space"))
+		if(DisplayMat.allCubiesScaned)
 		{
 			if(ScanPhaseIsDone())
 			{
@@ -87,7 +87,7 @@ public class ScanPhace : MonoBehaviour
 #endif
 			if(ColorMap.Face.MiddleColor != _scanningInstructions[_progress].FaceColor)
 			{
-				print("That is not the exptected face color");
+				print("That is not the expected face color");
 				return;
 			}
 			
@@ -98,9 +98,10 @@ public class ScanPhace : MonoBehaviour
 			_progress++;
 			SetProgressText();
 		}
-		
-		
-	}
+
+        DisplayMat.allCubiesScaned = false;
+
+    }
 
 	private void FinishPhase()
 	{
