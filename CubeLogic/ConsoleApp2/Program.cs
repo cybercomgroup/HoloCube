@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// Cube solver project
 namespace ConsoleApp2
 {
     class Program
