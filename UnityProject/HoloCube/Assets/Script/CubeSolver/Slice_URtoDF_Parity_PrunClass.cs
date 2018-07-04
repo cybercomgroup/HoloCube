@@ -6,7 +6,8 @@
     static Slice_URtoDF_Parity_PrunClass()
     {
         for (int i = 0; i < CoordCube.N_SLICE2 * CoordCube.N_URtoDF * CoordCube.N_PARITY / 2; i++)
-            Slice_URtoDF_Parity_Prun[i] = -1;   //SHOULD BE -1 changed to 0
+            Slice_URtoDF_Parity_Prun[i] = -1;
+
         int depth = 0;
         CoordCube.setPruning(Slice_URtoDF_Parity_Prun, 0, 0);
         int done = 1;

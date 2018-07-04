@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FRtoBRClass {
+﻿public class FRtoBRClass {
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Move table for the four UD-slice edges FR, FL, Bl and BR
@@ -10,7 +6,6 @@ public class FRtoBRClass {
     // FRtoBRMove < 24 in phase 2
     // FRtoBRMove = 0 for solved cube
 
-    //public static short[,] FRtoBR_Move = new short[,] { { CoordCube.N_FRtoBR, CoordCube.N_MOVE } };
     public static short[,] FRtoBR_Move = new short[CoordCube.N_FRtoBR, CoordCube.N_MOVE];
     static FRtoBRClass()
     {

@@ -6,7 +6,7 @@
     static Slice_Twist_PrunClass()
     {
         for (int i = 0; i < CoordCube.N_SLICE1 * CoordCube.N_TWIST / 2 + 1; i++)
-            Slice_Twist_Prun[i] = -1; // SHOULD BE -1 changed to 0
+            Slice_Twist_Prun[i] = -1;
 
         int depth = 0;
         CoordCube.setPruning(Slice_Twist_Prun, 0, 0);

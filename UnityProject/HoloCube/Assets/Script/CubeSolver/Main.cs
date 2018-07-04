@@ -1,14 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using UnityEngine.Collections;
-using Backend;
-
+﻿using UnityEngine;
 
 public class Main : MonoBehaviour {
     private readonly static UnityEngine.Color[] COLORS = { UnityEngine.Color.white, UnityEngine.Color.red,
-    UnityEngine.Color.blue, UnityEngine.Color.yellow, UnityEngine.Color.green, new Color(1, 0.39F, 0) };
+    UnityEngine.Color.blue, UnityEngine.Color.yellow, UnityEngine.Color.green, UnityEngine.Color.magenta};
 
     // Use this for initialization
     void Start () {
@@ -16,7 +10,19 @@ public class Main : MonoBehaviour {
         foreach(GameObject facelet in facelets)
         {
             facelet.GetComponent<Renderer>().enabled = true;
-            facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.blue;
+            if(facelet.name.Contains("U"))
+            facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.red;
+            else if (facelet.name.Contains("R"))
+                facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.green;
+            else if (facelet.name.Contains("F"))
+                facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.white;
+            else if (facelet.name.Contains("D"))
+                facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.magenta;
+            else if (facelet.name.Contains("L"))
+                facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.blue;
+            else if (facelet.name.Contains("B"))
+                facelet.GetComponent<Renderer>().material.color = UnityEngine.Color.yellow;
+
         }
 
         GameObject.Find("B").GetComponent<Renderer>().enabled = true;
@@ -31,29 +37,5 @@ public class Main : MonoBehaviour {
         GameObject.Find("W").GetComponent<Renderer>().material.color = COLORS[0];
         GameObject.Find("Y").GetComponent<Renderer>().enabled = true;
         GameObject.Find("Y").GetComponent<Renderer>().material.color = COLORS[3];
-
-        foreach (string s in ColorTracker.Instance.permColors.Keys)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                Debug.Log("Face: " + s + "Index: " + i + "= " + ColorTracker.Instance.permColors[s][i]);
-            }
-        }
-
-        // U, R, F, D, L, B
-        //string s = Search.solution("UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB", 24, 99999999, true);
-        //string s = Search.solution("RRRUUDDDLBLURRDFBBRRUFFBBBLLLDUDUUDUDRBLLULLDFFFFBFRBF", 24, 99999999, true);
-        //string s = Search.solution("LRRUUULLRULDURDURDFFBFFBFFBRRLDDDRLLURDULDULDBBFBBFBBF", 24, 999999, true);
-        //string s = Search.solution("DUUBULDBFRBFRRULLLBRDFFFBLURDBFDFDRFRULBLUFDURRBLBDUDL", 24, 999999, true);
-        
-
-        foreach(string s in ColorTracker.Instance.PlaneIDsAndColors.Keys)
-        {
-            var obj = GameObject.Find(s);
-            var _render = obj.GetComponent<Renderer>();
-            _render.enabled = true;
-            _render.material.color = ColorTracker.Instance.PlaneIDsAndColors[s];
-            Debug.Log("looking for " + s + "and putting the color " + ColorTracker.Instance.PlaneIDsAndColors[s]);
-        }
     }
 }

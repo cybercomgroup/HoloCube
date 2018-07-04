@@ -6,7 +6,7 @@
     static Slice_Flip_PrunClass()
     {
         for (int i = 0; i < CoordCube.N_SLICE1 * CoordCube.N_FLIP / 2; i++)
-            Slice_Flip_Prun[i] = -1; //SHOULD BE -1 changed to 0
+            Slice_Flip_Prun[i] = -1;
         int depth = 0;
 
         CoordCube.setPruning(Slice_Flip_Prun, 0, 0);

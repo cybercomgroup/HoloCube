@@ -1,0 +1,1246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04C26E7F-2633-109B-B599-8D04C1D3EFF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2017.3.1f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIAutomation">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/GAME PRODUCTION/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="ColorMine">
+      <HintPath>Assets/External dll/ColorMine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/Bae/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="GLTFSerialization">
+      <HintPath>Assets/HoloToolkit/Utilities/Scripts/GLTF/Plugins/GLTFSerialization/GLTFSerialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets/HoloToolkit/Utilities/Scripts/GLTF/Plugins/JsonNet/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Boundary\Scripts\SceneContentAdjuster.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CalibrationSpace.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CameraCache.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\ClipPlane.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CrossPlatform\MetroHandleRef.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CrossPlatform\Reflection\ReflectionExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CrossPlatform\Reflection\TypeUtils.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\CrossPlatform\SystemException.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Enums\Handedness.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\ActionExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\BoundsExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\CameraExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\Color32Extensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\EventSystemExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\Extensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\InteractionSourceExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\LayerExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\MathfExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Extensions\VectorExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\HoverLight.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Int3.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedColor.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedFloat.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedQuaternion.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedValue.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedVector2.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\InterpolatedVector3.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\QuaternionInterpolated.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolatedValues\Vector3Interpolated.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\InterpolationUtilities.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Interpolator.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\MathUtils.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\RaycastResultComparer.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\SingleInstance.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\Singleton.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\StartAwareBehaviour.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\StartAwareSingleton.cs" />
+    <Compile Include="Assets\HoloToolkit\Common\Scripts\WorldAnchorManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimatedCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimatorParameter.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimCursorDatum.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\Cursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\CursorModifier.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\CursorStateEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\ICursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\ICursorModifier.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\InteractiveMeshCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\MeshCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\ObjectCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\SpriteCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\FocusDetails.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\FocusManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\InputSourcePointer.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\IPointingSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\PointerResult.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\RayStep.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\RegisterPointableCanvas.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Focus\SimpleSinglePointerSelector.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\GamePad\GamePadHandlerBase.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\GamePad\XboxController\XboxControllerData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\GamePad\XboxController\XboxControllerHandlerBase.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\GamePad\XboxController\XboxControllerMapping.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\GamePad\XboxController\XboxControllerMappingTypes.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Gaze\BaseRayStabilizer.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Gaze\GazeManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Gaze\GazeStabilizer.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\BaseInputEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\BoundingBoxEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\DictationEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\GamePadEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\HoldEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\InputClickedEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\InputEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\InputPositionEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\ManipulationEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\NavigationEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\PointerInputEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\PointerSpecificEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SelectPressedEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SourcePositionEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SourceRotationEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SourceStateEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SpeechEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\SpeechKeywordRecognizedEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputEventData\XboxControllerEventData.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IBoundingBoxStateHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IControllerInputHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IControllerTouchpadHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IDictationHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IFocusable.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IGamePadHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IHoldHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IInputClickHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IInputHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IManipulationHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\INavigationHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IPointerSpecificFocusable.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\ISelectHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\ISourcePositionHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\ISourceRotationHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\ISourceStateHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\ISpeechHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputHandlers\IXboxControllerHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\BaseInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\CustomInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\DictationInputManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\GamepadInput.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\GamePadInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\IInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\IInputSourceInfoProvider.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\InputSourceInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\InteractionInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\InteractionSourceInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\InteractionSourcePressInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\RawInteractionInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\SpeechInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\SupportedInputInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\TouchscreenInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\InputSources\XboxControllerInputSource.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\AttachToController.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\AxisController.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\BaseControllerPointer.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\ButtonController.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\CameraMotionInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\ControllerFinder.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\FadeScript.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\AffineConstraintEnums.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\CustomInputControl.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\CustomInputSelector.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\DebugInteractionSourcePose.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\DebugInteractionSourceState.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\HandDraggable.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\ManipulationMode.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\ManualGazeControl.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\SpeechInputHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\TriggerButton.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\TwoHandManipulatable.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\TwoHandMoveLogic.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\TwoHandRotateLogic.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Interactions\TwoHandScaleLogic.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\KeywordAndKeyCode.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Managers\HandGuidance.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Managers\InputManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Managers\KeyboardManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Managers\MixedRealityCameraManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\Managers\MixedRealityTeleport.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\MicrophoneHelper.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\MicStream.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\MotionControllerInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\MotionControllerVisualizer.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\PointerLine.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\SetGlobalListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\Utilities\VectorRollingStatistics.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Extensions\SessionExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\AnchorDownloadRequest.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\AudioManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\BoolElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ClientConfig.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ClientRole.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DirectPairConnector.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DirectPairReceiver.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DiscoveredSystem.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DiscoveryClient.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DiscoveryClientAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DiscoveryClientListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\DoubleElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Element.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ElementType.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\FloatArrayElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\FloatArrayListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\FloatElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\IntArrayElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\IntArrayListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\IntElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Listener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Log.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\LogManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\LogSeverity.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\LogWriter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\LongElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\MachineSessionState.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\MessageChannel.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\MessageID.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\MessagePriority.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\MessageReliability.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\NetworkConnection.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\NetworkConnectionAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\NetworkConnectionListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\NetworkInMessage.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\NetworkOutMessage.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ObjectElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ObjectElementAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ObjectElementListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\PairingAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\PairingListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\PairingManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\PairingResult.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\PairMaker.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Profile.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\ProfileManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Receipt.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Room.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\RoomManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\RoomManagerAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\RoomManagerListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Session.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SessionListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SessionManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SessionManagerAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SessionManagerListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SessionType.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\Settings.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SharingClient.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SharingClientPINVOKE.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SharingManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\StringArrayElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\StringArrayListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\StringElement.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SyncListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\SystemRole.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\TagImage.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\User.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\UserPresenceManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\UserPresenceManagerAdapter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\UserPresenceManagerListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\VisualPairConnector.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\VisualPairReceiver.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SDK\XString.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\ServerSessionsTracker.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SessionUsersTracker.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SharingStage.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Spawning\PrefabSpawnManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Spawning\SpawnManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Spawning\SyncSpawnArray.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Spawning\SyncSpawnedObject.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncArray.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncBool.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncDataAttributes.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncDouble.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncFloat.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncInteger.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncLong.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncObject.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncPrimitive.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncQuaternion.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncString.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncTransform.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncModel\SyncVector3.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncRoot.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncSettings.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\SyncStateListener.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Unity\DefaultSyncModelAccessor.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Unity\ISyncModelAccessor.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Unity\TransformSynchronizer.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Utilities\AutoJoinSessionAndRoom.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Utilities\ConsoleLogWriter.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Utilities\DirectPairing.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Utilities\ManualIpConfiguration.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\Utilities\SharingWorldAnchorManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\VoiceChat\MicrophoneReceiver.cs" />
+    <Compile Include="Assets\HoloToolkit\Sharing\Scripts\VoiceChat\MicrophoneTransmitter.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\DataEventArgs.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\ObjectSurfaceObserver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\PropertyChangedEventArgsEx.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\FileSurfaceObserver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\MeshSaver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMappingManager.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMeshSource.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMeshTarget.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\SimpleMeshSerializer.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingManager.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingObserver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingSource.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\PlaneFinding.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\RemoveSurfaceVertices.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\SurfaceMeshesToPlanes.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\SurfacePlane.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\TapToPlace.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\AudioEmitter.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\AudioLoFiEffect.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\AudioOccluder.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\IAudioInfluencer.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\ActiveEvent.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioBank.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioClip.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioContainer.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioEvent.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioEventAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioEventBank.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioSourcePlayClipExtension.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioSourcesReference.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\SpatialSoundSettings.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\UAudioManager.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\UAudioManagerBase.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstanding.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingCustomMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDll.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDllObjectPlacement.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDllShapes.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDllTopology.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingSourceMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\AdaptiveQuality\AdaptiveQuality.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\AdaptiveQuality\AdaptiveViewport.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\ApplicationViewManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\AtlasReferenceUpdater\AtlasPrefabReference.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\AnimationCurveDefaultAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\DocLinkAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\DrawLastAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\DrawOverrideAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\DropDownComponentAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\DropDownGameObjectAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\EditablePropAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\EnumCheckboxAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\EnumFlagsAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\FeatureInProgressAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\GradientDefaultAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\HideInMRTKInspector.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\MaterialPropertyAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\OpenLocalFileAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\OpenLocalFolderAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\RangePropAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\SaveLocalFileAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\SceneComponentAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\SceneGameObjectAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\SetIndentAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\ShowIfAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\ShowIfBoolValueAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\ShowIfEnumValueAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\ShowIfNullAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\TextAreaProp.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\TutorialAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\UseWithAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Attributes\ValidateUnityObjectAttribute.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Billboard.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\BitManipulator.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\CanvasHelper.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\CircularBuffer.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\DebugPanel.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\DebugPanelControllerInfo.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\DebugPanelFPSCounter.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\DirectionIndicator.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\DisplayDependentObjectActivator.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\FileSystemHelper.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\FixedAngularSize.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\FpsDisplay.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Async\AsyncAction.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Cache\AssetCache.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Cache\MaterialCacheData.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Cache\MeshCacheData.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Exceptions.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\Extensions\SchemaExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\GLTFComponent.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\GLTFSceneImporter.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Scripts\GLTFUnityHelpers.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GpuTiming\GpuTiming.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\GpuTiming\GpuTimingCamera.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\HashCodes.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\HeadsetAdjustment.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\HeadsUpDirectionIndicator.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\InputMappingAxisUtility.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Inspectors\MRTKEditor.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Inspectors\ProfileInspector.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\NearPlaneFade.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\PriorityQueue.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\RaycastHelper.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\RaycastResultHelper.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\ReadOnlyHashSet.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SceneLauncher.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SceneLauncherButton.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SimpleTagalong.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\Solver.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverBodyLock.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverConstantViewSize.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverHandler.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverMomentumizer.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverRadialView.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Solvers\SolverSurfaceMagnetism.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SortingLayerOverride.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SphereBasedTagalong.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\StabilizationPlaneModifier.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Tagalong.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\TextToSpeech.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Timer.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\TimerScheduler.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\ToggleDebugWindow.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\UnityEventFloat.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Utils.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\WindowsApiChecker.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\AppBar\AppBar.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\AppBar\AppBarButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\AxisSlider.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBox.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmo.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoHandle.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoHandleAxisToAffectEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoHandleHandMotionTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoHandleRotationTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoHandleTransformTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxGizmoShell.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\BoundingBoxRig.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\BoundingBoxes\Duplicator.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\AnimatorControllerAction.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\AnimButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\AnimControllerButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\Button.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonDatums\MeshButtonDatum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonDatums\SpriteButtonDatum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonEnums\ButtonStateEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonEnums\DialogButtonTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonEnums\ToggleBehaviorEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonIconProfile.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonIconProfileTexture.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonLocalizedText.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonMeshProfile.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonProfile.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonSoundProfile.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonSounds.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ButtonTextProfile.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonAnim.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonIcon.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonSounds.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonSpeech.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonText.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\CompoundButtonToggle.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\MeshButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ObjectButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ProfileBase.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\ProfileButtonBase.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Buttons\SpriteButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\CapsLockHighlight.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\CollectionEnums\LayoutTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\CollectionEnums\OrientTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\CollectionEnums\SortTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\CollectionEnums\SurfaceTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\CollectionNode.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\ObjectCollection.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Collections\ObjectCollectionDynamic.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Dialog\Dialog.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Dialog\DialogButton.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Dialog\DialogEnums.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Dialog\DialogResult.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Dialog\DialogShell.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\Distorter.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\DistorterBulge.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\DistorterGravity.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\DistorterSimplex.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\DistorterSphere.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\DistorterWiggly.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Distorters\FastSimplexNoise.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Keyboard.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\KeyboardInputField.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\KeyboardKeyFunc.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\KeyboardValueKey.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Bezier.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Ellipse.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Line.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineBase.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineBaseEditor.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineMeshes.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineObjectCollection.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineObjectFollower.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineObjectSwarm.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineParticles.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineRendererBase.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineStripMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineUnity.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\LineUtility.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Parabola.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Rectangle.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\Spline.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Lines\SplinePoint.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\FadeObject.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\LoadingAnimation.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ObjectDisplayScript.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ProgressIndicator.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ProgressIndicatorOrbsRotator.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ProgressIndicatorStyleEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ProgressMessageStyleEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Progress\ProgressStyleEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Receivers\InteractionReceiver.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Receivers\ToggleActiveReceiver.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\SliderInputField.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\SymbolDisableHighlight.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\SymbolKeyboard.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTip.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\TooltipAttachPointTypeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipBackground.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipBackgroundBlob.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipBackgroundCorners.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipBackgroundMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipConnector.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipConnectorEnums.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipDisplayModeEnum.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipSpawner.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\Tooltip\ToolTipUtility.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
+    <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
+    <Compile Include="Assets\OBJExport\OBJExporter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\AlphaBlendingExample\AlphaBlendingExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\ComicFilterExample\ComicFilterExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\GreenScreenExample\GreenScreenExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\HandPoseEstimationExample\ColorBlobDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\HandPoseEstimationExample\HandPoseEstimationExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\MatToTextureInRenderThreadExample\MatToTextureInRenderThreadExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\MultiObjectTrackingBasedOnColorExample\ColorObject.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\MultiObjectTrackingBasedOnColorExample\MultiObjectTrackingBasedOnColorExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Advanced\PolygonFilterExample\PolygonFilterExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Basic\MatBasicProcessingExample\MatBasicProcessingExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Basic\Texture2DToMatExample\Texture2DToMatExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Basic\WebCamTextureToMatExample\WebCamTextureToMatExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\Basic\WebCamTextureToMatHelperExample\WebCamTextureToMatHelperExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\ArUcoCameraCalibrationExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\ArUcoCreateMarkerExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\ArUcoExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\ArUcoWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\ARUtils.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\aruco\ArUcoExample\CameraParameters.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\face\FaceRecognizerExample\FaceRecognizerExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\plot\PlotExample\PlotExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\text\TextExample\TextDetectionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\text\TextExample\TextRecognitionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ContribModules\tracking\TrackingExample\TrackingExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\FpsMonitor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ImageOptimizationHelper.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\calib3d\StereoBMExample\StereoBMExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\core\PCAExample\PCAExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\CaffeExample\MobileNetSSDExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\CaffeExample\MobileNetSSDWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\CaffeExample\OpenPoseExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\CaffeExample\ResnetSSDFaceDetectionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\TensorFlowExample\TensorFlowWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\YoloExample\YoloObjectDetectionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\dnn\YoloExample\YoloObjectDetectionWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\features2d\Feature2DExample\Feature2DExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\features2d\MSERExample\MSERExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\features2d\SimpleBlobExample\SimpleBlobExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgcodecs\ImwriteScreenCaptureExample\ImwriteScreenCaptureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\CircleDetectionExample\CircleDetectionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\ConnectedComponentsExample\ConnectedComponentsExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\ConvexHullExample\ConvexHullExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\DrawingExample\DrawingExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\GrabCutExample\GrabCutExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\HoughLinesPExample\HoughLinesPExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\MatchShapesExample\MatchShapesExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\MatchTemplateExample\MatchTemplateExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\ThresholdExample\ThresholdExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\imgproc\WrapPerspectiveExample\WrapPerspectiveExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\ml\SVMExample\SVMExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\objdetect\FaceDetectionExample\AsynchronousFaceDetectionWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\objdetect\FaceDetectionExample\FaceDetectionExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\objdetect\FaceDetectionExample\FaceDetectionWebCamTextureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\objdetect\HOGDescriptorExample\HOGDescriptorExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\photo\InpaintExample\InpaintExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\photo\SeamlessCloneExample\SeamlessCloneExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\shape\ThinPlateSplineShapeTransformerExample\ThinPlateSplineShapeTransformerExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\video\BackgroundSubtractorMOG2Example\BackgroundSubtractorMOG2Example.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\video\CamShiftExample\CamShiftExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\video\KalmanFilterExample\KalmanFilterExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\video\OpticalFlowExample\OpticalFlowExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\videoio\VideoCaptureExample\VideoCaptureExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\MainModules\videoio\VideoWriterExample\VideoWriterExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\OpenCVForUnityExample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ShowLicense.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\ShowSystemInfo.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\TouchController.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Examples\WebCamTextureToMatHelper.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\calib3d\Calib3d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\calib3d\StereoBM.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\calib3d\StereoMatcher.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\calib3d\StereoSGBM.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Algorithm.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Core.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\CvException.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\CvType.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\DMatch.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\KeyPoint.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Mat.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfByte.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfDMatch.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfDouble.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfFloat.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfFloat4.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfFloat6.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfInt.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfInt4.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfKeyPoint.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfPoint.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfPoint2f.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfPoint3.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfPoint3f.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfRect.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\MatOfRect2d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Point.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Point3.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Range.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Rect.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Rect2d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\RotatedRect.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Scalar.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\Size.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\TermCriteria.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\core\TickMeter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\DisposableObject.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\DisposableOpenCVObject.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\dnn\DictValue.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\dnn\Dnn.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\dnn\Layer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\dnn\Net.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\AgastFeatureDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\AKAZE.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\BFMatcher.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\BOWImgDescriptorExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\BOWKMeansTrainer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\BOWTrainer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\BRISK.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\DescriptorExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\DescriptorMatcher.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\FastFeatureDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\Feature2D.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\FeatureDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\Features2d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\FlannBasedMatcher.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\GFTTDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\KAZE.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\MSER.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\ORB.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\features2d\Params.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgcodecs\Imgcodecs.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgproc\CLAHE.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgproc\Imgproc.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgproc\LineSegmentDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgproc\Moments.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\imgproc\Subdiv2D.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\ANN_MLP.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\ANN_MLP_ANNEAL.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\Boost.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\DTrees.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\EM.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\KNearest.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\LogisticRegression.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\Ml.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\NormalBayesClassifier.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\ParamGrid.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\RTrees.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\StatModel.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\SVM.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\SVMSGD.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\ml\TrainData.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\objdetect\BaseCascadeClassifier.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\objdetect\CascadeClassifier.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\objdetect\HOGDescriptor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\objdetect\Objdetect.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\AlignExposures.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\AlignMTB.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\CalibrateCRF.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\CalibrateDebevec.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\CalibrateRobertson.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\MergeDebevec.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\MergeExposures.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\MergeMertens.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\MergeRobertson.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\Photo.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\Tonemap.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\TonemapDrago.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\TonemapDurand.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\TonemapMantiuk.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\photo\TonemapReinhard.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\AffineTransformer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\ChiHistogramCostExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\EMDHistogramCostExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\EMDL1HistogramCostExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\HausdorffDistanceExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\HistogramCostExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\NormHistogramCostExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\Shape.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\ShapeContextDistanceExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\ShapeDistanceExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\ShapeTransformer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\shape\ThinPlateSplineShapeTransformer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\unity\Utils.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\utils\Converters.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\BackgroundSubtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\BackgroundSubtractorKNN.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\BackgroundSubtractorMOG2.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\DenseOpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\DualTVL1OpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\FarnebackOpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\KalmanFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\SparseOpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\SparsePyrLKOpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\video\Video.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\videoio\VideoCapture.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\videoio\Videoio.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv\videoio\VideoWriter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\Aruco.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\Board.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\CharucoBoard.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\DetectorParameters.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\Dictionary.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\aruco\GridBoard.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorCNT.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorGMG.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorGSOC.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorLSBP.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorLSBPDesc.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\BackgroundSubtractorMOG.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\Bgsegm.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bgsegm\SyntheticSequenceGenerator.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bioinspired\Bioinspired.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bioinspired\Retina.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bioinspired\RetinaFastToneMapping.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\bioinspired\TransientAreasSegmentationModule.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ccalib\Ccalib.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\BasicFaceRecognizer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\BIF.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\EigenFaceRecognizer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\Face.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\FaceRecognizer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\FisherFaceRecognizer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\LBPHFaceRecognizer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\PredictCollector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\face\StandardCollector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\fuzzy\Fuzzy.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\AverageHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\BlockMeanHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\ColorMomentHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\Img_hash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\ImgHashBase.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\MarrHildrethHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\PHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\img_hash\RadialVarianceHash.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\DISOpticalFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\GPCDetails.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\GPCPatchDescriptor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\GPCPatchSample.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\GPCTrainingSamples.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\GPCTree.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\Optflow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\OpticalFlowPCAFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\PCAPrior.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\optflow\VariationalRefinement.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\phase_unwrapping\HistogramPhaseUnwrapping.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\phase_unwrapping\Phase_unwrapping.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\phase_unwrapping\PhaseUnwrapping.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\plot\Plot.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\plot\Plot2d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\Map.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapAffine.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\Mapper.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperGradAffine.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperGradEuclid.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperGradProj.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperGradShift.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperGradSimilar.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapperPyramid.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapProjec.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapShift.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\MapTypeCaster.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\reg\Reg.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\MotionSaliency.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\MotionSaliencyBinWangApr2014.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\Objectness.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\ObjectnessBING.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\Saliency.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\StaticSaliency.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\StaticSaliencyFineGrained.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\saliency\StaticSaliencySpectralResidual.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\structured_light\GrayCodePattern.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\structured_light\SinusoidalPattern.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\structured_light\Structured_light.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\structured_light\StructuredLightPattern.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\BaseOCR.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\Callback.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\ClassifierCallback.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\ERFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\OCRBeamSearchDecoder.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\OCRHMMDecoder.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\Text.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\TextDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\text\TextDetectorCNN.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\MultiTracker.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\Tracker.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerBoosting.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerCSRT.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerKCF.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerMedianFlow.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerMIL.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerMOSSE.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\TrackerTLD.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\tracking\Tracking.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\BoostDesc.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\BriefDescriptorExtractor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\DAISY.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\FREAK.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\HarrisLaplaceFeatureDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\LATCH.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\LUCID.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\MSDDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\PCTSignatures.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\PCTSignaturesSQFD.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\StarDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\VGG.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xfeatures2d\Xfeatures2d.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\AdaptiveManifoldFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\ContourFitting.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\DisparityFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\DisparityWLSFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\DTFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\EdgeAwareInterpolator.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\EdgeBoxes.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\FastGlobalSmootherFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\FastLineDetector.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\GraphSegmentation.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\GuidedFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\RFFeatureGetter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\RidgeDetectionFilter.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentation.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategy.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategyColor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategyFill.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategyMultiple.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategySize.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SelectiveSearchSegmentationStrategyTexture.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SparseMatchInterpolator.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\StructuredEdgeDetection.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SuperpixelLSC.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SuperpixelSEEDS.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\SuperpixelSLIC.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\ximgproc\Ximgproc.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xphoto\GrayworldWB.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xphoto\LearningBasedWB.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xphoto\SimpleWB.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xphoto\WhiteBalancer.cs" />
+    <Compile Include="Assets\OpenCVForUnity\org\opencv_contrib\xphoto\Xphoto.cs" />
+    <Compile Include="Assets\Script\Backend\ColorTracker.cs" />
+    <Compile Include="Assets\Script\Backend\InstructionHandler.cs" />
+    <Compile Include="Assets\Script\Backend\PredefinedColors.cs" />
+    <Compile Include="Assets\Script\Backend\Translator.cs" />
+    <Compile Include="Assets\Script\ColorThings\ColorDetection.cs" />
+    <Compile Include="Assets\Script\ColorThings\ColorMap.cs" />
+    <Compile Include="Assets\Script\ColorThings\ColorRange.cs" />
+    <Compile Include="Assets\Script\ColorThings\CoordinateVerifier.cs" />
+    <Compile Include="Assets\Script\ColorThings\Face.cs" />
+    <Compile Include="Assets\Script\ColorThings\RgbEnums.cs" />
+    <Compile Include="Assets\Script\ColorThings\RubiColors.cs" />
+    <Compile Include="Assets\Script\ColorThings\SkipScan.cs" />
+    <Compile Include="Assets\Script\CubeSide.cs" />
+    <Compile Include="Assets\Script\CubeSolver\ColorForSolver.cs" />
+    <Compile Include="Assets\Script\CubeSolver\CoordCube.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Corner.cs" />
+    <Compile Include="Assets\Script\CubeSolver\CubieCube.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Edge.cs" />
+    <Compile Include="Assets\Script\CubeSolver\FaceCube.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Facelet.cs" />
+    <Compile Include="Assets\Script\CubeSolver\FlipMoveClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\FRtoBRClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Main.cs" />
+    <Compile Include="Assets\Script\CubeSolver\MergeURtoULandUBtoDFClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Search.cs" />
+    <Compile Include="Assets\Script\CubeSolver\SetColor.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Slice_Flip_PrunClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Slice_Twist_PrunClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Slice_URFtoDLF_Parity_PrunClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Slice_URtoDF_Parity_PrunClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\SolveButton.cs" />
+    <Compile Include="Assets\Script\CubeSolver\Tools.cs" />
+    <Compile Include="Assets\Script\CubeSolver\TwistMoveClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\UBtoDFClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\URFtoDLFClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\URtoDFClass.cs" />
+    <Compile Include="Assets\Script\CubeSolver\URtoULClass.cs" />
+    <Compile Include="Assets\Script\DisplayMat.cs" />
+    <Compile Include="Assets\Script\DispNoAuto.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
+    <Compile Include="Assets\Script\ReColor.cs" />
+    <Compile Include="Assets\Script\Rotation\RotationHandler.cs" />
+    <Compile Include="Assets\Script\Rotation\RotationInstruction.cs" />
+    <Compile Include="Assets\Script\ScanPhase.cs" />
+    <Compile Include="Assets\Script\startbutton2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurable.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurable.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurableTransparent.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\FastConfigurable\FastConfigurable.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\FastConfigurable\FastConfigurable.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\FastConfigurable\FastConfigurable2Sided.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\FastConfigurable\HoloToolkitCommon.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\FastConfigurable\macro.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\HoloToolkitCommon.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\LambertianConfigurable.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\LambertianConfigurable.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\LambertianConfigurableTransparent.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\StandardFast.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\UnlitConfigurable.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\UnlitConfigurable.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\UnlitConfigurableTransparent.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\UnlitNoDepthTest.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\VertexLitConfigurable.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\VertexLitConfigurable.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\VertexLitConfigurableTransparent.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\macro.cginc" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\Standard.shader" />
+    <None Include="Assets\HoloToolkit\Common\Shaders\WindowOcclusion.shader" />
+    <None Include="Assets\HoloToolkit\Input\Shaders\Cursor.shader" />
+    <None Include="Assets\HoloToolkit\Input\Shaders\CursorShader.shader" />
+    <None Include="Assets\HoloToolkit\Input\Shaders\EditorHands.shader" />
+    <None Include="Assets\HoloToolkit\License.txt" />
+    <None Include="Assets\HoloToolkit\MRTKVersion.txt" />
+    <None Include="Assets\HoloToolkit\SpatialMapping\Shaders\Occlusion.shader" />
+    <None Include="Assets\HoloToolkit\SpatialMapping\Shaders\SpatialMappingTap.shader" />
+    <None Include="Assets\HoloToolkit\SpatialMapping\Shaders\Wireframe.shader" />
+    <None Include="Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialMappingSurface.shader" />
+    <None Include="Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialUnderstandingSurface.shader" />
+    <None Include="Assets\HoloToolkit\UX\Fonts\LICENSE.txt" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\3DTextShader.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\Alpha-Diffuse.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\DebugNormals.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\HUXButtonHighlightShader.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\HUXButtonShader.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\InvisibleShader.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\LuminousUnity.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\MovieMask.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\Normal-Diffuse.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\Occlusion.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\StereoImage.shader" />
+    <None Include="Assets\HoloToolkit\UX\Shaders\unlit_vert_color.shader" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFConstant.cginc" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFConstant.shader" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFMobileCommon.cginc" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFStandard.shader" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFStandardInput.cginc" />
+    <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFVertexLitCommon.cginc" />
+    <None Include="Assets\OpenCVForUnity\OpenCV_LICENSE.txt" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\haarcascade_frontalface_alt.xml" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\lbpcascade_frontalface.xml" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\text\OCRHMM_transitions_table.xml" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\text\trained_classifierNM1.xml" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\text\trained_classifierNM2.xml" />
+    <None Include="Assets\OpenCVForUnity\StreamingAssets\text\trained_classifier_erGrouping.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

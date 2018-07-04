@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Text;
 using UnityEngine;
 
 public class SolveButton : MonoBehaviour {
-    StringBuilder sb;
+    StringBuilder sb = new StringBuilder(54);
     private static UnityEngine.Color up, down, front, back, right, left;
+    public static string[] commands;
 
     private void OnMouseDown()
     {
-
-        sb = new StringBuilder(54);
         up = GameObject.Find("U5").GetComponent<Renderer>().material.color; // green
         right = GameObject.Find("R5").GetComponent<Renderer>().material.color; // white
         front = GameObject.Find("F5").GetComponent<Renderer>().material.color; // red
@@ -24,50 +22,22 @@ public class SolveButton : MonoBehaviour {
             for (int j = 1; j < 10; j++)
             {
                 if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == up)
-                    sb.Append('U'); //sb[9 * i + j-1] = 'U';    
+                    sb.Append('U');   
                 else if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == right)
-                    sb.Append('R'); //sb[9 * i + j - 1] = 'R';
+                    sb.Append('R');
                 else if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == front)
-                    sb.Append('F'); //sb[9 * i + j - 1] = 'F';
+                    sb.Append('F');
                 else if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == down)
-                    sb.Append('D'); //sb[9 * i + j - 1] = 'D';
+                    sb.Append('D');
                 else if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == left)
-                    sb.Append('L'); //sb[9 * i + j - 1] = 'L';
+                    sb.Append('L');
                 else if (GameObject.Find(faces[i] + j).GetComponent<Renderer>().material.color == back)
-                    sb.Append('B'); //sb[9 * i + j - 1] = 'B';
+                    sb.Append('B');
             }
-        Debug.Log(sb.ToString());
-        string s = Search.solution(sb.ToString(), 24, 999999, true);
+
+        string s = Search.solution(sb.ToString(), 24, 999999, false);
         Debug.Log(s);
+        char[] delim = new char[] { ' ' };
+        commands = s.Split(delim, StringSplitOptions.RemoveEmptyEntries);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-for (int i = 0; i < 54; i++)
-    sb.Insert(i, 'B'); // Default Initialization
-
-for (int i = 0; i < 6; i++) //Read the 54 Facelets
-    for (int j = 0; j < 9; j++)
-    {
-        //if (gameObject -> "BLUE" == MIDDLE COLOR)
-        if()
-        sb[9 * i + j] = 'U';
-        sb[9 * i + j] = 'R';
-        sb[9 * i + j] = 'F';
-        sb[9 * i + j] = 'D';
-        sb[9 * i + j] = 'L';
-        sb[9 * i + j] = 'B';
-    }*/

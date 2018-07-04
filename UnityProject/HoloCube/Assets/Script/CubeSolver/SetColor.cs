@@ -26,7 +26,7 @@ public class SetColor : MonoBehaviour
             else if (currentCol == "R")
                 m_ObjectRenderer.material.color = UnityEngine.Color.red;
             else if (currentCol == "O")
-                m_ObjectRenderer.material.color = new Color(1, 0.39F, 0);
+                m_ObjectRenderer.material.color = UnityEngine.Color.magenta;
             else if (currentCol == "W")
                 m_ObjectRenderer.material.color = UnityEngine.Color.white;
         }

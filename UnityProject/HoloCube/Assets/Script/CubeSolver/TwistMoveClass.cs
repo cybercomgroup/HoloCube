@@ -18,17 +18,7 @@ public class TwistMoveClass {
 				for (int k = 0; k< 3; k++)
                 {
 					a.cornerMultiply(CubieCube.moveCube[j]);
-                    try
-                    {
                         twistMove[i, (3 * j) + k] = a.getTwist();
-                        //[2187, 17]
-                    }
-                    catch(Exception e)
-                    {
-                        break;
-                    }
-
-
                 }
                 a.cornerMultiply(CubieCube.moveCube[j]);// 4. faceturn restores
 				// a

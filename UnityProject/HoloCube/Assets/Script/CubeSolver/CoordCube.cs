@@ -63,14 +63,6 @@
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Set pruning value in table. Two values are stored in one int.
-    /*
-    public static void setPruning(int[] table, int index, int value)
-    {
-        if ((index & 1) == 0)
-            table[index / 2] &= 0xf0 | value;
-        else
-            table[index / 2] &= 0x0f | (value << 4);
-    }*/
     public static void setPruning(int[] table, int index, int value)
     {
         if ((index & 1) == 1) { table[index / 2] &= (0x0f | (value << 4)); }
@@ -79,14 +71,6 @@
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Extract pruning value
-    /*
-    public static int getPruning(int[] table, int index)
-    {
-        if ((index & 1) == 0)
-            return (table[index / 2] & 0x0f);
-        else
-            return ((table[index / 2] & 0xf0) >> 4);
-    }*/
     public static int getPruning(int[] table, int index)
     {
         if ((index & 1) == 1) { return ((table[index / 2] & 0xf0) >> 4); }

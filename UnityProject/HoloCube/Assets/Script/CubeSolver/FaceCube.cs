@@ -64,21 +64,6 @@ public class FaceCube
         string s = cubeString;
         for (int i = 0; i < cubeString.Length; i++)
         {
-            //f[i] = ColorForSolver.valueOf(cubeString.substring(i, i + 1));
-            /*
-            if ((ColorForSolver)s[i] == ColorForSolver.B)
-                f[i] = ColorForSolver.B;
-            else if ((ColorForSolver)s[i] == ColorForSolver.D)
-                f[i] = ColorForSolver.D;
-            else if ((ColorForSolver)s[i] == ColorForSolver.F)
-                f[i] = ColorForSolver.F;
-            else if ((ColorForSolver)s[i] == ColorForSolver.L)
-                f[i] = ColorForSolver.L;
-            else if ((ColorForSolver)s[i] == ColorForSolver.R)
-                f[i] = ColorForSolver.R;
-            else if ((ColorForSolver)s[i] == ColorForSolver.U)
-                f[i] = ColorForSolver.U;
-                */
             if (s[i] == 'B')
                 f[i] = ColorForSolver.B;
             else if (s[i] == 'D')

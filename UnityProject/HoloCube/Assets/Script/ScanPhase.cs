@@ -177,7 +177,7 @@ void Update()
         }
         ColorTracker.Instance.SavePlaneIDsAndCorrespondingColor(cDict);
         SceneManager.LoadScene("CubeVerifyThenSolve");
-        DisplayMat.webcamTexture.Stop();
+       // DisplayMat.webcamTexture.Stop();
         }
                 
 

@@ -9,7 +9,8 @@
     static Slice_URFtoDLF_Parity_PrunClass()
     {
         for (int i = 0; i < CoordCube.N_SLICE2 * CoordCube.N_URFtoDLF * CoordCube.N_PARITY / 2; i++)
-            Slice_URFtoDLF_Parity_Prun[i] = -1; // SHOULD BE -1 changed to 0
+            Slice_URFtoDLF_Parity_Prun[i] = -1;
+
         int depth = 0;
         CoordCube.setPruning(Slice_URFtoDLF_Parity_Prun, 0, 0);
         int done = 1;
@@ -53,14 +54,4 @@
             depth++;
         }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
