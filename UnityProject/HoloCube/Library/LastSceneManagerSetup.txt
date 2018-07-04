@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Bae/Documents/PROJECTS/HoloCube2/Assets/Scenes/CubeVerifyThenSolve.unity
+- path: Assets/Scenes/Menu.unity
   isLoaded: 1
   isActive: 1
