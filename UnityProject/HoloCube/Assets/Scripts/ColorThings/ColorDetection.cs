@@ -22,11 +22,11 @@ namespace ColorThings
         {
             White = new ColorRange(0, 35); // check Saturation
 
-            Yellow = new ColorRange(40, 70);
+            Yellow = new ColorRange(40, 75);
             Red = new ColorRange(340, 11);
             Orange = new ColorRange(10, 40);
             Blue = new ColorRange(195, 260);
-            Green = new ColorRange(80, 180);
+            Green = new ColorRange(75, 180);
         }
         
         public static Color UnityColorFromEnum(RubicColors c)
@@ -62,6 +62,7 @@ namespace ColorThings
             if (fromRgbColor == RubicColors.White) return RubicColors.White;
 
             return fromHsvColor;
+            //return fromRgbColor;
         }
 
         private RubicColors ColorFromRgbColor(int red, int green, int blue)
@@ -98,7 +99,7 @@ namespace ColorThings
             if (Blue.IsInRange((int) hsv.H)) return RubicColors.Blue;
             if (Green.IsInRange((int) hsv.H)) return RubicColors.Green;
 
-            Debug.Log("Can't find color." + string.Format("h:{0} s:{1} v:{2}", hsv.H, hsv.S, hsv.V));
+           // Debug.Log("Can't find color." + string.Format("h:{0} s:{1} v:{2}", hsv.H, hsv.S, hsv.V));
             #if UNITY_EDITOR
             if (PauseOnColorNotFound) UnityEditor.EditorApplication.isPaused = true;
             #endif
