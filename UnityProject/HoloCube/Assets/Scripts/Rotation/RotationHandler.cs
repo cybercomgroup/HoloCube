@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /*
- * Responsible for switching the colors of the facelets after each move has been completed
+ * Responsible for drawing arrows on the virtual cube indicating next move
  */
 
 public class RotationHandler : MonoBehaviour {
