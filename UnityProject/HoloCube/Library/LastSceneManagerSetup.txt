@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/Bae/Documents/PROJECTS/HoloCube2/Assets/Scenes/CubeVerifyThenSolve.unity
+  isLoaded: 1
+  isActive: 1
