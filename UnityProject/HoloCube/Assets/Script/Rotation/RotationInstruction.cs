@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using HoloToolkit.Unity.InputModule;
 
 /*
  * Responsible for performing the moves on the virtual cube
  */
 
-public class RotationInstruction : MonoBehaviour {
+public class RotationInstruction : MonoBehaviour,  IInputClickHandler
+{
 
-    private void OnMouseDown()
+    public void OnInputClicked(InputClickedEventData eventData)
     { 
         foreach (string com in SolveButton.commands)
         {

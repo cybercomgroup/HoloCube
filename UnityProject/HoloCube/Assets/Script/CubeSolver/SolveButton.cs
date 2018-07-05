@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Text;
 using UnityEngine;
+using HoloToolkit.Unity.InputModule;
 
-public class SolveButton : MonoBehaviour {
+public class SolveButton : MonoBehaviour, IInputClickHandler
+{
     StringBuilder sb = new StringBuilder(54);
     private static UnityEngine.Color up, down, front, back, right, left;
     public static string[] commands;
 
-    private void OnMouseDown()
+    public void OnInputClicked(InputClickedEventData eventData)
     {
         up = GameObject.Find("U5").GetComponent<Renderer>().material.color; // green
         right = GameObject.Find("R5").GetComponent<Renderer>().material.color; // white

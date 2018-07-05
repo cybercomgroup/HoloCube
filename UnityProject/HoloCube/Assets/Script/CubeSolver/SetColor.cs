@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using HoloToolkit.Unity.InputModule;
 
-public class SetColor : MonoBehaviour
+public class SetColor : MonoBehaviour, IInputClickHandler
 {
     Renderer m_ObjectRenderer;
     private static string currentCol = "";
 
-    void OnMouseDown()
+    public void OnInputClicked(InputClickedEventData eventData)
     {
         m_ObjectRenderer = GetComponent<Renderer>();
 
